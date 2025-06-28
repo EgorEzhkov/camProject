@@ -10,6 +10,8 @@ interface Props {
   borderColor?: "purple" | "blue";
   color?: string;
   padding?: string;
+  textMargin?: string;
+  buttonMargin?: string;
 }
 
 const Button: FC<Props> = ({
@@ -21,9 +23,11 @@ const Button: FC<Props> = ({
   backgroundColor = false,
   borderColor = "purple",
   color = "white",
-  padding = "7px 20px",
+  padding = "0",
+  textMargin = "0",
+  buttonMargin = "0",
 }) => {
-  const style = {
+  const styleButton = {
     fontFamily,
     fontWeight:
       fontWeight === "Bold" ? 700 : fontWeight === "Medium" ? 500 : 400, // Regular
@@ -35,9 +39,14 @@ const Button: FC<Props> = ({
     padding: padding,
     borderRadius: "4px",
     cursor: "pointer",
+    margin: buttonMargin,
   } as const;
 
-  return <button style={style}>{children}</button>;
+  return (
+    <button style={styleButton}>
+      <p style={{ margin: textMargin }}>{children}</p>
+    </button>
+  );
 };
 
 export default Button;
