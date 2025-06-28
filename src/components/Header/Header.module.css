@@ -1,0 +1,50 @@
+.header {
+  font-size: 30px;
+  font-family: "Play";
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  min-width: 1205px;
+  justify-content: space-between;
+  justify-self: center;
+  align-items: center;
+  margin-top: 15px;
+  background: none;
+  z-index: 123;
+}
+
+.ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.li {
+  height: min-content;
+  display: flex;
+  align-items: center;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonJoinContainer {
+  display: flex;
+  justify-content: center;
+  margin-left: 75px;
+  transition: 0.2s ease-out all;
+}
+
+.buttonJoinContainer:hover {
+  box-shadow: 0px 0px 17px 4px rgba(0, 0, 0, 0.2);
+}
