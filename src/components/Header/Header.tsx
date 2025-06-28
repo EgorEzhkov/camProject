@@ -8,6 +8,7 @@ const Header = () => {
     fontWeight: "Regular",
     fontSize: 16,
     backgroundColor: false,
+    padding: "7px 20px",
   } as const;
 
   return (
