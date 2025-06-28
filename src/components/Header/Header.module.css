@@ -3,6 +3,10 @@
   font-family: "Play";
   font-weight: bold;
   display: flex;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
   flex-direction: row;
   min-width: 1205px;
   justify-content: space-between;
