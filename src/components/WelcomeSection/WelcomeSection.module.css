@@ -31,10 +31,11 @@
   font-family: "Play", "Courier New", Courier, monospace;
   color: white;
   max-width: 442px;
+  min-height: 211px;
   text-align: start;
   line-height: 110%;
-  margin: 130px 0 50px 0;
-  align-self: center;
+  margin: 90px 0 50px 0;
+  align-items: flex-end;
 }
 
 .subTextContainer {
@@ -69,16 +70,27 @@
   font-family: "Montserrat", "Courier New", Courier, monospace;
 }
 
-.image {
+.imageContainer {
   position: relative;
-  margin: 110px 0 0 0;
+  margin: 70px 0 0 0;
   align-self: flex-end;
+  max-width: 716px;
+  max-height: 465px;
+  object-fit: fill;
+  padding-top: 50px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  width: 716px;
+  height: 465px;
 }
 
 .liveIcon {
   position: absolute;
   right: 100px;
-  top: 45px;
+  top: 95px;
 }
 
 .arrowContainer {
@@ -89,11 +101,15 @@
 
 .arrowContainer img:nth-of-type(1) {
   transform: rotate(180deg);
-  margin-right: 10px;
+  margin: 0 10px 0 17px;
+  cursor: pointer;
+  transition: 0.3s ease-in all;
 }
 
 .arrowContainer img:nth-of-type(2) {
-  transform: rotate(180deg);
+  margin-right: 120px;
+  cursor: pointer;
+  transition: 0.3s ease-in all;
 }
 
 .lineWithNumber {
@@ -108,12 +124,32 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 }
 
 .numberOnLine {
-  height: 20px;
+  font-family: "Play", "Courier New", Courier, monospace;
+  font-weight: 400;
+  font-size: 16px;
+  max-height: 20px;
   margin: 0;
   padding: 0 0 0 0;
+}
+
+.lineWithNumberContainer {
+  cursor: pointer;
+  margin-top: 30px;
+  opacity: 0.5;
+  margin-left: -1px;
+  transition: 0.3s ease-in all;
+}
+
+.addOpacity {
+  opacity: 1;
+}
+
+.disableArrow {
+  opacity: 0.5;
+  cursor: default;
 }
