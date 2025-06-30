@@ -1,0 +1,9 @@
+.title {
+  font-size: 48px;
+  font-family: "Play", "Courier New", Courier, monospace;
+  line-height: 110%;
+  font-weight: bold;
+  margin: 0;
+  width: 100%;
+  text-align: start;
+}
