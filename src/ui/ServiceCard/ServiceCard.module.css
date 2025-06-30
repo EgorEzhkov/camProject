@@ -1,0 +1,53 @@
+.card {
+  max-width: 370px;
+  height: 434px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: 0px 6px 12px -1px rgba(92, 92, 92, 0.14);
+  -moz-box-shadow: 0px 6px 12px -1px rgba(92, 92, 92, 0.14);
+  box-shadow: 0px 6px 12px -1px rgba(92, 92, 92, 0.14);
+  border-radius: 10px;
+  gap: 10px;
+  transition: 0.2s ease-out all;
+}
+.backgroudForIcon {
+  width: 164px;
+  height: 164px;
+  border-radius: 50%;
+  background-color: #f9f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.icon {
+  width: 55px;
+  height: 80px;
+}
+.subtitle {
+  padding: 0 45px;
+  align-self: start;
+  font-family: "Montserrat", "Courier New", Courier, monospace;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+.description {
+  padding: 0 45px;
+  text-align: start;
+  font-family: "Montserrat", "Courier New", Courier, monospace;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+  color: #282828;
+  opacity: 0.7;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  -webkit-box-shadow: 0px 6px 12px -1px rgba(92, 92, 92, 0.3);
+  -moz-box-shadow: 0px 6px 12px -1px rgba(92, 92, 92, 0.3);
+  box-shadow: 0px 6px 12px -1px rgba(92, 92, 92, 0.3);
+}
