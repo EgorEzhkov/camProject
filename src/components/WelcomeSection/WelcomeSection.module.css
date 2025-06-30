@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .mainDivContainer {
@@ -30,19 +30,26 @@
   font-weight: bold;
   font-family: "Play", "Courier New", Courier, monospace;
   color: white;
-  max-width: 442px;
-  min-height: 211px;
+  height: 211px;
+  width: 551px;
   text-align: start;
   line-height: 110%;
-  margin: 90px 0 50px 0;
   align-items: flex-end;
+  position: absolute;
+}
+
+.titleContainer {
+  width: 441px;
+  height: 211px;
+  overflow: visible;
+  position: relative;
 }
 
 .subTextContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 30px;
+  margin: 110px 0 20px 0;
   align-items: flex-start;
 }
 
@@ -78,19 +85,19 @@
   max-height: 465px;
   object-fit: fill;
   padding-top: 50px;
-  overflow: hidden;
 }
 
 .image {
-  object-fit: cover;
+  object-fit: contain;
   width: 716px;
   height: 465px;
+  margin-top: 5px;
 }
 
 .liveIcon {
   position: absolute;
   right: 100px;
-  top: 95px;
+  top: 120px;
 }
 
 .arrowContainer {
@@ -100,16 +107,17 @@
 }
 
 .arrowContainer img:nth-of-type(1) {
-  transform: rotate(180deg);
   margin: 0 10px 0 17px;
   cursor: pointer;
   transition: 0.3s ease-in all;
+  user-select: none;
 }
 
 .arrowContainer img:nth-of-type(2) {
   margin-right: 120px;
   cursor: pointer;
   transition: 0.3s ease-in all;
+  user-select: none;
 }
 
 .lineWithNumber {
@@ -134,7 +142,7 @@
   font-size: 16px;
   max-height: 20px;
   margin: 0;
-  padding: 0 0 0 0;
+  padding: 0;
 }
 
 .lineWithNumberContainer {

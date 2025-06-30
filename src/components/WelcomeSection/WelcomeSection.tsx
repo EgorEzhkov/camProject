@@ -4,7 +4,8 @@ import Button from "../../ui/Button/Button";
 
 import notebook from "../../assets/images/notebook.png";
 import liveIcon from "../../assets/images/Live icon.png";
-import arrow from "../../assets/images/Arrow.svg";
+import leftArrow from "../../assets/images/leftArrow.svg";
+import rightArrow from "../../assets/images/RightArrow.svg";
 import phone from "../../assets/images/phone.png";
 import laptop from "../../assets/images/laptop.png";
 
@@ -26,31 +27,47 @@ const WelcomeSection: FC = () => {
 
   const text = {
     1: {
-      title: "Облачное видеонаблюдение под ваши цели",
+      title: "Облачное видеонаблюдение<br />под ваши цели",
       desc: "Видео - контроль на любом устройстве в прямом эфире. С возможностью хранения записи вплоть до 7 дней",
     },
     2: {
-      title: "Прост в использовании а трансляция всегда под рукой",
+      title: "Прост в использовании<br />а трансляция всегда под рукой",
       desc: "Интуитивно понятный интерфейс. Зайдите в личный кабинет и смотри трансляции со всех камер",
     },
     3: {
-      title: "Просмотр онлайнс любого устройства в любое время",
+      title: "Просмотр онлайнс любого устройства<br />в любое время",
       desc: "Доступ из любого места и в любое время ко всем камерам видеонаблюдени в два щелчка",
     },
   };
 
   return (
     <>
-      <div className={styles.mainDivContainer}>
+      <div
+        className={styles.mainDivContainer}
+        onWheel={(e) => {
+          if (e.deltaY > 0) {
+            nextActiveLine(activeLine, setActiveLine, "increase");
+          }
+          if (e.deltaY < 0) {
+            nextActiveLine(activeLine, setActiveLine, "decrease");
+          }
+        }}
+      >
         <div className={styles.divContainer}>
           <div className={styles.textContainer}>
-            <h1 className={styles.title}>
-              {activeLine === 1
-                ? text[1].title
-                : activeLine === 2
-                ? text[2].title
-                : text[3].title}
-            </h1>
+            <div className={styles.titleContainer}>
+              <h1
+                className={styles.title}
+                dangerouslySetInnerHTML={{
+                  __html:
+                    activeLine === 1
+                      ? text[1].title
+                      : activeLine === 2
+                      ? text[2].title
+                      : text[3].title,
+                }}
+              ></h1>
+            </div>
             <div className={styles.subTextContainer}>
               <div className={styles.lineWithText}>
                 <div className={styles.line}></div>
@@ -88,6 +105,7 @@ const WelcomeSection: FC = () => {
               src={
                 activeLine === 1 ? notebook : activeLine === 2 ? phone : laptop
               }
+              draggable="false"
               alt=""
               className={styles.image}
             />
@@ -96,16 +114,18 @@ const WelcomeSection: FC = () => {
         <div className={styles.arrowAndLinesContainer}>
           <div className={styles.arrowContainer}>
             <img
-              src={arrow}
+              src={leftArrow}
               alt=""
+              draggable="false"
               onClick={() =>
                 nextActiveLine(activeLine, setActiveLine, "decrease")
               }
               className={activeLine === 1 ? styles.disableArrow : ""}
             />
             <img
-              src={arrow}
+              src={rightArrow}
               alt=""
+              draggable="false"
               onClick={() =>
                 nextActiveLine(activeLine, setActiveLine, "increase")
               }
@@ -116,6 +136,7 @@ const WelcomeSection: FC = () => {
             [1, 2, 3].map((num) => {
               return (
                 <div
+                  key={num}
                   className={`${styles.lineWithNumberContainer} ${
                     activeLine === num ? styles.addOpacity : null
                   }`}
