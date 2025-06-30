@@ -1,4 +1,7 @@
 import { useState, type Dispatch, type FC, type SetStateAction } from "react";
+
+import { RemoveScrollBar } from "react-remove-scroll-bar";
+
 import styles from "./WelcomeSection.module.css";
 import Button from "../../ui/Button/Button";
 
@@ -11,6 +14,7 @@ import laptop from "../../assets/images/laptop.png";
 
 const WelcomeSection: FC = () => {
   const [activeLine, setActiveLine] = useState<number>(1);
+  const [stopScroll, setStopScroll] = useState<boolean>(false);
 
   function nextActiveLine(
     activeLine: number,
@@ -52,8 +56,11 @@ const WelcomeSection: FC = () => {
             nextActiveLine(activeLine, setActiveLine, "decrease");
           }
         }}
+        onMouseEnter={() => setStopScroll(true)}
+        onMouseLeave={() => setStopScroll(false)}
       >
         <div className={styles.divContainer}>
+          {stopScroll && <RemoveScrollBar></RemoveScrollBar>}
           <div className={styles.textContainer}>
             <div className={styles.titleContainer}>
               <h1
