@@ -46,20 +46,20 @@ const WelcomeSection: FC = () => {
 
   return (
     <>
-      <div
-        className={styles.mainDivContainer}
-        onWheel={(e) => {
-          if (e.deltaY > 0) {
-            nextActiveLine(activeLine, setActiveLine, "increase");
-          }
-          if (e.deltaY < 0) {
-            nextActiveLine(activeLine, setActiveLine, "decrease");
-          }
-        }}
-        onMouseEnter={() => setStopScroll(true)}
-        onMouseLeave={() => setStopScroll(false)}
-      >
-        <div className={styles.divContainer}>
+      <div className={styles.mainDivContainer}>
+        <div
+          className={styles.divContainer}
+          onMouseEnter={() => setStopScroll(true)}
+          onMouseLeave={() => setStopScroll(false)}
+          onWheel={(e) => {
+            if (e.deltaY > 0) {
+              nextActiveLine(activeLine, setActiveLine, "increase");
+            }
+            if (e.deltaY < 0) {
+              nextActiveLine(activeLine, setActiveLine, "decrease");
+            }
+          }}
+        >
           {stopScroll && <RemoveScrollBar></RemoveScrollBar>}
           <div className={styles.textContainer}>
             <div className={styles.titleContainer}>
