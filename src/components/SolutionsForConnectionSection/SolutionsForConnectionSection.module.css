@@ -1,0 +1,32 @@
+.mainContainer {
+  box-sizing: border-box;
+  display: flex;
+  padding: 120px 190px 90px;
+  color: rgba(0, 0, 0, 0.733);
+  flex-direction: column;
+}
+.titleContainer {
+  max-width: 432px;
+}
+.cardList {
+  margin: 50px 0 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: center;
+}
+.linkContainer {
+  display: flex;
+  gap: 15px;
+  justify-content: end;
+  cursor: pointer;
+}
+.link {
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 110%;
+  color: #4466fb;
+}
+.linkSvg {
+}
