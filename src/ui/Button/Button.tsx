@@ -12,6 +12,8 @@ interface Props {
   padding?: string;
   textMargin?: string;
   buttonMargin?: string;
+  lineHeight?: string;
+  width?: string;
 }
 
 const Button: FC<Props> = ({
@@ -26,6 +28,8 @@ const Button: FC<Props> = ({
   padding = "0",
   textMargin = "0",
   buttonMargin = "0",
+  lineHeight = "110%",
+  width,
 }) => {
   const styleButton = {
     fontFamily,
@@ -34,12 +38,15 @@ const Button: FC<Props> = ({
     fontSize,
     backgroundColor: backgroundColor ? "#007bff" : "transparent",
     color: color,
-    border: border ? "1px solid " : "none",
+    border: border ? "1px solid" : "none",
     borderColor: borderColor === "blue" ? "#386DF4" : "#5C17CD",
     padding: padding,
     borderRadius: "4px",
     cursor: "pointer",
     margin: buttonMargin,
+    lineHeight: lineHeight,
+    width: width,
+    transition: ".3s ease-in-out all",
   } as const;
 
   return (
