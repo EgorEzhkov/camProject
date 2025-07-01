@@ -30,7 +30,7 @@ const data: SolutionForConnectionCardProps[] = [
   },
   {
     img: cam,
-    forWhat: "Для дома",
+    forWhat: "Для улицы",
     nameCam: "Цифровая IP камера для подключения в облачный сервис EasyCam.",
     info: [
       "Разрешение: 1920*1080@25fps",
