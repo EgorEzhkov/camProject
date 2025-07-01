@@ -12,6 +12,7 @@
   user-select: none;
   cursor: pointer;
 }
+
 .fullOpacity {
   box-sizing: border-box;
   opacity: 1;
@@ -19,6 +20,7 @@
   -webkit-box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.15);
   -moz-box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.15);
   box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.15);
+  cursor: default;
 }
 .subtitle {
   font-family: "Play", "Courier New", Courier, monospace;
