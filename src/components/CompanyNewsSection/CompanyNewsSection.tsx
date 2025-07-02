@@ -32,9 +32,10 @@ const CompanyNewsSection = () => {
           <Title color="black">Новости компании</Title>
         </div>
         <div className={styles.listNews}>
-          {date.map((el) => {
+          {date.map((el, index) => {
             return (
               <NewsCard
+                key={index}
                 subTitle={el.subTitle}
                 description={el.description}
                 date={el.date}
