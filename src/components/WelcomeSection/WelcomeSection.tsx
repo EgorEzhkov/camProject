@@ -139,22 +139,24 @@ const WelcomeSection: FC = () => {
               className={activeLine === 3 ? styles.disableArrow : ""}
             />
           </div>
-          {[
-            [1, 2, 3].map((num) => {
-              return (
-                <div
-                  key={num}
-                  className={`${styles.lineWithNumberContainer} ${
-                    activeLine === num ? styles.addOpacity : null
-                  }`}
-                  onClick={() => setActiveLine(num)}
-                >
-                  <p className={styles.numberOnLine}>{num}</p>
-                  <div className={styles.lineWithNumber}></div>
-                </div>
-              );
-            }),
-          ]}
+          <div className={styles.lines}>
+            {[
+              [1, 2, 3].map((num) => {
+                return (
+                  <div
+                    key={num}
+                    className={`${styles.lineWithNumberContainer} ${
+                      activeLine === num ? styles.addOpacity : null
+                    }`}
+                    onClick={() => setActiveLine(num)}
+                  >
+                    <p className={styles.numberOnLine}>{num}</p>
+                    <div className={styles.lineWithNumber}></div>
+                  </div>
+                );
+              }),
+            ]}
+          </div>
         </div>
       </div>
     </>
