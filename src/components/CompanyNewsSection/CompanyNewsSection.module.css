@@ -1,0 +1,33 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 70px 200px;
+  background-color: #fdfdfd;
+  color: black;
+}
+.titleContainer {
+  margin-bottom: 50px;
+}
+.listNews {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: end;
+}
+.linkContainer {
+  display: flex;
+  gap: 15px;
+  justify-content: end;
+  cursor: pointer;
+  margin: 34px 0 0 0;
+}
+.linkText {
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 110%;
+  color: #4466fb;
+}
+.arrow {
+}
