@@ -1,8 +1,9 @@
 .divContainer {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  height: 400px;
 }
 
 .mainDivContainer {
@@ -10,18 +11,16 @@
   background-size: 140% 100%;
   background-repeat: no-repeat;
   max-width: 1600px;
-  padding: 35px 0 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 181px 70px 50px 200px;
+  box-sizing: border-box;
 }
 
 .textContainer {
   display: flex;
   flex-direction: column;
-  min-height: 80%;
-  justify-content: flex-end;
-  margin: 0 110px 0 90px;
 }
 
 .title {
@@ -30,17 +29,17 @@
   font-weight: bold;
   font-family: "Play", "Courier New", Courier, monospace;
   color: white;
-  height: 211px;
   width: 551px;
   text-align: start;
   line-height: 110%;
   align-items: flex-end;
   position: absolute;
+  margin: 0;
 }
 
 .titleContainer {
   width: 441px;
-  height: 211px;
+  height: 159px;
   overflow: visible;
   position: relative;
 }
@@ -49,7 +48,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 110px 0 20px 0;
+  margin: 77px 0 20px 0;
   align-items: flex-start;
 }
 
@@ -79,42 +78,40 @@
 
 .imageContainer {
   position: relative;
-  margin: 70px 0 0 0;
   align-self: flex-end;
   max-width: 716px;
-  max-height: 465px;
+  width: 100%;
   object-fit: fill;
-  padding-top: 50px;
+  margin-right: 35px;
 }
 
 .image {
   object-fit: contain;
-  width: 716px;
-  height: 465px;
-  margin-top: 5px;
+  max-width: 716px;
+  height: 440px;
 }
 
 .liveIcon {
   position: absolute;
   right: 100px;
-  top: 120px;
+  top: 60px;
 }
 
 .arrowContainer {
   display: flex;
   justify-content: start;
-  margin: 84px 0 50px 0;
+  margin: 81px 0 0 0;
 }
 
 .arrowContainer img:nth-of-type(1) {
-  margin: 0 10px 0 17px;
+  margin: 0 10px 0 0;
   cursor: pointer;
   transition: 0.3s ease-in all;
   user-select: none;
 }
 
 .arrowContainer img:nth-of-type(2) {
-  margin-right: 120px;
+  margin-right: 123px;
   cursor: pointer;
   transition: 0.3s ease-in all;
   user-select: none;
@@ -131,9 +128,15 @@
 .arrowAndLinesContainer {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  align-items: end;
+  justify-content: start;
   width: 100%;
+}
+
+.lines {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .numberOnLine {
