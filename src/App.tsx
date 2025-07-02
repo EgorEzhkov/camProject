@@ -1,6 +1,7 @@
 import "./App.css";
 import CompanyNewsSection from "./components/CompanyNewsSection/CompanyNewsSection";
 import DownloadSection from "./components/DownloadSection/DownloadSection";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import RateSection from "./components/RateSection/RateSection";
 import ServisecSection from "./components/ServisecSection/ServisecSection";
@@ -16,6 +17,7 @@ function App() {
       <RateSection></RateSection>
       <SolutionsForConnectionSection></SolutionsForConnectionSection>
       <CompanyNewsSection></CompanyNewsSection>
+      <Footer></Footer>
     </>
   );
 }

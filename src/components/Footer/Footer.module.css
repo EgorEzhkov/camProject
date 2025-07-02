@@ -1,0 +1,116 @@
+.footer {
+  padding: 70px 200px;
+  margin: 0;
+  background-image: url("../../assets/images/backgroundImageForFooter.png");
+  background-repeat: repeat;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.contactsAndApps {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+}
+.subTitle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 130%;
+  margin: 0 0 20px 0;
+}
+.phoneNumber {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 110%;
+  margin-bottom: 10px;
+}
+
+.downloadLink {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  color: #53acff;
+  margin-bottom: 20px;
+}
+.downloadImageContainer {
+  margin-bottom: 33px;
+  display: flex;
+  gap: 10px;
+}
+.linkHref {
+  max-height: 38px;
+}
+.copyrightContainer {
+  max-width: 300px;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  font-family: "Roboto", "Courier New", Courier, monospace;
+  font-weight: 400;
+  line-height: 130%;
+  opacity: 0.2;
+  font-size: 14px;
+}
+.copyright {
+}
+.links {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+.list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 130%;
+}
+.listElement {
+  cursor: pointer;
+}
+.formContainer {
+  max-width: 405px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input {
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  padding: 20px 15px;
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  line-height: 155%;
+  font-size: 16px;
+  border-radius: 4px;
+  border-style: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  opacity: 0.5;
+}
+
+.fontBold {
+  font-weight: 700;
+}
