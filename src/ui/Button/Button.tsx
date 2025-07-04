@@ -14,6 +14,7 @@ interface Props {
   buttonMargin?: string;
   lineHeight?: string;
   width?: string;
+  maxWidth?: string;
 }
 
 const Button: FC<Props> = ({
@@ -30,6 +31,7 @@ const Button: FC<Props> = ({
   buttonMargin = "0",
   lineHeight = "110%",
   width,
+  maxWidth,
 }) => {
   const styleButton = {
     fontFamily,
@@ -54,6 +56,7 @@ const Button: FC<Props> = ({
     width: width,
     transition: ".3s ease-in-out all",
     height: "fit-content",
+    maxWidth: maxWidth,
   } as const;
 
   return (
