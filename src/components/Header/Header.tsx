@@ -16,7 +16,6 @@ const Header = () => {
   const [menuState, setMenuState] = useState<"closed" | "opening" | "closing">(
     "closed"
   );
-  console.log(menuState);
 
   const propsForButton =
     menuState !== "closed" ? buttonPropsMobile : buttonPropsDesctop;
