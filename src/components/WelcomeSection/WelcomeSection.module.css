@@ -3,7 +3,9 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  height: 400px;
+  max-height: 400px;
+  box-sizing: border-box;
+  align-items: center;
 }
 
 .mainDivContainer {
@@ -11,16 +13,19 @@
   background-size: 140% 100%;
   background-repeat: no-repeat;
   max-width: 1600px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 181px 70px 50px 200px;
   box-sizing: border-box;
+  justify-content: center;
 }
 
 .textContainer {
   display: flex;
   flex-direction: column;
+  margin-right: 30px;
 }
 
 .title {
@@ -50,10 +55,15 @@
   justify-content: space-between;
   margin: 77px 0 20px 0;
   align-items: flex-start;
+  width: 100%;
+}
+
+.buttonContainer {
 }
 
 .line {
-  width: 80px;
+  max-width: 80px;
+  width: 100vw;
   border-bottom: 1px solid white;
   margin-right: 15px;
 }
@@ -69,29 +79,37 @@
 .textWithButton {
   max-width: 240px;
   text-align: start;
+  width: 100%;
 }
 
 .text {
   margin: 0;
   font-family: "Montserrat", "Courier New", Courier, monospace;
+  line-height: 120%;
+  font-size: 16px;
+  max-width: 240px;
+  width: 100%;
 }
 
 .imageContainer {
   position: relative;
   align-self: flex-end;
   max-width: 716px;
-  width: 100%;
   object-fit: fill;
-  margin-right: 35px;
+  max-height: 440px;
 }
 
 .image {
   object-fit: contain;
-  max-width: 716px;
-  height: 440px;
+  width: 100%;
+  height: 100%;
 }
 
 .liveIcon {
+  width: 5vw;
+  max-width: 80px;
+}
+.liveIconContainer {
   position: absolute;
   right: 100px;
   top: 60px;
@@ -137,6 +155,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-grow: 1;
 }
 
 .numberOnLine {
@@ -154,6 +173,8 @@
   opacity: 0.5;
   margin-left: -1px;
   transition: 0.3s ease-in all;
+  max-width: 336px;
+  width: 100%;
 }
 
 .addOpacity {
@@ -163,4 +184,46 @@
 .disableArrow {
   opacity: 0.5;
   cursor: default;
+}
+
+.lineWithNumber {
+  width: 99.5%;
+}
+
+@media (1199px <= width <= 1460px) {
+}
+
+@media (768px <= width <= 1199px) {
+  .mainDivContainer {
+    padding: 120px 5vw 25px 5vw;
+  }
+
+  .imageContainer {
+    margin-right: 0;
+    max-width: 500px;
+  }
+}
+
+@media (width <= 1460px) {
+  .title {
+    font-size: 3.3vw;
+  }
+  .subTextContainer {
+    margin: 30px 0 0 0;
+  }
+
+  .imageContainer {
+    align-self: normal;
+  }
+
+  .divContainer {
+    align-items: end;
+  }
+
+  .divContainer {
+    height: 50vw;
+  }
+}
+
+@media (width <= 1430px) {
 }

@@ -1,9 +1,11 @@
+import styles from "./WelcomeSection.module.css";
+
 import { useState, type Dispatch, type FC, type SetStateAction } from "react";
 
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 
-import styles from "./WelcomeSection.module.css";
 import Button from "../../ui/Button/Button";
+import { textForWelcomeSection } from "../../utils/constants";
 
 import notebook from "../../assets/images/notebook.png";
 import liveIcon from "../../assets/images/Live icon.png";
@@ -15,6 +17,8 @@ import laptop from "../../assets/images/laptop.png";
 const WelcomeSection: FC = () => {
   const [activeLine, setActiveLine] = useState<number>(1);
   const [stopScroll, setStopScroll] = useState<boolean>(false);
+
+  const text = textForWelcomeSection;
 
   function nextActiveLine(
     activeLine: number,
@@ -28,21 +32,6 @@ const WelcomeSection: FC = () => {
       setActiveLine(activeLine - 1);
     }
   }
-
-  const text = {
-    1: {
-      title: "Облачное видеонаблюдение<br />под ваши цели",
-      desc: "Видео - контроль на любом устройстве в прямом эфире. С возможностью хранения записи вплоть до 7 дней",
-    },
-    2: {
-      title: "Прост в использовании<br />а трансляция всегда под рукой",
-      desc: "Интуитивно понятный интерфейс. Зайдите в личный кабинет и смотри трансляции со всех камер",
-    },
-    3: {
-      title: "Просмотр онлайнс любого устройства<br />в любое время",
-      desc: "Доступ из любого места и в любое время ко всем камерам видеонаблюдени в два щелчка",
-    },
-  };
 
   return (
     <>
@@ -88,23 +77,26 @@ const WelcomeSection: FC = () => {
                     ? text[2].desc
                     : text[3].desc}
                 </p>
-                <Button
-                  fontFamily="Montserrat"
-                  fontWeight="Bold"
-                  fontSize={18}
-                  backgroundColor={true}
-                  textMargin="14px 39px"
-                  buttonMargin="30px 0 0 0"
-                >
-                  Оставить заявку
-                </Button>
+                <div className={styles.buttonContainer}>
+                  <Button
+                    fontFamily="Montserrat"
+                    fontWeight="Bold"
+                    fontSize={18}
+                    backgroundColor={true}
+                    textMargin="14px 39px"
+                    buttonMargin="30px 0 0 0"
+                    width="100%"
+                  >
+                    Оставить заявку
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
           <div className={styles.imageContainer}>
             {activeLine === 1 && (
-              <div className={styles.liveIcon}>
-                <img src={liveIcon} alt="" />
+              <div className={styles.liveIconContainer}>
+                <img src={liveIcon} alt="" className={styles.liveIcon} />
               </div>
             )}
 
