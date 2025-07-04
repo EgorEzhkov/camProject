@@ -50,6 +50,7 @@
   justify-content: center;
   margin-left: 75px;
   transition: 0.2s ease-out all;
+  align-items: center;
 }
 
 .buttonJoinContainer:hover {
@@ -68,7 +69,21 @@
   }
   .ul {
     display: none;
-    opacity: 0;
+    box-sizing: border-box;
+    position: absolute;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 0 10px 10px 0;
+    max-width: 100vw;
+    width: 80%;
+    min-height: 100vh;
+    height: 100%;
+    left: 0;
+    top: -14px;
+    justify-content: center;
+    gap: 10px;
+    align-items: start;
+    padding: 0 20px;
   }
   .header {
     justify-content: space-between;
@@ -83,11 +98,30 @@
 
   .ul.active {
     display: flex;
-    flex-direction: column;
-    opacity: 1;
-    position: absolute;
-    top: 0;
-    left: 10%;
+    animation: active 0.3s;
+  }
+
+  .ul.inactive {
+    display: flex;
+    animation: inactive 0.3s;
+  }
+
+  .li {
+  }
+
+  .phoneNumberAndIconContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 0 auto;
+    justify-self: end;
+  }
+  .phoneNumber {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: "MontSerrat", "Courier New", Courier, monospace;
+    text-decoration: none;
+    color: #3955d1;
   }
 
   .navIcon {
@@ -103,6 +137,11 @@
     -o-transition: 0.5s ease-in-out;
     transition: 0.5s ease-in-out;
     cursor: pointer;
+    z-index: 99999;
+  }
+
+  .navIcon.active {
+    margin-left: 68%;
   }
 
   .navIcon span {
@@ -122,6 +161,10 @@
     -moz-transition: 0.25s ease-in-out;
     -o-transition: 0.25s ease-in-out;
     transition: 0.25s ease-in-out;
+  }
+
+  .navIcon span.active {
+    background: #000000;
   }
   .navIcon span:nth-child(1) {
     top: 0px;
@@ -160,5 +203,37 @@
     top: 9px;
     width: 0%;
     left: 50%;
+  }
+}
+
+@keyframes active {
+  from {
+    opacity: 0;
+    left: -100vw;
+  }
+  to {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@keyframes inactive {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+  99% {
+    opacity: 0;
+    left: -100vw;
+  }
+
+  100% {
+    display: none;
+  }
+}
+
+@media (500px <= width <= 775px) {
+  .navIcon.active {
+    margin-left: 73%;
   }
 }
