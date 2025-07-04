@@ -5,7 +5,7 @@ interface Props {
   border?: boolean;
   fontFamily: "Montserrat" | "Play";
   fontWeight: "Bold" | "Medium" | "Regular" | "ExtraBold";
-  fontSize: number;
+  fontSize: number | string;
   backgroundColor: boolean;
   borderColor?: "purple" | "blue";
   color?: string;
