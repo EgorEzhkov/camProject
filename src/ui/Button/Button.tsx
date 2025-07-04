@@ -4,7 +4,7 @@ interface Props {
   children?: React.ReactNode;
   border?: boolean;
   fontFamily: "Montserrat" | "Play";
-  fontWeight: "Bold" | "Medium" | "Regular";
+  fontWeight: "Bold" | "Medium" | "Regular" | "ExtraBold";
   fontSize: number;
   backgroundColor: boolean;
   borderColor?: "purple" | "blue";
@@ -34,7 +34,13 @@ const Button: FC<Props> = ({
   const styleButton = {
     fontFamily,
     fontWeight:
-      fontWeight === "Bold" ? 700 : fontWeight === "Medium" ? 500 : 400, // Regular
+      fontWeight === "Bold"
+        ? 700
+        : fontWeight === "Medium"
+        ? 500
+        : fontWeight === "Regular"
+        ? 400
+        : 800, // extrabold
     fontSize,
     backgroundColor: backgroundColor ? "#007bff" : "transparent",
     color: color,
@@ -47,6 +53,7 @@ const Button: FC<Props> = ({
     lineHeight: lineHeight,
     width: width,
     transition: ".3s ease-in-out all",
+    height: "fit-content",
   } as const;
 
   return (

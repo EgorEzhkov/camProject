@@ -27,6 +27,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Montserrat";
+  src: url("./Montserrat/Montserrat-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
 /* Play */
 @font-face {
   font-family: "Play";
