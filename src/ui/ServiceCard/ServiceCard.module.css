@@ -1,6 +1,7 @@
 .card {
-  padding-top: 50px;
-  max-width: 370px;
+  box-sizing: border-box;
+  padding: 30px;
+  width: 100%;
   min-height: 434px;
   display: flex;
   flex-direction: column;
@@ -13,7 +14,7 @@
   transition: 0.2s ease-out all;
 }
 .backgroudForIcon {
-  width: 164px;
+  min-width: 164px;
   height: 164px;
   border-radius: 50%;
   background-color: #f9f9fa;
@@ -27,7 +28,6 @@
   height: 80px;
 }
 .subtitle {
-  padding: 0 45px;
   align-self: start;
   text-align: start;
   font-family: "Montserrat", "Courier New", Courier, monospace;
@@ -36,7 +36,6 @@
   margin: 0;
 }
 .description {
-  padding: 0 45px;
   text-align: start;
   font-family: "Montserrat", "Courier New", Courier, monospace;
   font-size: 16px;
@@ -44,6 +43,8 @@
   line-height: 150%;
   color: #282828;
   opacity: 0.7;
+  text-wrap: pretty;
+  max-height: 126px;
 }
 
 .card:hover {

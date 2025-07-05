@@ -1,0 +1,156 @@
+.mainContainer {
+  padding: 130px 205px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  color: #282828;
+}
+
+.titleContainer {
+  width: 50%;
+  position: relative;
+}
+
+.title {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.card {
+  max-width: 370px;
+  transition: 0.5 ease-in-out all;
+}
+
+.verticalBorder {
+  width: 442px;
+  height: 62px;
+  border-right: 1px solid #4466fb;
+  opacity: 0.2;
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.description {
+  color: #282828;
+  opacity: 0.7;
+  font-family: "Play", "Courier New", Courier, monospace;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: start;
+  max-width: 671px;
+  margin: 0 0 0 20px;
+  line-height: 140%;
+}
+
+.cardsContainer {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  width: fit-content;
+  justify-content: center;
+}
+
+@media (width < 1430px) {
+  .title {
+    font-size: 3.3vw;
+  }
+}
+@media (width <= 1355px) {
+  .cardsContainer {
+    gap: 25px;
+  }
+}
+
+@media (width <= 1313px) {
+  .cardsContainer {
+    flex-wrap: wrap;
+  }
+  .card:nth-of-type(3) {
+    max-width: 760px;
+  }
+}
+
+@media (width <= 1200px) {
+  .mainContainer {
+    padding: 80px 5vw;
+  }
+  .card {
+    max-width: 350px;
+  }
+  .card:nth-of-type(3) {
+    max-width: 725px;
+  }
+  .verticalBorder {
+    width: 1px;
+  }
+  .title {
+    font-size: 3.5vw;
+  }
+}
+
+@media (width <= 1000px) {
+  .title {
+    font-size: 3.4vw;
+  }
+}
+
+@media (width <= 822px) {
+  .mainContainer {
+    padding: 80px 5vw;
+  }
+  .card {
+    max-width: 320px;
+    gap: 10px;
+  }
+  .card:nth-of-type(3) {
+    max-width: 665px;
+  }
+}
+
+@media (width < 756px) {
+  .mainContainer {
+    padding: 80px 5vw;
+  }
+  .card {
+    max-width: 320px;
+    gap: 10px;
+  }
+  .card:nth-of-type(3) {
+    max-width: 320px;
+  }
+}
+
+@media (width <= 720px) {
+  .title {
+    font-size: 5vw;
+  }
+  .titleContainer {
+    width: 50%;
+  }
+  .mainContainer {
+    padding: 40px 20px;
+  }
+}
+
+@media (width <= 620px) {
+  .title {
+    font-size: 5.5vw;
+  }
+  .titleContainer {
+    width: 70%;
+  }
+}
+
+@media (width <= 430px) {
+  .title {
+    font-size: 6.68vw;
+  }
+  .titleContainer {
+    width: 100%;
+  }
+}
