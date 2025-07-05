@@ -296,7 +296,7 @@
 
   .title {
     font-size: 5vw;
-    width: 100%;
+    width: 75%;
   }
 
   .lineWithNumber {
@@ -340,7 +340,7 @@
   }
 
   .arrowAndLinesContainer {
-    margin-top: 200px;
+    margin-top: 170px;
   }
 
   .arrowContainer {
