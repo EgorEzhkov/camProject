@@ -60,6 +60,7 @@
 }
 
 .buttonContainer {
+  display: flex;
 }
 
 .line {
@@ -105,16 +106,6 @@
 .image {
   object-fit: contain;
   width: 100%;
-}
-
-.liveIcon {
-  width: 5vw;
-  max-width: 80px;
-}
-.liveIconContainer {
-  position: absolute;
-  right: 100px;
-  top: 60px;
 }
 
 .arrowContainer {
@@ -264,6 +255,13 @@
   .titleContainer {
     width: 340px;
   }
+
+  .liveIcon {
+    width: 5.5vw;
+  }
+}
+
+@media (width <= 800px) {
 }
 
 @media (width <= 776px) {
@@ -290,13 +288,17 @@
     gap: 30px;
   }
 
+  .mainDivContainer {
+    padding: 19.45vw 20px 40px;
+  }
+
   .titleContainer {
     width: auto;
   }
 
   .title {
     font-size: 5vw;
-    width: 75%;
+    width: 70%;
   }
 
   .lineWithNumber {
@@ -304,7 +306,7 @@
   }
 
   .textContainer {
-    gap: 10px;
+    gap: 5vw;
     margin: 100px 0 0 0;
     width: 100%;
   }
@@ -314,7 +316,7 @@
     flex-direction: column;
     max-width: 100%;
     align-items: end;
-    width: 75vw;
+    width: 80vw;
     gap: 15px;
   }
 
@@ -345,5 +347,43 @@
 
   .arrowContainer {
     display: none;
+  }
+
+  .liveIcon {
+    width: 8vw;
+  }
+}
+
+@media (width <= 620px) {
+  .title {
+    font-size: 5.5vw;
+    width: 80%;
+  }
+
+  .liveIcon {
+    width: 8.5vw;
+  }
+}
+
+@media (width <= 430px) {
+  .text {
+    font-size: 14px;
+    height: 72px;
+  }
+
+  .textWithButton {
+    width: 100vw;
+  }
+
+  .title {
+    font-size: 6.68vw;
+    width: 100%;
+  }
+}
+
+@media (width <= 360px) {
+  .title {
+    font-size: 6.68vw;
+    width: 100%;
   }
 }
