@@ -14,9 +14,13 @@ import rightArrow from "../../assets/images/RightArrow.svg";
 import phone from "../../assets/images/phone.png";
 import laptop from "../../assets/images/laptop.png";
 
+import { useWindowSize } from "react-use";
+
 const WelcomeSection: FC = () => {
   const [activeLine, setActiveLine] = useState<number>(1);
   const [stopScroll, setStopScroll] = useState<boolean>(false);
+
+  const { width } = useWindowSize();
 
   const text = textForWelcomeSection;
 
@@ -64,6 +68,30 @@ const WelcomeSection: FC = () => {
                 }}
               ></h1>
             </div>
+            {/* // ПОКАЗЫВАЕТ ФОТО ТОЛЬКО НА МОБИЛКАХ */}
+            {width <= 720 && (
+              <div className={styles.imageContainer}>
+                {activeLine === 1 && (
+                  <div className={styles.liveIconContainer}>
+                    <img src={liveIcon} alt="" className={styles.liveIcon} />
+                  </div>
+                )}
+
+                <img
+                  src={
+                    activeLine === 1
+                      ? notebook
+                      : activeLine === 2
+                      ? phone
+                      : laptop
+                  }
+                  draggable="false"
+                  alt=""
+                  className={styles.image}
+                />
+              </div>
+            )}
+            {/* ПОКАЗЫВАЕТ ФОТО ТОЛЬКО НА МОБИЛКАХ */}
             <div className={styles.subTextContainer}>
               <div className={styles.lineWithText}>
                 <div className={styles.line}></div>
@@ -84,7 +112,7 @@ const WelcomeSection: FC = () => {
                     fontSize={18}
                     backgroundColor={true}
                     textMargin="14px 39px"
-                    buttonMargin="30px 0 0 0"
+                    buttonMargin="2vw 0 0 0"
                     width="100%"
                   >
                     Оставить заявку
@@ -93,22 +121,30 @@ const WelcomeSection: FC = () => {
               </div>
             </div>
           </div>
-          <div className={styles.imageContainer}>
-            {activeLine === 1 && (
-              <div className={styles.liveIconContainer}>
-                <img src={liveIcon} alt="" className={styles.liveIcon} />
-              </div>
-            )}
+          {/* ПОКАЗЫВАЕТ НА ВСЕХ УСТРОЙСТВАХ, КРОМЕ МОБИЛОК */}
+          {width > 720 && (
+            <div className={styles.imageContainer}>
+              {activeLine === 1 && (
+                <div className={styles.liveIconContainer}>
+                  <img src={liveIcon} alt="" className={styles.liveIcon} />
+                </div>
+              )}
 
-            <img
-              src={
-                activeLine === 1 ? notebook : activeLine === 2 ? phone : laptop
-              }
-              draggable="false"
-              alt=""
-              className={styles.image}
-            />
-          </div>
+              <img
+                src={
+                  activeLine === 1
+                    ? notebook
+                    : activeLine === 2
+                    ? phone
+                    : laptop
+                }
+                draggable="false"
+                alt=""
+                className={styles.image}
+              />
+            </div>
+          )}
+          {/* ПОКАЗЫВАЕТ НА ВСЕХ УСТРОЙСТВАХ, КРОМЕ МОБИЛОК */}
         </div>
         <div className={styles.arrowAndLinesContainer}>
           <div className={styles.arrowContainer}>
