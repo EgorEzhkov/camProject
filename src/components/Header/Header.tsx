@@ -102,7 +102,7 @@ const Header = () => {
                 }
               )}
             </div>
-            {menuState === "opening" && (
+            {menuState !== "closed" && (
               <div className={styles.phoneNumberAndIconContainer}>
                 <a href="tel:+74732573191" className={styles.phoneNumber}>
                   +7 (473) 257-31-91
