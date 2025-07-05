@@ -1,8 +1,11 @@
 .divContainer {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  max-height: 400px;
+  box-sizing: border-box;
+  align-items: center;
 }
 
 .mainDivContainer {
@@ -10,18 +13,19 @@
   background-size: 140% 100%;
   background-repeat: no-repeat;
   max-width: 1600px;
-  padding: 35px 0 0 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 181px 70px 50px 200px;
+  box-sizing: border-box;
+  justify-content: center;
 }
 
 .textContainer {
   display: flex;
   flex-direction: column;
-  min-height: 80%;
-  justify-content: flex-end;
-  margin: 0 110px 0 90px;
+  margin-right: 30px;
 }
 
 .title {
@@ -30,17 +34,18 @@
   font-weight: bold;
   font-family: "Play", "Courier New", Courier, monospace;
   color: white;
-  height: 211px;
-  width: 551px;
+  max-width: 551px;
+  width: 120%;
   text-align: start;
   line-height: 110%;
   align-items: flex-end;
   position: absolute;
+  margin: 0;
 }
 
 .titleContainer {
-  width: 441px;
-  height: 211px;
+  width: 458px;
+  height: 159px;
   overflow: visible;
   position: relative;
 }
@@ -49,12 +54,18 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 110px 0 20px 0;
+  margin: 77px 0 0 0;
   align-items: flex-start;
+  width: 100%;
+}
+
+.buttonContainer {
+  display: flex;
 }
 
 .line {
-  width: 80px;
+  max-width: 80px;
+  width: 100vw;
   border-bottom: 1px solid white;
   margin-right: 15px;
 }
@@ -70,51 +81,48 @@
 .textWithButton {
   max-width: 240px;
   text-align: start;
+  width: 100%;
 }
 
 .text {
   margin: 0;
   font-family: "Montserrat", "Courier New", Courier, monospace;
+  line-height: 120%;
+  font-size: 16px;
+  max-width: 240px;
+  width: 100%;
 }
 
 .imageContainer {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
   position: relative;
-  margin: 70px 0 0 0;
-  align-self: flex-end;
   max-width: 716px;
-  max-height: 465px;
   object-fit: fill;
-  padding-top: 50px;
+  max-height: 440px;
 }
 
 .image {
   object-fit: contain;
-  width: 716px;
-  height: 465px;
-  margin-top: 5px;
-}
-
-.liveIcon {
-  position: absolute;
-  right: 100px;
-  top: 120px;
+  width: 100%;
 }
 
 .arrowContainer {
   display: flex;
   justify-content: start;
-  margin: 84px 0 50px 0;
+  margin: 81px 0 0 0;
 }
 
 .arrowContainer img:nth-of-type(1) {
-  margin: 0 10px 0 17px;
+  margin: 0 10px 0 0;
   cursor: pointer;
   transition: 0.3s ease-in all;
   user-select: none;
 }
 
 .arrowContainer img:nth-of-type(2) {
-  margin-right: 120px;
+  margin-right: 123px;
   cursor: pointer;
   transition: 0.3s ease-in all;
   user-select: none;
@@ -131,8 +139,17 @@
 .arrowAndLinesContainer {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  align-items: end;
+  justify-content: start;
+  width: 100%;
+  gap: 12px;
+}
+
+.lines {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-grow: 1;
   width: 100%;
 }
 
@@ -143,6 +160,7 @@
   max-height: 20px;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .lineWithNumberContainer {
@@ -151,6 +169,8 @@
   opacity: 0.5;
   margin-left: -1px;
   transition: 0.3s ease-in all;
+  max-width: 336px;
+  width: 100%;
 }
 
 .addOpacity {
@@ -160,4 +180,224 @@
 .disableArrow {
   opacity: 0.5;
   cursor: default;
+}
+
+.lineWithNumber {
+  width: 99.5%;
+}
+
+@media (width < 1430px) {
+  .title {
+    font-size: 3.4vw;
+  }
+  .subTextContainer {
+    margin: 50px 0 0 0;
+  }
+}
+
+@media (width < 1300px) {
+  .imageContainer {
+    align-self: flex-end;
+  }
+  .subTextContainer {
+    margin: 30px 0 0 0;
+  }
+}
+
+@media (width < 1200px) {
+  .mainDivContainer {
+    padding: 120px 5vw 25px 5vw;
+  }
+  .imageContainer {
+    margin-right: 0;
+    max-width: 500px;
+    width: 100%;
+    margin-right: 0;
+    max-width: 500px;
+  }
+  .image {
+    width: 100%;
+  }
+  .divContainer {
+    justify-content: center;
+    align-items: end;
+    height: 50vw;
+  }
+
+  .title {
+    font-size: 3.5vw;
+  }
+  .subTextContainer {
+    margin: 15px 0 0 0;
+  }
+}
+
+@media (width <= 1110px) {
+  .titleContainer {
+    width: 400px;
+  }
+}
+
+@media (width < 1000px) {
+  .title {
+    font-size: 3.7vw;
+    width: 99%;
+  }
+  .titleContainer {
+    height: 115px;
+    width: 400px;
+  }
+  .divContainer {
+    align-items: center;
+    height: 40.5vw;
+  }
+  .imageContainer {
+    align-self: normal;
+  }
+}
+
+@media (width < 920px) {
+  .titleContainer {
+    width: 395px;
+  }
+}
+
+@media (width < 900px) {
+  .lineWithText {
+    display: none;
+  }
+  .titleContainer {
+    width: 340px;
+  }
+
+  .liveIcon {
+    width: 5.5vw;
+  }
+}
+
+@media (width <= 800px) {
+}
+
+@media (width <= 776px) {
+  .titleContainer {
+    width: 265px;
+  }
+
+  .lineWithNumber {
+    width: 98%;
+  }
+  .titleContainer {
+    height: 120px;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+@media (width <= 720px) {
+  .divContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 30px;
+  }
+
+  .mainDivContainer {
+    padding: 19.45vw 20px 40px;
+  }
+
+  .titleContainer {
+    width: auto;
+  }
+
+  .title {
+    font-size: 5vw;
+    width: 70%;
+  }
+
+  .lineWithNumber {
+    width: 99.1%;
+  }
+
+  .textContainer {
+    gap: 5vw;
+    margin: 100px 0 0 0;
+    width: 100%;
+  }
+
+  .textWithButton {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: end;
+    width: 80vw;
+    gap: 15px;
+  }
+
+  .subTextContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .text {
+    line-height: 130%;
+    font-weight: 400;
+  }
+
+  .buttonContainer {
+    width: 100%;
+  }
+
+  .imageContainer {
+    align-self: center;
+    height: 289px;
+    max-width: 458px;
+    width: 100%;
+  }
+
+  .arrowAndLinesContainer {
+    margin-top: 170px;
+  }
+
+  .arrowContainer {
+    display: none;
+  }
+
+  .liveIcon {
+    width: 8vw;
+  }
+}
+
+@media (width <= 620px) {
+  .title {
+    font-size: 5.5vw;
+    width: 80%;
+  }
+
+  .liveIcon {
+    width: 8.5vw;
+  }
+}
+
+@media (width <= 430px) {
+  .text {
+    font-size: 14px;
+    height: 72px;
+  }
+
+  .textWithButton {
+    width: 100vw;
+  }
+
+  .title {
+    font-size: 6.68vw;
+    width: 100%;
+  }
+}
+
+@media (width <= 360px) {
+  .title {
+    font-size: 6.68vw;
+    width: 100%;
+  }
 }

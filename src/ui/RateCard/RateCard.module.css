@@ -1,0 +1,61 @@
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 370px;
+  transition: 0.3s ease-in-out all;
+  align-items: start;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 50px 40px;
+  opacity: 0.6;
+  user-select: none;
+  cursor: pointer;
+}
+
+.fullOpacity {
+  box-sizing: border-box;
+  opacity: 1;
+  transform: scale(1.07);
+  -webkit-box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.15);
+  -moz-box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.15);
+  box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.15);
+  cursor: default;
+}
+.subtitle {
+  font-family: "Play", "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 120%;
+  text-align: start;
+  margin: 0 0 30px 0;
+}
+.priceContainer {
+  display: flex;
+  flex-direction: row;
+}
+.price {
+  font-family: "Play", "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 120%;
+  margin: 0;
+}
+.month {
+  justify-content: start;
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  font-weight: 600;
+  line-height: 120%;
+  margin: 10px 0 0 5px;
+}
+.description {
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  font-weight: 500;
+  line-height: 150%;
+  font-size: 16px;
+  color: white;
+  opacity: 0.7;
+  text-align: start;
+  max-width: 328px;
+  margin: 20px 0 30px 0;
+}

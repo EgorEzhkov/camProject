@@ -8,13 +8,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
   flex-direction: row;
-  min-width: 1205px;
+  max-width: 1600px;
+  width: 100%;
+  height: 65px;
+  padding: 0 200px;
   justify-content: space-between;
-  justify-self: center;
-  align-items: center;
   margin-top: 15px;
   background: none;
   z-index: 123;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
 }
 
 .ul {
@@ -24,6 +28,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
 }
 
 .li {
@@ -40,6 +52,7 @@
 .imgContainer {
   display: flex;
   justify-content: center;
+  margin-right: auto;
 }
 
 .buttonJoinContainer {
@@ -47,8 +60,268 @@
   justify-content: center;
   margin-left: 75px;
   transition: 0.2s ease-out all;
+  align-items: center;
 }
 
 .buttonJoinContainer:hover {
   box-shadow: 0px 0px 17px 4px rgba(0, 0, 0, 0.2);
+}
+
+.joinIconContainer {
+  display: none;
+}
+.burgerMenuIcon {
+  display: none;
+}
+
+@media (width <= 1200px) {
+  .header {
+    padding: 0 5vw;
+  }
+}
+
+@media (width <= 768px) {
+  .imgContainer {
+    display: none;
+  }
+  .ul {
+    display: none;
+    box-sizing: border-box;
+    position: absolute;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 0 10px 10px 0;
+    max-width: 100vw;
+    width: 74%;
+    min-height: 102vh;
+    height: 100%;
+    left: -1px;
+    top: 0px;
+    justify-content: center;
+    align-items: start;
+    padding: 32px 20px;
+  }
+
+  .overlay {
+    position: absolute;
+    display: flex;
+    min-width: 100vw;
+    min-height: 200vh;
+    z-index: -1;
+    background: rgba(16, 26, 51, 0.2); /* Полупрозрачный фон */
+    backdrop-filter: blur(10px); /* Размытие фона под элементом */
+    -webkit-backdrop-filter: blur(10px);
+    transition: 0.3s ease-in-out all;
+    left: 0;
+  }
+
+  .overlay.active {
+    animation: 0.3s activeOverlay;
+  }
+
+  .overlay.inactive {
+    animation: 0.3s inactiveOverlay;
+  }
+
+  .header {
+    justify-content: space-between;
+    padding: 0 20px;
+    margin: 0;
+  }
+  .joinIconContainer {
+    display: flex;
+    cursor: pointer;
+    z-index: -3;
+  }
+  .buttonJoinContainer {
+    display: none;
+  }
+
+  .ul.active {
+    display: flex;
+    animation: active 0.3s;
+  }
+
+  .ul.inactive {
+    display: flex;
+    animation: inactive 0.3s;
+  }
+
+  .li {
+    font-size: 4vw;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: start;
+    flex-grow: 1;
+  }
+
+  .phoneNumberAndIconContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-self: center;
+    justify-self: end;
+    align-items: center;
+  }
+
+  .phoneNumber {
+    font-size: 3.3vw;
+    font-weight: 500;
+    font-family: "MontSerrat", "Courier New", Courier, monospace;
+    text-decoration: none;
+    color: #3955d1;
+  }
+
+  .navIcon {
+    width: 30px;
+    height: 18px;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .navIcon span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
+
+  .navIcon span.active {
+    background: #000000;
+  }
+  .navIcon span:nth-child(1) {
+    top: 0px;
+  }
+
+  .navIcon span:nth-child(2),
+  .navIcon span:nth-child(3) {
+    top: 9px;
+  }
+
+  .navIcon span:nth-child(4) {
+    top: 18px;
+  }
+
+  .navIcon.active span:nth-child(1) {
+    top: 9px;
+    width: 0%;
+    left: 50%;
+  }
+
+  .navIcon.active span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .navIcon.active span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  .navIcon.active span:nth-child(4) {
+    top: 9px;
+    width: 0%;
+    left: 50%;
+  }
+}
+
+@media (540px <= width <= 775px) {
+  .navIcon.active {
+    margin-left: 65%;
+  }
+}
+
+@media (320px <= width <= 540px) {
+  .li {
+    font-size: 5vw;
+  }
+  .phoneNumber {
+    font-size: 5vw;
+  }
+  .navIcon.active {
+    margin-left: 65%;
+  }
+}
+
+@media (320px <= width <= 360px) {
+  .li {
+    font-size: 6vw;
+  }
+  .phoneNumber {
+    font-size: 5.5vw;
+  }
+}
+
+@keyframes active {
+  from {
+    opacity: 0;
+    left: -100vw;
+  }
+  to {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@keyframes inactive {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+  99% {
+    opacity: 0;
+    left: -100vw;
+  }
+
+  100% {
+    display: none;
+  }
+}
+
+@keyframes activeOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes inactiveOverlay {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

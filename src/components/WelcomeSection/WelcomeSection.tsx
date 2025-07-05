@@ -1,20 +1,27 @@
+import styles from "./WelcomeSection.module.css";
+
 import { useState, type Dispatch, type FC, type SetStateAction } from "react";
 
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 
-import styles from "./WelcomeSection.module.css";
 import Button from "../../ui/Button/Button";
+import { textForWelcomeSection } from "../../utils/constants";
 
 import notebook from "../../assets/images/notebook.png";
-import liveIcon from "../../assets/images/Live icon.png";
 import leftArrow from "../../assets/images/leftArrow.svg";
 import rightArrow from "../../assets/images/RightArrow.svg";
 import phone from "../../assets/images/phone.png";
 import laptop from "../../assets/images/laptop.png";
 
+import { useWindowSize } from "react-use";
+
 const WelcomeSection: FC = () => {
   const [activeLine, setActiveLine] = useState<number>(1);
   const [stopScroll, setStopScroll] = useState<boolean>(false);
+
+  const { width } = useWindowSize();
+
+  const text = textForWelcomeSection;
 
   function nextActiveLine(
     activeLine: number,
@@ -29,37 +36,22 @@ const WelcomeSection: FC = () => {
     }
   }
 
-  const text = {
-    1: {
-      title: "Облачное видеонаблюдение<br />под ваши цели",
-      desc: "Видео - контроль на любом устройстве в прямом эфире. С возможностью хранения записи вплоть до 7 дней",
-    },
-    2: {
-      title: "Прост в использовании<br />а трансляция всегда под рукой",
-      desc: "Интуитивно понятный интерфейс. Зайдите в личный кабинет и смотри трансляции со всех камер",
-    },
-    3: {
-      title: "Просмотр онлайнс любого устройства<br />в любое время",
-      desc: "Доступ из любого места и в любое время ко всем камерам видеонаблюдени в два щелчка",
-    },
-  };
-
   return (
     <>
-      <div
-        className={styles.mainDivContainer}
-        onWheel={(e) => {
-          if (e.deltaY > 0) {
-            nextActiveLine(activeLine, setActiveLine, "increase");
-          }
-          if (e.deltaY < 0) {
-            nextActiveLine(activeLine, setActiveLine, "decrease");
-          }
-        }}
-        onMouseEnter={() => setStopScroll(true)}
-        onMouseLeave={() => setStopScroll(false)}
-      >
-        <div className={styles.divContainer}>
+      <div className={styles.mainDivContainer}>
+        <div
+          className={styles.divContainer}
+          onMouseEnter={() => setStopScroll(true)}
+          onMouseLeave={() => setStopScroll(false)}
+          onWheel={(e) => {
+            if (e.deltaY > 0) {
+              nextActiveLine(activeLine, setActiveLine, "increase");
+            }
+            if (e.deltaY < 0) {
+              nextActiveLine(activeLine, setActiveLine, "decrease");
+            }
+          }}
+        >
           {stopScroll && <RemoveScrollBar></RemoveScrollBar>}
           <div className={styles.textContainer}>
             <div className={styles.titleContainer}>
@@ -75,6 +67,24 @@ const WelcomeSection: FC = () => {
                 }}
               ></h1>
             </div>
+            {/* // ПОКАЗЫВАЕТ ФОТО ТОЛЬКО НА МОБИЛКАХ */}
+            {width <= 720 && (
+              <div className={styles.imageContainer}>
+                <img
+                  src={
+                    activeLine === 1
+                      ? notebook
+                      : activeLine === 2
+                      ? phone
+                      : laptop
+                  }
+                  draggable="false"
+                  alt=""
+                  className={styles.image}
+                />
+              </div>
+            )}
+            {/* ПОКАЗЫВАЕТ ФОТО ТОЛЬКО НА МОБИЛКАХ */}
             <div className={styles.subTextContainer}>
               <div className={styles.lineWithText}>
                 <div className={styles.line}></div>
@@ -88,35 +98,40 @@ const WelcomeSection: FC = () => {
                     ? text[2].desc
                     : text[3].desc}
                 </p>
-                <Button
-                  fontFamily="Montserrat"
-                  fontWeight="Bold"
-                  fontSize={18}
-                  backgroundColor={true}
-                  textMargin="14px 39px"
-                  buttonMargin="30px 0 0 0"
-                >
-                  Оставить заявку
-                </Button>
+                <div className={styles.buttonContainer}>
+                  <Button
+                    fontFamily="Montserrat"
+                    fontWeight="Bold"
+                    fontSize={18}
+                    backgroundColor={true}
+                    textMargin="14px 39px"
+                    buttonMargin="2vw 0 0 0"
+                    width="100%"
+                  >
+                    Оставить заявку
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-          <div className={styles.imageContainer}>
-            {activeLine === 1 && (
-              <div className={styles.liveIcon}>
-                <img src={liveIcon} alt="" />
-              </div>
-            )}
-
-            <img
-              src={
-                activeLine === 1 ? notebook : activeLine === 2 ? phone : laptop
-              }
-              draggable="false"
-              alt=""
-              className={styles.image}
-            />
-          </div>
+          {/* ПОКАЗЫВАЕТ НА ВСЕХ УСТРОЙСТВАХ, КРОМЕ МОБИЛОК */}
+          {width > 720 && (
+            <div className={styles.imageContainer}>
+              <img
+                src={
+                  activeLine === 1
+                    ? notebook
+                    : activeLine === 2
+                    ? phone
+                    : laptop
+                }
+                draggable="false"
+                alt=""
+                className={styles.image}
+              />
+            </div>
+          )}
+          {/* ПОКАЗЫВАЕТ НА ВСЕХ УСТРОЙСТВАХ, КРОМЕ МОБИЛОК */}
         </div>
         <div className={styles.arrowAndLinesContainer}>
           <div className={styles.arrowContainer}>
@@ -139,22 +154,24 @@ const WelcomeSection: FC = () => {
               className={activeLine === 3 ? styles.disableArrow : ""}
             />
           </div>
-          {[
-            [1, 2, 3].map((num) => {
-              return (
-                <div
-                  key={num}
-                  className={`${styles.lineWithNumberContainer} ${
-                    activeLine === num ? styles.addOpacity : null
-                  }`}
-                  onClick={() => setActiveLine(num)}
-                >
-                  <p className={styles.numberOnLine}>{num}</p>
-                  <div className={styles.lineWithNumber}></div>
-                </div>
-              );
-            }),
-          ]}
+          <div className={styles.lines}>
+            {[
+              [1, 2, 3].map((num) => {
+                return (
+                  <div
+                    key={num}
+                    className={`${styles.lineWithNumberContainer} ${
+                      activeLine === num ? styles.addOpacity : null
+                    }`}
+                    onClick={() => setActiveLine(num)}
+                  >
+                    <p className={styles.numberOnLine}>{num}</p>
+                    <div className={styles.lineWithNumber}></div>
+                  </div>
+                );
+              }),
+            ]}
+          </div>
         </div>
       </div>
     </>
