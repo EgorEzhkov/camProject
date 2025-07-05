@@ -219,9 +219,13 @@
     width: 100%;
   }
   .divContainer {
-    justify-content: center;
-    align-items: end;
+    justify-content: space-between;
+    align-items: center;
     height: 50vw;
+  }
+
+  .imageContainer {
+    align-self: center;
   }
 
   .title {
