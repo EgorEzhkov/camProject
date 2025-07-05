@@ -34,7 +34,8 @@
   font-weight: bold;
   font-family: "Play", "Courier New", Courier, monospace;
   color: white;
-  width: 551px;
+  max-width: 551px;
+  width: 120%;
   text-align: start;
   line-height: 110%;
   align-items: flex-end;
@@ -43,7 +44,7 @@
 }
 
 .titleContainer {
-  width: 441px;
+  width: 458px;
   height: 159px;
   overflow: visible;
   position: relative;
@@ -53,7 +54,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 77px 0 20px 0;
+  margin: 77px 0 0 0;
   align-items: flex-start;
   width: 100%;
 }
@@ -92,8 +93,10 @@
 }
 
 .imageContainer {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
   position: relative;
-  align-self: flex-end;
   max-width: 716px;
   object-fit: fill;
   max-height: 440px;
@@ -102,7 +105,6 @@
 .image {
   object-fit: contain;
   width: 100%;
-  height: 100%;
 }
 
 .liveIcon {
@@ -149,13 +151,15 @@
   align-items: end;
   justify-content: start;
   width: 100%;
+  gap: 12px;
 }
 
 .lines {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   flex-grow: 1;
+  width: 100%;
 }
 
 .numberOnLine {
@@ -165,6 +169,7 @@
   max-height: 20px;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .lineWithNumberContainer {
@@ -190,40 +195,155 @@
   width: 99.5%;
 }
 
-@media (1199px <= width <= 1460px) {
-}
-
-@media (768px <= width <= 1199px) {
-  .mainDivContainer {
-    padding: 120px 5vw 25px 5vw;
-  }
-
-  .imageContainer {
-    margin-right: 0;
-    max-width: 500px;
-  }
-}
-
-@media (width <= 1460px) {
+@media (width < 1430px) {
   .title {
-    font-size: 3.3vw;
+    font-size: 3.4vw;
+  }
+  .subTextContainer {
+    margin: 50px 0 0 0;
+  }
+}
+
+@media (width < 1300px) {
+  .imageContainer {
+    align-self: flex-end;
   }
   .subTextContainer {
     margin: 30px 0 0 0;
   }
+}
 
+@media (width < 1200px) {
+  .mainDivContainer {
+    padding: 120px 5vw 25px 5vw;
+  }
   .imageContainer {
-    align-self: normal;
+    margin-right: 0;
+    max-width: 500px;
+    width: 100%;
+    margin-right: 0;
+    max-width: 500px;
   }
-
+  .image {
+    width: 100%;
+  }
   .divContainer {
+    justify-content: center;
     align-items: end;
+    height: 50vw;
   }
 
-  .divContainer {
-    height: 50vw;
+  .title {
+    font-size: 3.5vw;
+  }
+  .subTextContainer {
+    margin: 15px 0 0 0;
   }
 }
 
-@media (width <= 1430px) {
+@media (width < 1000px) {
+  .title {
+    font-size: 3.7vw;
+  }
+  .titleContainer {
+    height: 115px;
+  }
+  .divContainer {
+    align-items: center;
+    height: 40.5vw;
+  }
+  .imageContainer {
+    align-self: normal;
+  }
+}
+
+@media (width < 900px) {
+  .lineWithText {
+    display: none;
+  }
+  .titleContainer {
+    width: 340px;
+  }
+}
+
+@media (width <= 776px) {
+  .titleContainer {
+    width: 265px;
+  }
+
+  .lineWithNumber {
+    width: 98%;
+  }
+  .titleContainer {
+    height: 120px;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+@media (width <= 720px) {
+  .divContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 30px;
+  }
+
+  .titleContainer {
+    width: auto;
+  }
+
+  .title {
+    font-size: 5vw;
+    width: 100%;
+  }
+
+  .lineWithNumber {
+    width: 99.1%;
+  }
+
+  .textContainer {
+    gap: 10px;
+    margin: 100px 0 0 0;
+    width: 100%;
+  }
+
+  .textWithButton {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: end;
+    width: 75vw;
+    gap: 15px;
+  }
+
+  .subTextContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .text {
+    line-height: 130%;
+    font-weight: 400;
+  }
+
+  .buttonContainer {
+    width: 100%;
+  }
+
+  .imageContainer {
+    align-self: center;
+    height: 289px;
+    max-width: 458px;
+    width: 100%;
+  }
+
+  .arrowAndLinesContainer {
+    margin-top: 200px;
+  }
+
+  .arrowContainer {
+    display: none;
+  }
 }
