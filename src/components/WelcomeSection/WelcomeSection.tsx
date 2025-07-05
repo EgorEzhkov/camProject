@@ -44,6 +44,7 @@ const WelcomeSection: FC = () => {
           onMouseEnter={() => setStopScroll(true)}
           onMouseLeave={() => setStopScroll(false)}
           onWheel={(e) => {
+            if (width < 900) return;
             if (e.deltaY > 0) {
               nextActiveLine(activeLine, setActiveLine, "increase");
             }
@@ -52,7 +53,9 @@ const WelcomeSection: FC = () => {
             }
           }}
         >
-          {stopScroll && <RemoveScrollBar></RemoveScrollBar>}
+          {width > 900
+            ? stopScroll && <RemoveScrollBar></RemoveScrollBar>
+            : null}
           <div className={styles.textContainer}>
             <div className={styles.titleContainer}>
               <h1

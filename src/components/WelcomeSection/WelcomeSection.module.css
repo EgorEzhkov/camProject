@@ -101,6 +101,7 @@
   max-width: 716px;
   object-fit: fill;
   max-height: 440px;
+  min-height: 440px;
 }
 
 .image {
@@ -188,7 +189,7 @@
 
 @media (width < 1430px) {
   .title {
-    font-size: 3.4vw;
+    font-size: 3.3vw;
   }
   .subTextContainer {
     margin: 50px 0 0 0;
@@ -214,6 +215,7 @@
     width: 100%;
     margin-right: 0;
     max-width: 500px;
+    min-height: 0;
   }
   .image {
     width: 100%;
@@ -244,7 +246,7 @@
 
 @media (width < 1000px) {
   .title {
-    font-size: 3.7vw;
+    font-size: 3.4vw;
     width: 99%;
   }
   .titleContainer {

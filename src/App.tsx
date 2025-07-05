@@ -4,7 +4,7 @@ import DownloadSection from "./components/DownloadSection/DownloadSection";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import RateSection from "./components/RateSection/RateSection";
-import ServisecSection from "./components/ServisecSection/ServisecSection";
+import ServicesSection from "./components/ServicesSection/ServicesSection";
 import SolutionsForConnectionSection from "./components/SolutionsForConnectionSection/SolutionsForConnectionSection";
 import WelcomeSection from "./components/WelcomeSection/WelcomeSection";
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <>
       <Header></Header>
       <WelcomeSection></WelcomeSection>
-      <ServisecSection></ServisecSection>
+      <ServicesSection></ServicesSection>
       {/* // <DownloadSection></DownloadSection>
       // <RateSection></RateSection>
       // <SolutionsForConnectionSection></SolutionsForConnectionSection>
