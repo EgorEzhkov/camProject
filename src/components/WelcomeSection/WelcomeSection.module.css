@@ -232,12 +232,20 @@
   }
 }
 
+@media (width <= 1110px) {
+  .titleContainer {
+    width: 400px;
+  }
+}
+
 @media (width < 1000px) {
   .title {
     font-size: 3.7vw;
+    width: 99%;
   }
   .titleContainer {
     height: 115px;
+    width: 400px;
   }
   .divContainer {
     align-items: center;
@@ -245,6 +253,12 @@
   }
   .imageContainer {
     align-self: normal;
+  }
+}
+
+@media (width < 920px) {
+  .titleContainer {
+    width: 395px;
   }
 }
 
