@@ -12,12 +12,12 @@ function App() {
     <>
       <Header></Header>
       <WelcomeSection></WelcomeSection>
-      {/* <ServisecSection></ServisecSection>
-      <DownloadSection></DownloadSection>
-      <RateSection></RateSection>
-      <SolutionsForConnectionSection></SolutionsForConnectionSection>
-      <CompanyNewsSection></CompanyNewsSection>
-      <Footer></Footer> */}
+      <ServisecSection></ServisecSection>
+      {/* // <DownloadSection></DownloadSection>
+      // <RateSection></RateSection>
+      // <SolutionsForConnectionSection></SolutionsForConnectionSection>
+      // <CompanyNewsSection></CompanyNewsSection>
+      // <Footer></Footer> */}
     </>
   );
 }
