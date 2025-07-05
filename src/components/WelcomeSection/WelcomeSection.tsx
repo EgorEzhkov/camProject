@@ -8,7 +8,6 @@ import Button from "../../ui/Button/Button";
 import { textForWelcomeSection } from "../../utils/constants";
 
 import notebook from "../../assets/images/notebook.png";
-import liveIcon from "../../assets/images/Live icon.png";
 import leftArrow from "../../assets/images/leftArrow.svg";
 import rightArrow from "../../assets/images/RightArrow.svg";
 import phone from "../../assets/images/phone.png";
@@ -71,12 +70,6 @@ const WelcomeSection: FC = () => {
             {/* // ПОКАЗЫВАЕТ ФОТО ТОЛЬКО НА МОБИЛКАХ */}
             {width <= 720 && (
               <div className={styles.imageContainer}>
-                {activeLine === 1 && (
-                  <div className={styles.liveIconContainer}>
-                    <img src={liveIcon} alt="" className={styles.liveIcon} />
-                  </div>
-                )}
-
                 <img
                   src={
                     activeLine === 1
@@ -124,12 +117,6 @@ const WelcomeSection: FC = () => {
           {/* ПОКАЗЫВАЕТ НА ВСЕХ УСТРОЙСТВАХ, КРОМЕ МОБИЛОК */}
           {width > 720 && (
             <div className={styles.imageContainer}>
-              {activeLine === 1 && (
-                <div className={styles.liveIconContainer}>
-                  <img src={liveIcon} alt="" className={styles.liveIcon} />
-                </div>
-              )}
-
               <img
                 src={
                   activeLine === 1
