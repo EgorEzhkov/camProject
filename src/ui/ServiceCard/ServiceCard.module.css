@@ -45,6 +45,7 @@
   opacity: 0.7;
   text-wrap: pretty;
   max-height: 126px;
+  margin: 20px 0 0 0;
 }
 
 .card:hover {
@@ -52,4 +53,22 @@
   -webkit-box-shadow: 0px 6px 12px -1px rgba(92, 92, 92, 0.3);
   -moz-box-shadow: 0px 6px 12px -1px rgba(92, 92, 92, 0.3);
   box-shadow: 0px 6px 12px -1px rgba(92, 92, 92, 0.3);
+}
+
+@media (width <= 1313px) {
+  .description {
+    margin: 10px 0 0 0;
+  }
+}
+
+@media (width <= 1000px) {
+  .subtitle {
+    font-size: 18px;
+  }
+}
+
+@media (width <= 755px) {
+  .description {
+    margin: 5px 0 0 0;
+  }
 }
