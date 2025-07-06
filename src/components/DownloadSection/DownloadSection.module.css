@@ -1,4 +1,5 @@
 .mainContainer {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   color: #1b1b1b;
@@ -9,10 +10,12 @@
   background-repeat: no-repeat;
   background-position: right bottom;
 }
+
 .list {
   padding: 0 0 0 25px;
   margin: 55px 0 40px 0;
 }
+
 .listElement {
   padding: 0;
   margin: 0;
@@ -28,14 +31,70 @@
 
 .titleContainer {
   max-width: 680px;
+  font-size: 48px;
 }
 
 .imageContainer {
   display: flex;
   gap: 10px;
 }
+
 .linkImage {
   cursor: pointer;
 }
-.image {
+
+.image {}
+
+
+@media (width <=1430px) {
+  .titleContainer {
+    font-size: 3.3vw;
+  }
+}
+
+@media (width <=1280px) {
+  .mainContainer {
+    background-size: 70vw;
+  }
+}
+
+@media (width <=1200px) {
+  .mainContainer {
+    padding: 80px 5vw;
+  }
+
+  .titleContainer {
+    font-size: 3.4vw;
+    width: 60%;
+  }
+
+  .listElement {
+    font-size: 1.52vw;
+  }
+}
+
+
+@media (width <=1000px) {
+  .titleContainer {
+    font-size: 3.4vw;
+    width: 70%;
+  }
+
+  .listElement {
+    font-size: 16px;
+  }
+}
+
+@media (width <=720px) {
+  .titleContainer {
+    font-size: 5vw;
+    width: 70%;
+  }
+}
+
+@media (width <=620px) {
+  .titleContainer {
+    font-size: 5.5vw;
+    width: 80%;
+  }
 }
