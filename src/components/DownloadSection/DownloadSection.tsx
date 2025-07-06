@@ -8,7 +8,7 @@ const DownloadSection = () => {
     <>
       <div className={styles.mainContainer}>
         <div className={styles.titleContainer}>
-          <Title color="black">
+          <Title color="black" fontSize="1em">
             Скачайте наше приложение в AppStore и Google Play
           </Title>
         </div>

@@ -5,7 +5,7 @@ import type { FC } from "react";
 interface TitleProps {
   children: React.ReactNode;
   color: "black" | "white";
-  fontSize: string | number;
+  fontSize?: string | number;
 }
 
 const Title: FC<TitleProps> = ({
