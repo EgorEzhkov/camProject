@@ -52,7 +52,7 @@
   }
 }
 
-@media (width <= 1280px) {
+@media (width <=1280px) {
   .mainContainer {
     background-size: 70vw;
   }
@@ -67,6 +67,10 @@
     font-size: 3.4vw;
     width: 60%;
   }
+
+  .listElement {
+    font-size: 1.52vw;
+  }
 }
 
 
@@ -74,6 +78,10 @@
   .titleContainer {
     font-size: 3.4vw;
     width: 70%;
+  }
+
+  .listElement {
+    font-size: 16px;
   }
 }
 
