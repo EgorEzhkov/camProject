@@ -6,6 +6,7 @@
   flex-direction: column;
 }
 .titleContainer {
+  font-size: 48px;
   max-width: 432px;
 }
 .cardList {
@@ -13,8 +14,26 @@
   display: flex;
   flex-direction: row;
   gap: 30px;
-  justify-content: center;
+  justify-content: start;
 }
+
+.cardListMobile {
+  margin: 50px 0 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: start;
+  height: 550px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+}
+
+.cardListMobile::-webkit-scrollbar {
+  display: none;
+}
+
 .linkContainer {
   display: flex;
   gap: 15px;
@@ -29,4 +48,189 @@
   color: #4466fb;
 }
 .linkSvg {
+}
+
+.card {
+  width: 100%;
+}
+
+@media (width < 1430px) {
+  .titleContainer {
+    font-size: 3.3vw;
+  }
+}
+
+@media (width <= 1200px) {
+  .mainContainer {
+    padding: 80px 5vw;
+  }
+}
+
+@media (width <= 1200px) {
+  .titleContainer {
+    font-size: 3.5vw;
+    width: 40%;
+  }
+}
+
+@media (width <= 1000px) {
+  .titleContainer {
+    font-size: 3.4vw;
+  }
+  .card {
+    min-width: 370px;
+    transition: 0.3s ease-in-out all;
+  }
+  .mainContainer {
+    overflow: hidden;
+  }
+
+  .cardList {
+    align-items: center;
+    transition: 0.35s ease all;
+  }
+
+  .card.active {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 3;
+  }
+
+  .card.right {
+    opacity: 0.6;
+    z-index: 2;
+  }
+  .card.left {
+    opacity: 0.6;
+    z-index: 2;
+  }
+
+  .firstCard {
+    margin-left: 0vw;
+  }
+  .secondCard {
+    margin-left: -230px;
+  }
+  .thirdCard {
+    margin-left: -380px;
+  }
+}
+
+@media (width <= 950px) {
+}
+
+@media (width <= 842px) {
+  .secondCard {
+    margin-left: -230px;
+  }
+  .thirdCard {
+    margin-left: -460px;
+  }
+}
+
+@media (width <= 768px) {
+  .link {
+    font-size: 16px;
+  }
+  .cardList {
+    height: 550px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* плавность на iOS */
+    padding-bottom: 10px;
+  }
+  .card:nth-of-type(1) {
+    margin-left: 20px;
+  }
+  .card:nth-of-type(3) {
+    margin-right: 20px;
+  }
+  .cardList::-webkit-scrollbar {
+    display: none;
+  }
+  .card.right {
+    opacity: 1;
+    z-index: 2;
+  }
+  .card.left {
+    opacity: 1;
+    z-index: 2;
+  }
+  .secondCard {
+    margin-left: -50vw;
+  }
+  .thirdCard {
+    margin-left: -80vw;
+  }
+}
+
+@media (width <= 720px) {
+  .titleContainer {
+    font-size: 5vw;
+    width: 60%;
+  }
+}
+
+@media (width <= 713px) {
+  .secondCard {
+    margin-left: -50vw;
+  }
+  .thirdCard {
+    margin-left: -90vw;
+  }
+}
+
+@media (width <= 674px) {
+  .secondCard {
+    margin-left: -50vw;
+  }
+  .thirdCard {
+    margin-left: -100vw;
+  }
+}
+
+@media (width <= 640px) {
+  .secondCard {
+    margin-left: -50vw;
+  }
+  .thirdCard {
+    margin-left: -110vw;
+  }
+}
+
+@media (width <= 620px) {
+  .titleContainer {
+    font-size: 5.5vw;
+  }
+}
+
+@media (width <= 600px) {
+  .secondCard {
+    margin-left: -60vw;
+  }
+  .thirdCard {
+    margin-left: -130vw;
+  }
+}
+
+@media (width <= 550px) {
+  .secondCard {
+    margin-left: -70vw;
+  }
+  .thirdCard {
+    margin-left: -130vw;
+  }
+}
+
+@media (width <= 500px) {
+  .link {
+    font-size: 14px;
+  }
+}
+
+@media (width <= 430px) {
+  .titleContainer {
+    font-size: 6.68vw;
+    width: 70%;
+  }
 }

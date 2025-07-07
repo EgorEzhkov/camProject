@@ -11,7 +11,6 @@
   -moz-box-shadow: 0px 6px 12px -1px rgba(92, 92, 92, 0.14);
   box-shadow: 0px 6px 12px -1px rgba(92, 92, 92, 0.14);
   border-radius: 10px;
-  gap: 10px;
   transition: 0.2s ease-out all;
   text-align: left;
   cursor: pointer;
@@ -59,4 +58,18 @@
   font-size: 16px;
   line-height: 150%;
   font-weight: 500;
+}
+
+@media (width <= 500px) {
+  .forWhat {
+    font-size: 12px;
+  }
+
+  .info {
+    font-size: 14px;
+  }
+
+  .nameCam {
+    font-size: 14px;
+  }
 }

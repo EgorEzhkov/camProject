@@ -6,6 +6,8 @@ import SolutionForConnectionCard from "../../ui/SolutionForConnectionCard/Soluti
 import cam from "../../assets/images/cam.png";
 
 import type { SolutionForConnectionCardProps } from "../../ui/SolutionForConnectionCard/SolutionForConnectionCard";
+import { useState } from "react";
+import { getDeviceType } from "../../utils/utils";
 
 const data: SolutionForConnectionCardProps[] = [
   {
@@ -17,6 +19,7 @@ const data: SolutionForConnectionCardProps[] = [
       "Объектив: 2.8mm lens",
       "Гарантия : 1 год",
     ],
+    id: 1,
   },
   {
     img: cam,
@@ -27,6 +30,7 @@ const data: SolutionForConnectionCardProps[] = [
       "Объектив: 2.8mm lens",
       "Гарантия : 1 год",
     ],
+    id: 2,
   },
   {
     img: cam,
@@ -37,26 +41,54 @@ const data: SolutionForConnectionCardProps[] = [
       "Объектив: 2.8mm lens",
       "Гарантия : 1 год",
     ],
+    id: 3,
   },
 ];
 
 const SolutionsForConnectionSection = () => {
+  const [activeCard, setActiveCard] = useState<number>(1);
+  const device = getDeviceType();
   return (
     <>
       <div className={styles.mainContainer}>
         <div className={styles.titleContainer}>
-          <Title color="black">Готовые решения для подключения</Title>
+          <Title color="black" fontSize="1em">
+            Готовые решения для подключения
+          </Title>
         </div>
-        <div className={styles.cardList}>
+        <div
+          className={`${
+            device === "mobile" ? styles.cardListMobile : styles.cardList
+          } ${
+            activeCard === 1
+              ? styles.firstCard
+              : activeCard === 2
+              ? styles.secondCard
+              : styles.thirdCard
+          }`}
+        >
           {data.map((el, index) => {
             return (
-              <SolutionForConnectionCard
+              <div
                 key={index}
-                img={el.img}
-                forWhat={el.forWhat}
-                nameCam={el.nameCam}
-                info={el.info}
-              ></SolutionForConnectionCard>
+                className={`${styles.card} ${
+                  activeCard === index + 1
+                    ? styles.active
+                    : activeCard > index + 1
+                    ? styles.right
+                    : styles.left
+                }`}
+                onClick={() => {
+                  setActiveCard(index + 1);
+                }}
+              >
+                <SolutionForConnectionCard
+                  img={el.img}
+                  forWhat={el.forWhat}
+                  nameCam={el.nameCam}
+                  info={el.info}
+                ></SolutionForConnectionCard>
+              </div>
             );
           })}
         </div>
