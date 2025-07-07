@@ -15,8 +15,8 @@ function App() {
       <ServicesSection></ServicesSection>
       <DownloadSection></DownloadSection>
       <RateSection></RateSection>
-      {/* <SolutionsForConnectionSection></SolutionsForConnectionSection>
-      <CompanyNewsSection></CompanyNewsSection>
+      <SolutionsForConnectionSection></SolutionsForConnectionSection>
+      {/* <CompanyNewsSection></CompanyNewsSection>
       <Footer></Footer> */}
     </>
   );

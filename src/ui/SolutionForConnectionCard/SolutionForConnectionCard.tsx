@@ -6,6 +6,7 @@ export interface SolutionForConnectionCardProps {
   forWhat: string;
   nameCam: string;
   info: string[];
+  id?: number;
 }
 
 const SolutionForConnectionCard: FC<SolutionForConnectionCardProps> = ({
