@@ -11,3 +11,78 @@
   justify-content: center;
   margin-top: 50px;
 }
+
+.card {
+  max-width: 370px;
+  min-width: 370px;
+}
+
+.titleContainer {
+  font-size: 48px;
+}
+
+@media (width < 1430px) {
+  .titleContainer {
+    font-size: 3.3vw;
+  }
+}
+
+@media (width <= 1313px) {
+  .cardList {
+    flex-wrap: wrap;
+  }
+
+  .card:nth-of-type(3) {
+    max-width: 770px;
+    width: 100%;
+  }
+}
+
+@media (width <= 1200px) {
+  .mainContainer {
+    padding: 80px 5vw;
+  }
+
+  .titleContainer {
+    font-size: 3.5vw;
+  }
+}
+
+@media (width <= 1000px) {
+  .titleContainer {
+    font-size: 3.4vw;
+  }
+}
+
+@media (width <= 855px) {
+  .card:nth-of-type(3) {
+    max-width: unset;
+    width: 320px;
+  }
+}
+
+@media (width <= 744px) {
+  .card {
+    max-width: unset;
+    min-width: unset;
+    width: 320px;
+  }
+}
+
+@media (width <= 720px) {
+  .titleContainer {
+    font-size: 5vw;
+  }
+}
+
+@media (width <= 620px) {
+  .titleContainer {
+    font-size: 5.5vw;
+  }
+}
+
+@media (width <= 430px) {
+  .titleContainer {
+    font-size: 6.68vw;
+  }
+}

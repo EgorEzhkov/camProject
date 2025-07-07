@@ -2,7 +2,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 370px;
+  width: 100%;
   transition: 0.3s ease-in-out all;
   align-items: start;
   border: 1px solid white;
@@ -58,4 +58,65 @@
   text-align: start;
   max-width: 328px;
   margin: 20px 0 30px 0;
+}
+
+.button {
+  font-size: 18px;
+  width: 100%;
+}
+
+@media (width <= 1313px) {
+  .card {
+    padding: 30px;
+  }
+
+  .subtitle {
+    font-size: 24px;
+  }
+  .price {
+    font-size: 28px;
+  }
+
+  .description {
+    margin: 30px 0;
+  }
+}
+
+@media (width <= 1000px) {
+  .subtitle {
+    font-size: 22px;
+    margin: 0 0 20px 0;
+  }
+
+  .price {
+    font-size: 32px;
+  }
+}
+
+@media (width <= 768px) {
+  .price {
+    font-size: 28px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
+
+@media (width <= 500px) {
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+
+  .button {
+    font-size: 16px;
+  }
+
+  .card {
+    padding: 20px;
+  }
 }
