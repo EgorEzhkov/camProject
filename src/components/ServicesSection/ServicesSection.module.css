@@ -116,7 +116,7 @@
   }
 }
 
-@media (width < 756px) {
+@media (width <= 738px) {
   .mainContainer {
     padding: 80px 5vw;
   }

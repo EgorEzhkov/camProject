@@ -15,6 +15,7 @@ interface Props {
   lineHeight?: string;
   width?: string;
   maxWidth?: string;
+  disabled?: boolean;
 }
 
 const Button: FC<Props> = ({
@@ -32,6 +33,7 @@ const Button: FC<Props> = ({
   lineHeight = "110%",
   width,
   maxWidth,
+  disabled = false,
 }) => {
   const styleButton = {
     fontFamily,
@@ -60,7 +62,7 @@ const Button: FC<Props> = ({
   } as const;
 
   return (
-    <button style={styleButton}>
+    <button style={styleButton} disabled={disabled}>
       <p style={{ margin: textMargin }}>{children}</p>
     </button>
   );

@@ -10,10 +10,12 @@ const RateSection = () => {
     <>
       <div className={styles.mainContainer}>
         <div className={styles.titleContainer}>
-          <Title color="white">Выберите тариф</Title>
+          <Title color="white" fontSize="1em">
+            Выберите тариф
+          </Title>
         </div>
         <div className={styles.cardList}>
-          <div onClick={() => setFocusCard(1)}>
+          <div onClick={() => setFocusCard(1)} className={styles.card}>
             <RateCard
               subtitle="Стандарт"
               price="250"
@@ -21,7 +23,7 @@ const RateSection = () => {
               focuse={focusCard === 1 ? true : false}
             ></RateCard>
           </div>
-          <div onClick={() => setFocusCard(2)}>
+          <div onClick={() => setFocusCard(2)} className={styles.card}>
             <RateCard
               subtitle="Оптимальный"
               price="650"
@@ -29,7 +31,7 @@ const RateSection = () => {
               focuse={focusCard === 2 ? true : false}
             ></RateCard>
           </div>
-          <div onClick={() => setFocusCard(3)}>
+          <div onClick={() => setFocusCard(3)} className={styles.card}>
             <RateCard
               subtitle="Бизнес"
               price="950"

@@ -14,8 +14,8 @@ function App() {
       <WelcomeSection></WelcomeSection>
       <ServicesSection></ServicesSection>
       <DownloadSection></DownloadSection>
-      {/* <RateSection></RateSection>
-      <SolutionsForConnectionSection></SolutionsForConnectionSection>
+      <RateSection></RateSection>
+      {/* <SolutionsForConnectionSection></SolutionsForConnectionSection>
       <CompanyNewsSection></CompanyNewsSection>
       <Footer></Footer> */}
     </>

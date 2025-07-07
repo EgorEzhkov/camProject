@@ -25,29 +25,33 @@ const RateCard: FC<RateCardProps> = ({
         </div>
         <p className={styles.description}>{description}</p>
         {focuse ? (
-          <Button
-            fontFamily="Montserrat"
-            fontSize={18}
-            fontWeight="Bold"
-            backgroundColor={true}
-            padding="15px 0"
-            width="100%"
-          >
-            Оставить заявку
-          </Button>
+          <div className={styles.button}>
+            <Button
+              fontFamily="Montserrat"
+              fontSize="1em"
+              fontWeight="Bold"
+              backgroundColor={true}
+              padding="15px 0"
+              width="100%"
+            >
+              Оставить заявку
+            </Button>
+          </div>
         ) : (
-          <Button
-            fontFamily="Montserrat"
-            fontSize={18}
-            fontWeight="Medium"
-            backgroundColor={false}
-            borderColor="blue"
-            border={true}
-            width="100%"
-            padding="15px 0"
-          >
-            Оставить заявку
-          </Button>
+          <div className={styles.button}>
+            <Button
+              fontFamily="Montserrat"
+              fontSize="1em"
+              fontWeight="Medium"
+              backgroundColor={false}
+              borderColor="blue"
+              border={true}
+              width="100%"
+              padding="15px 0"
+            >
+              Оставить заявку
+            </Button>
+          </div>
         )}
       </div>
     </>
