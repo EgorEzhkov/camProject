@@ -60,6 +60,9 @@
   .mainContainer {
     padding: 60px 5vw;
   }
+  .linkText {
+    font-size: 16px;
+  }
 }
 
 @media (width <= 720px) {
