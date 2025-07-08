@@ -209,9 +209,6 @@
 }
 
 @media (width <= 500px) {
-  .link {
-    font-size: 14px;
-  }
   .mainContainer {
     padding: 40px 5vw;
   }
