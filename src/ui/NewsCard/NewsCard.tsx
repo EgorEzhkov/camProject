@@ -18,7 +18,7 @@ const NewsCard: FC<NewsCardProps> = ({ subTitle, date, description }) => {
           <p className={styles.date}>{date}</p>
           <p className={styles.description}>
             {description.length > 65
-              ? description.slice(0, 65) + " ..."
+              ? description.slice(0, 65) + "..."
               : description}
           </p>
         </div>

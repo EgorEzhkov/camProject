@@ -54,3 +54,25 @@
   color: #333333;
   text-align: start;
 }
+
+@media (width <= 768px) {
+  .subTitle {
+    font-size: 20px;
+    margin: 0 15px 0 0;
+  }
+}
+
+@media (width <= 550px) {
+  .mainContainer {
+    flex-direction: column;
+    max-height: 165px;
+  }
+  .subTitle {
+    height: unset;
+    margin: 0 15px 12px 0;
+  }
+
+  .border {
+    border-right: unset;
+  }
+}
