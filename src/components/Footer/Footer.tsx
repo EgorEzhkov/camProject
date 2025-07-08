@@ -17,10 +17,14 @@ const Footer = () => {
           </a>
           <div className={styles.downloadImageContainer}>
             <a href="test" className={styles.linkHref}>
-              <img src={googlePlay} alt="googlePlay" />
+              <img
+                src={googlePlay}
+                alt="googlePlay"
+                className={styles.imgLink}
+              />
             </a>
             <a href="test" className={styles.linkHref}>
-              <img src={appStore} alt="appStore" />
+              <img src={appStore} alt="appStore" className={styles.imgLink} />
             </a>
           </div>
           <p className={styles.copyrightContainer}>

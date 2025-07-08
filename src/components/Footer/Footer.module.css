@@ -7,6 +7,7 @@
   flex-direction: row;
   box-sizing: border-box;
   justify-content: space-between;
+  gap: 30px;
 }
 .contactsAndApps {
   display: flex;
@@ -74,12 +75,14 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 130%;
+  min-width: 160px;
 }
 .listElement {
   cursor: pointer;
 }
 .formContainer {
   max-width: 405px;
+  min-width: 200px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -89,6 +92,7 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  width: 100%;
 }
 
 .input {
@@ -113,4 +117,59 @@
 
 .fontBold {
   font-weight: 700;
+}
+
+@media (width <= 1200px) {
+  .footer {
+    padding: 100px 5vw;
+  }
+}
+
+@media (width <= 860px) {
+  .footer {
+    justify-content: space-between;
+  }
+
+  .formContainer {
+    display: none;
+  }
+
+  .links {
+    margin-right: 7vw;
+  }
+}
+
+@media (width <= 768px) {
+  .footer {
+    padding: 60px 5vw;
+  }
+}
+
+@media (width <= 500px) {
+  .footer {
+    padding: 40px 5vw;
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .listElement {
+    font-size: 14px;
+  }
+
+  .subTitle {
+    font-size: 16px;
+  }
+
+  .phoneNumber {
+    font-size: 14px;
+  }
+
+  .downloadLink {
+    font-size: 14px;
+  }
+
+  .imgLink {
+    width: 82px;
+    height: 25px;
+  }
 }
