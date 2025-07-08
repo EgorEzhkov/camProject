@@ -1,4 +1,5 @@
 import styles from "./SolutionsForConnectionSection.module.css";
+import stylesMobile from "./SolutionsForConnectionSectionMobile.module.css";
 import Title from "../../ui/Title/Title";
 import arrow from "../../assets/images/simpleArrowRight.svg";
 import SolutionForConnectionCard from "../../ui/SolutionForConnectionCard/SolutionForConnectionCard";
@@ -48,6 +49,7 @@ const data: SolutionForConnectionCardProps[] = [
 const SolutionsForConnectionSection = () => {
   const [activeCard, setActiveCard] = useState<number>(1);
   const device = getDeviceType();
+  console.log(device);
   return (
     <>
       <div className={styles.mainContainer}>
@@ -58,7 +60,7 @@ const SolutionsForConnectionSection = () => {
         </div>
         <div
           className={`${
-            device === "mobile" ? styles.cardListMobile : styles.cardList
+            device === "mobile" ? stylesMobile.cardList : styles.cardList
           } ${
             activeCard === 1
               ? styles.firstCard
@@ -71,7 +73,9 @@ const SolutionsForConnectionSection = () => {
             return (
               <div
                 key={index}
-                className={`${styles.card} ${
+                className={`${
+                  device === "mobile" ? stylesMobile.card : styles.card
+                } ${
                   activeCard === index + 1
                     ? styles.active
                     : activeCard > index + 1

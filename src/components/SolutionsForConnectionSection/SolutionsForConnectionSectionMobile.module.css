@@ -17,23 +17,6 @@
   justify-content: start;
 }
 
-.cardListMobile {
-  margin: 50px 0 30px;
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-  justify-content: start;
-  height: 550px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 10px;
-}
-
-.cardListMobile::-webkit-scrollbar {
-  display: none;
-}
-
 .linkContainer {
   display: flex;
   gap: 15px;
@@ -89,48 +72,15 @@
     align-items: center;
     transition: 0.35s ease all;
   }
-
-  .card.active {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-    z-index: 3;
-  }
-
-  .card.right {
-    opacity: 0.6;
-    z-index: 2;
-  }
-  .card.left {
-    opacity: 0.6;
-    z-index: 2;
-  }
-
-  .firstCard {
-    margin-left: 0vw;
-  }
-  .secondCard {
-    margin-left: -230px;
-  }
-  .thirdCard {
-    margin-left: -380px;
-  }
-}
-
-@media (width <= 950px) {
-}
-
-@media (width <= 842px) {
-  .secondCard {
-    margin-left: -230px;
-  }
-  .thirdCard {
-    margin-left: -460px;
-  }
-}
-
-@media (width <= 768px) {
   .link {
     font-size: 16px;
+  }
+  .cardList {
+    height: 550px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* плавность на iOS */
+    padding-bottom: 10px;
   }
 
   .card:nth-of-type(1) {
@@ -139,15 +89,9 @@
   .card:nth-of-type(3) {
     margin-right: 20px;
   }
+
   .cardList::-webkit-scrollbar {
     display: none;
-  }
-
-  .secondCard {
-    margin-left: -50vw;
-  }
-  .thirdCard {
-    margin-left: -80vw;
   }
 }
 
@@ -158,54 +102,12 @@
   }
 }
 
-@media (width <= 713px) {
-  .secondCard {
-    margin-left: -50vw;
-  }
-  .thirdCard {
-    margin-left: -90vw;
-  }
-}
-
-@media (width <= 674px) {
-  .secondCard {
-    margin-left: -50vw;
-  }
-  .thirdCard {
-    margin-left: -100vw;
-  }
-}
-
-@media (width <= 640px) {
-  .secondCard {
-    margin-left: -50vw;
-  }
-  .thirdCard {
-    margin-left: -110vw;
-  }
-}
-
 @media (width <= 620px) {
   .titleContainer {
     font-size: 5.5vw;
   }
-}
-
-@media (width <= 600px) {
-  .secondCard {
-    margin-left: -60vw;
-  }
-  .thirdCard {
-    margin-left: -130vw;
-  }
-}
-
-@media (width <= 550px) {
-  .secondCard {
-    margin-left: -70vw;
-  }
-  .thirdCard {
-    margin-left: -130vw;
+  .card {
+    min-width: 277px;
   }
 }
 
