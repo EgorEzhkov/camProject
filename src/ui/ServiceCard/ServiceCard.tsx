@@ -26,7 +26,7 @@ const ServiceCard: FC<ServiceCardStyles> = ({
         style={{
           flexGrow: flexGrow,
           flexDirection: longCard ? "row" : "column",
-          minHeight: longCard ? "200px" : "434px",
+          minHeight: longCard ? "200px" : "100%",
         }}
       >
         <div className={styles.backgroudForIcon}>

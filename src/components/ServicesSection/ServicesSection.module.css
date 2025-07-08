@@ -60,16 +60,18 @@
     font-size: 3.3vw;
   }
 }
-@media (width <= 1355px) {
+
+@media (width <=1355px) {
   .cardsContainer {
     gap: 25px;
   }
 }
 
-@media (width <= 1313px) {
+@media (width <=1313px) {
   .cardsContainer {
     flex-wrap: wrap;
   }
+
   .card:nth-of-type(3) {
     max-width: 760px;
   }
@@ -79,15 +81,19 @@
   .mainContainer {
     padding: 80px 5vw;
   }
+
   .card {
     max-width: 350px;
   }
+
   .card:nth-of-type(3) {
     max-width: 725px;
   }
+
   .verticalBorder {
     width: 1px;
   }
+
   .title {
     font-size: 3.5vw;
   }
@@ -97,33 +103,34 @@
   .title {
     font-size: 3.4vw;
   }
-
-  .description {
-    font-size: 16px;
-  }
 }
 
 @media (width <= 822px) {
   .mainContainer {
     padding: 80px 5vw;
   }
+
   .card {
     max-width: 320px;
     gap: 10px;
   }
+
   .card:nth-of-type(3) {
     max-width: 665px;
   }
 }
 
-@media (width <= 738px) {
+@media (width < 756px) {
   .mainContainer {
     padding: 80px 5vw;
   }
+
   .card {
     max-width: 320px;
     gap: 10px;
+    height: 380px;
   }
+
   .card:nth-of-type(3) {
     max-width: 320px;
   }
@@ -133,9 +140,11 @@
   .title {
     font-size: 5vw;
   }
+
   .titleContainer {
     width: 50%;
   }
+
   .mainContainer {
     padding: 40px 20px;
   }
@@ -145,8 +154,14 @@
   .title {
     font-size: 5.5vw;
   }
+
   .titleContainer {
     width: 70%;
+  }
+
+  .card {
+    max-width: 320px;
+    height: 350px;
   }
 }
 
@@ -154,6 +169,7 @@
   .title {
     font-size: 6.68vw;
   }
+
   .titleContainer {
     width: 100%;
   }
