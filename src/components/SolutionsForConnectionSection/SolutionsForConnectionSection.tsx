@@ -49,7 +49,6 @@ const data: SolutionForConnectionCardProps[] = [
 const SolutionsForConnectionSection = () => {
   const [activeCard, setActiveCard] = useState<number>(1);
   const device = getDeviceType();
-  console.log(device);
   return (
     <>
       <div className={styles.mainContainer}>

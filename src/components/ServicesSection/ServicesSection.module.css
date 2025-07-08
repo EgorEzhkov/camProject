@@ -122,7 +122,7 @@
 
 @media (width < 756px) {
   .mainContainer {
-    padding: 80px 5vw;
+    padding: 60px 5vw;
   }
 
   .card {
@@ -144,10 +144,6 @@
   .titleContainer {
     width: 50%;
   }
-
-  .mainContainer {
-    padding: 40px 20px;
-  }
 }
 
 @media (width <= 620px) {
@@ -162,6 +158,12 @@
   .card {
     max-width: 320px;
     height: 350px;
+  }
+}
+
+@media (width <= 500px) {
+  .mainContainer {
+    padding: 40px 5vw;
   }
 }
 

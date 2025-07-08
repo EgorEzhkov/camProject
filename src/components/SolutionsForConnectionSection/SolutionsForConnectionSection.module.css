@@ -61,15 +61,12 @@
 }
 
 @media (width <= 1200px) {
-  .mainContainer {
-    padding: 80px 5vw;
-  }
-}
-
-@media (width <= 1200px) {
   .titleContainer {
     font-size: 3.5vw;
     width: 40%;
+  }
+  .mainContainer {
+    padding: 80px 5vw;
   }
 }
 
@@ -132,7 +129,9 @@
   .link {
     font-size: 16px;
   }
-
+  .mainContainer {
+    padding: 60px 5vw;
+  }
   .card:nth-of-type(1) {
     margin-left: 20px;
   }
@@ -212,6 +211,9 @@
 @media (width <= 500px) {
   .link {
     font-size: 14px;
+  }
+  .mainContainer {
+    padding: 40px 5vw;
   }
 }
 

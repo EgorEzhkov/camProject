@@ -56,6 +56,12 @@
   }
 }
 
+@media (width <= 768px) {
+  .mainContainer {
+    padding: 60px 5vw;
+  }
+}
+
 @media (width <= 720px) {
   .titleContainer {
     font-size: 5vw;

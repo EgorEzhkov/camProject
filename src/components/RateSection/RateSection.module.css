@@ -61,6 +61,12 @@
   }
 }
 
+@media (width <= 756px) {
+  .mainContainer {
+    padding: 60px 5vw;
+  }
+}
+
 @media (width <= 744px) {
   .card {
     max-width: unset;
@@ -78,6 +84,12 @@
 @media (width <= 620px) {
   .titleContainer {
     font-size: 5.5vw;
+  }
+}
+
+@media (width <= 500px) {
+  .mainContainer {
+    padding: 40px 5vw;
   }
 }
 

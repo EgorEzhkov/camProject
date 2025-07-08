@@ -43,8 +43,8 @@
   cursor: pointer;
 }
 
-.image {}
-
+.image {
+}
 
 @media (width <=1430px) {
   .titleContainer {
@@ -73,7 +73,6 @@
   }
 }
 
-
 @media (width <=1000px) {
   .titleContainer {
     font-size: 3.4vw;
@@ -82,6 +81,12 @@
 
   .listElement {
     font-size: 16px;
+  }
+}
+
+@media (width <= 768px) {
+  .mainContainer {
+    padding: 60px 5vw;
   }
 }
 
@@ -96,5 +101,11 @@
   .titleContainer {
     font-size: 5.5vw;
     width: 80%;
+  }
+}
+
+@media (width <= 500px) {
+  .mainContainer {
+    padding: 40px 5vw;
   }
 }
