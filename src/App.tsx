@@ -1,5 +1,5 @@
 import "./App.css";
-// import CompanyNewsSection from "./components/CompanyNewsSection/CompanyNewsSection";
+import CompanyNewsSection from "./components/CompanyNewsSection/CompanyNewsSection";
 import DownloadSection from "./components/DownloadSection/DownloadSection";
 // import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -16,8 +16,8 @@ function App() {
       <DownloadSection></DownloadSection>
       <RateSection></RateSection>
       <SolutionsForConnectionSection></SolutionsForConnectionSection>
-      {/* <CompanyNewsSection></CompanyNewsSection>
-      <Footer></Footer> */}
+      <CompanyNewsSection></CompanyNewsSection>
+      {/* <Footer></Footer> */}
     </>
   );
 }

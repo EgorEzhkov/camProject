@@ -29,7 +29,9 @@ const CompanyNewsSection = () => {
     <>
       <div className={styles.mainContainer}>
         <div className={styles.titleContainer}>
-          <Title color="black">Новости компании</Title>
+          <Title color="black" fontSize="1em">
+            Новости компании
+          </Title>
         </div>
         <div className={styles.listNews}>
           {date.map((el, index) => {

@@ -8,6 +8,7 @@
 }
 .titleContainer {
   margin-bottom: 50px;
+  font-size: 48px;
 }
 .listNews {
   display: flex;
@@ -30,4 +31,43 @@
   color: #4466fb;
 }
 .arrow {
+}
+
+@media (width < 1430px) {
+  .titleContainer {
+    font-size: 3.3vw;
+  }
+}
+
+@media (width <= 1200px) {
+  .mainContainer {
+    padding: 80px 5vw;
+  }
+
+  .titleContainer {
+    font-size: 3.5vw;
+    width: 40%;
+  }
+}
+
+@media (width <= 1000px) {
+  .titleContainer {
+    font-size: 3.4vw;
+  }
+}
+
+@media (width <= 720px) {
+  .titleContainer {
+    font-size: 5vw;
+    width: 60%;
+  }
+}
+
+@media (width <= 620px) {
+  .titleContainer {
+    font-size: 5.5vw;
+  }
+  .mainContainer {
+    padding: 40px 5vw;
+  }
 }
