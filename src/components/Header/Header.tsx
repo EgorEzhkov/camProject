@@ -9,7 +9,7 @@ import logo from "../../assets/images/logo.png";
 import joinIcon from "../../assets/images/joinIcon.svg";
 import phoneIcon from "../../assets/images/phoneIcon.svg";
 
-import { delay } from "../../utils/utils";
+import { delay, lockScroll, unlockScroll } from "../../utils/utils";
 import { buttonPropsDesctop, buttonPropsMobile } from "../../utils/constants";
 
 const Header = () => {
@@ -45,8 +45,11 @@ const Header = () => {
 
     document.addEventListener("mousedown", handleClickOutSide);
 
+    lockScroll();
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutSide);
+      unlockScroll();
     };
   }, [menuState, handleHeaderMenu]);
 
