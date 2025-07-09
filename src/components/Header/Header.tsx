@@ -54,7 +54,7 @@ const Header = () => {
 
       setTimeout(() => {
         document.body.style.transform = "";
-      }, 150);
+      }, 160);
     };
     // это убирает артефакт на iOS после анимации закрытия меню
   }, [menuState, handleHeaderMenu]);
