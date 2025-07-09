@@ -86,6 +86,9 @@
   .imgContainer {
     display: none;
   }
+  .header {
+    position: sticky;
+  }
   .ul {
     display: none;
     box-sizing: border-box;
