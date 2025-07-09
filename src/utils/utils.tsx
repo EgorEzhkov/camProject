@@ -14,18 +14,28 @@ export function getDeviceType() {
   }
 }
 
-export function lockScroll() {
+export function lockScroll(fixTop?: boolean) {
   const scrollY = window.scrollY;
-  document.body.style.position = "fixed";
-  document.body.style.top = `-${scrollY}px`;
-  document.body.style.width = "100%";
-  document.body.dataset.scrollY = `${scrollY}`;
+  const page = document.getElementById("root");
+  if (!page) return;
+
+  page.style.position = "fixed";
+  page.style.top = `-${fixTop ? 0 : scrollY}px`;
+  page.style.left = "0";
+  page.style.right = "0";
+  page.dataset.scrollY = `${scrollY}`;
 }
 
-export function unlockScroll() {
-  const scrollY = document.body.dataset.scrollY;
-  document.body.style.position = "";
-  document.body.style.top = "";
-  document.body.style.width = "";
-  window.scrollTo(0, parseInt(scrollY || "0"));
+export function unlockScroll(fixTop?: boolean) {
+  const page = document.getElementById("root");
+  if (!page) return;
+
+  const scrollY = page.dataset.scrollY || "0";
+
+  page.style.position = "";
+  page.style.top = "";
+  page.style.left = "";
+  page.style.right = "";
+
+  window.scrollTo(0, parseInt(fixTop ? "0" : scrollY));
 }
