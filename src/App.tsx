@@ -1,24 +1,18 @@
 import "./App.css";
-import CompanyNewsSection from "./components/CompanyNewsSection/CompanyNewsSection";
-import DownloadSection from "./components/DownloadSection/DownloadSection";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import RateSection from "./components/RateSection/RateSection";
-import ServicesSection from "./components/ServicesSection/ServicesSection";
-import SolutionsForConnectionSection from "./components/SolutionsForConnectionSection/SolutionsForConnectionSection";
-import WelcomeSection from "./components/WelcomeSection/WelcomeSection";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import NoPage from "./pages/NoPage/NoPage";
+
 function App() {
   return (
-    <>
-      <Header></Header>
-      <WelcomeSection></WelcomeSection>
-      <ServicesSection></ServicesSection>
-      <DownloadSection></DownloadSection>
-      <RateSection></RateSection>
-      <SolutionsForConnectionSection></SolutionsForConnectionSection>
-      <CompanyNewsSection></CompanyNewsSection>
-      <Footer></Footer>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/camProject" element={<HomePage />} />
+
+        <Route path="*" element={<NoPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
