@@ -2,7 +2,7 @@ import styles from "./Header.module.css";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { RemoveScrollBar } from "react-remove-scroll-bar";
+// import { RemoveScrollBar } from "react-remove-scroll-bar";
 
 import Button from "../../ui/Button/Button";
 import logo from "../../assets/images/logo.png";
@@ -16,6 +16,12 @@ const Header = () => {
   const [menuState, setMenuState] = useState<"closed" | "opening" | "closing">(
     "closed"
   );
+
+  // if (menuState !== "closed") {
+  //   lockScroll();
+  // } else {
+  //   unlockScroll();
+  // }
 
   const propsForButton =
     menuState !== "closed" ? buttonPropsMobile : buttonPropsDesctop;
@@ -45,11 +51,11 @@ const Header = () => {
 
     document.addEventListener("mousedown", handleClickOutSide);
 
-    lockScroll();
+    lockScroll(true);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutSide);
-      unlockScroll();
+      unlockScroll(true);
     };
   }, [menuState, handleHeaderMenu]);
 
@@ -83,7 +89,6 @@ const Header = () => {
           <img src={logo} alt="" />
         </div>
         <div className={styles.buttonsContainer}>
-          {menuState !== "closed" && <RemoveScrollBar />}
           <ul
             className={`${styles.ul} ${
               menuState === "opening"
