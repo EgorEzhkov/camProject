@@ -33,9 +33,7 @@ const Header = () => {
       setMenuState("opening");
     } else if (menuState === "opening") {
       setMenuState("closing");
-      await delay(280); // на анимацию тратится 300мс, поставил меньше,
-      // потому что так меньше лагов при анимации. Надо бы вообще это всё по-другому сделать,
-      // но пока так
+      await delay(300); // на анимацию тратится 300мс
       setMenuState("closed");
     }
   }, [menuState]);
@@ -56,6 +54,7 @@ const Header = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutSide);
       unlockScroll(true);
+      console.log("закрытие");
     };
   }, [menuState, handleHeaderMenu]);
 
