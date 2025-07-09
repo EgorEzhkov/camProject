@@ -17,12 +17,6 @@ const Header = () => {
     "closed"
   );
 
-  // if (menuState !== "closed") {
-  //   lockScroll();
-  // } else {
-  //   unlockScroll();
-  // }
-
   const propsForButton =
     menuState !== "closed" ? buttonPropsMobile : buttonPropsDesctop;
 
@@ -54,7 +48,12 @@ const Header = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutSide);
       unlockScroll(true);
-      console.log("закрытие");
+
+      document.body.style.transform = "translateZ(0)";
+
+      setTimeout(() => {
+        document.body.style.transform = "";
+      }, 100);
     };
   }, [menuState, handleHeaderMenu]);
 
