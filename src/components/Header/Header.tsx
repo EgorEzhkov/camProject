@@ -25,9 +25,11 @@ const Header = () => {
   const handleHeaderMenu = useCallback(async () => {
     if (menuState === "closed") {
       setMenuState("opening");
+      lockScroll(true);
     } else if (menuState === "opening") {
+      unlockScroll(true);
       setMenuState("closing");
-      await delay(300); // на анимацию тратится 300мс
+      await delay(450); // на анимацию тратится 300мс
       setMenuState("closed");
     }
   }, [menuState]);
@@ -40,14 +42,10 @@ const Header = () => {
         handleHeaderMenu();
       }
     };
-
     document.addEventListener("mousedown", handleClickOutSide);
-
-    lockScroll(true);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutSide);
-      unlockScroll(true);
 
       // это убирает артефакт на iOS после анимации закрытия меню
       document.body.style.transform = "translateZ(0)";

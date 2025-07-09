@@ -18,7 +18,6 @@ export function lockScroll(fixTop?: boolean) {
   const scrollY = window.scrollY;
   const page = document.getElementById("root");
   if (!page) return;
-
   page.style.position = "fixed";
   page.style.top = `-${fixTop ? 0 : scrollY}px`;
   page.style.left = "0";
@@ -29,8 +28,7 @@ export function lockScroll(fixTop?: boolean) {
 export function unlockScroll(fixTop?: boolean) {
   const page = document.getElementById("root");
   if (!page) return;
-
-  const scrollY = page.dataset.scrollY || "0";
+  const scrollY = fixTop ? "0" : page.dataset.scrollY || "0";
 
   page.style.position = "";
   page.style.top = "";

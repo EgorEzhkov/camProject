@@ -114,16 +114,16 @@
     background: rgba(16, 26, 51, 0.2); /* Полупрозрачный фон */
     backdrop-filter: blur(10px); /* Размытие фона под элементом */
     -webkit-backdrop-filter: blur(10px);
-    transition: 0.3s ease-in-out all;
+    transition: 0.5s ease-in-out all;
     left: 0;
   }
 
   .overlay.active {
-    animation: 0.3s activeOverlay;
+    animation: 0.5s activeOverlay;
   }
 
   .overlay.inactive {
-    animation: 0.3s inactiveOverlay;
+    animation: 0.5s inactiveOverlay;
   }
 
   .header {
@@ -142,12 +142,12 @@
 
   .ul.active {
     display: flex;
-    animation: active 0.3s;
+    animation: active 0.5s;
   }
 
   .ul.inactive {
     display: flex;
-    animation: inactive 0.3s;
+    animation: inactive 0.5s;
   }
 
   .li {
