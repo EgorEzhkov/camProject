@@ -49,12 +49,14 @@ const Header = () => {
       document.removeEventListener("mousedown", handleClickOutSide);
       unlockScroll(true);
 
+      // это убирает артефакт на iOS после анимации закрытия меню
       document.body.style.transform = "translateZ(0)";
 
       setTimeout(() => {
         document.body.style.transform = "";
-      }, 100);
+      }, 150);
     };
+    // это убирает артефакт на iOS после анимации закрытия меню
   }, [menuState, handleHeaderMenu]);
 
   return (
