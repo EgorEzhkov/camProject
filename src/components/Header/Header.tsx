@@ -1,8 +1,6 @@
 import styles from "./Header.module.css";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-
-// import { RemoveScrollBar } from "react-remove-scroll-bar";
+import { useCallback, useEffect, useRef, useState, type FC } from "react";
 
 import Button from "../../ui/Button/Button";
 import logo from "../../assets/images/logo.png";
@@ -10,12 +8,19 @@ import joinIcon from "../../assets/images/joinIcon.svg";
 import phoneIcon from "../../assets/images/phoneIcon.svg";
 
 import { delay, lockScroll, unlockScroll } from "../../utils/utils";
-import { buttonPropsDesctop, buttonPropsMobile } from "../../utils/constants";
+import {
+  buttonPropsDesctop,
+  buttonPropsMobile,
+  textButtonForHeader,
+} from "../../utils/constants";
+import { Link, useLocation } from "react-router-dom";
 
-const Header = () => {
+const Header: FC = () => {
   const [menuState, setMenuState] = useState<"closed" | "opening" | "closing">(
     "closed"
   );
+
+  const location = useLocation();
 
   const propsForButton =
     menuState !== "closed" ? buttonPropsMobile : buttonPropsDesctop;
@@ -59,7 +64,7 @@ const Header = () => {
 
   return (
     <>
-      <header className={styles.header}>
+      <header className={styles.header} style={{}}>
         {menuState === "closing" || menuState === "opening" ? (
           <div
             className={`${styles.overlay} ${
@@ -83,9 +88,9 @@ const Header = () => {
           <span className={menuState === "opening" ? styles.active : ""}></span>
         </div>
 
-        <div className={styles.imgContainer}>
-          <img src={logo} alt="" />
-        </div>
+        <Link className={styles.imgContainer} to={"/"}>
+          <img src={logo} alt="" className={styles.logo} />
+        </Link>
         <div className={styles.buttonsContainer}>
           <ul
             className={`${styles.ul} ${
@@ -98,15 +103,24 @@ const Header = () => {
             ref={ulRef}
           >
             <div className={styles.list}>
-              {["Готовые решения", "Тарифы", "Новости", "Контакты"].map(
-                (el) => {
-                  return (
-                    <li className={styles.li} key={el}>
-                      <Button {...propsForButton}>{el}</Button>
+              {textButtonForHeader.map((el) => {
+                return (
+                  <Link key={el.text} to={el.path} className={styles.link}>
+                    <li className={styles.li}>
+                      <Button
+                        {...propsForButton}
+                        color={
+                          location.pathname.includes("solutionForConnection")
+                            ? "black"
+                            : "white"
+                        }
+                      >
+                        {el.text}
+                      </Button>
                     </li>
-                  );
-                }
-              )}
+                  </Link>
+                );
+              })}
             </div>
             {menuState !== "closed" && (
               <div className={styles.phoneNumberAndIconContainer}>
@@ -123,6 +137,11 @@ const Header = () => {
               border={true}
               borderColor="purple"
               padding="7px 30px"
+              color={
+                location.pathname.includes("solutionForConnection")
+                  ? "black"
+                  : "white"
+              }
             >
               Войти
             </Button>

@@ -1,18 +1,28 @@
 import "./App.css";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import NoPage from "./pages/NoPage/NoPage";
+import SolutionsForConnectionPage from "./pages/SolutionsForConnectionPage/SolutionsForConnectionPage";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
+      <Header />
       <Routes>
-        <Route path="/camProject" element={<HomePage />} />
-
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/solutionForConnection"
+          element={<SolutionsForConnectionPage />}
+        />
         <Route path="*" element={<NoPage />} />
       </Routes>
-    </BrowserRouter>
+      <Footer />
+
+      <Routes></Routes>
+    </HashRouter>
   );
 }
 
