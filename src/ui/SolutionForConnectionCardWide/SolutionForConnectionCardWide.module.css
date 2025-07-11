@@ -38,6 +38,7 @@
   object-fit: contain;
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 10px;
+  opacity: 0.5;
 }
 
 .linkQuality {
