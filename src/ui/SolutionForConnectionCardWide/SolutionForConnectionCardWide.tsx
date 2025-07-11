@@ -1,34 +1,15 @@
-import { startTransition, type FC } from "react";
+import { type FC } from "react";
 import styles from "./SolutionForConnectionCardWide.module.css";
-
-interface CharacteristicsForCardWide {
-  Модель: string;
-  Разрешение: string;
-  Чипсет: string;
-  Разрешение2: string;
-  "ИК подсветка": string;
-  Материал: string;
-  Питание: string;
-  Влагозащищенность: string;
-  Гарантия: string;
-  Тип: string;
-  Технология: string;
-}
-
-interface SolutionForConnectionCardWideProps {
-  images: { mainImage: string; smallImages: string[] };
-  title: string;
-  characteristics: CharacteristicsForCardWide[];
-  description: string;
-  linkQuality: string;
-}
+import type { SolutionForConnectionCardWideProps } from "../../utils/types";
+import Button from "../Button/Button";
 
 const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
   images,
   title,
   characteristics,
   description,
-  linkQuality,
+  linkQualityText,
+  linkQualityLink,
 }) => {
   return (
     <div className={styles.card}>
@@ -41,15 +22,20 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
               className={styles.mainImage}
             />
           </div>
-          {images.smallImages.map((el) => {
-            return (
-              <div className={styles.smallImagesContainer}>
-                <img src={el} alt="image" className={styles.smallImage} />
-              </div>
-            );
-          })}
-          <a href="" className={styles.linkQuality}>
-            {linkQuality}
+          <div className={styles.smallImagesContainer}>
+            {images.smallImages.map((el, index) => {
+              return (
+                <img
+                  src={el}
+                  alt="image"
+                  className={styles.smallImage}
+                  key={index}
+                />
+              );
+            })}
+          </div>
+          <a href={linkQualityLink} className={styles.linkQuality}>
+            {linkQualityText}
           </a>
         </div>
         <div className={styles.textContainer}>
@@ -58,19 +44,38 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
             <div className={styles.characteristics}>
               <h3 className={styles.characteristicsTitle}>Характеристики:</h3>
               <ul className={styles.characteristicsList}>
-                {characteristics.map((el) => {
-                  return (
-                    <p>
-                      <span>Влагозащищенность</span> {el.Влагозащищенность}
-                    </p>
-                  );
-                })}
-                <li className={styles.characteristicsElement}></li>
+                {characteristics.map((item) =>
+                  Object.entries(item).map(([key, value], index) => {
+                    return (
+                      <li className={styles.characteristicsElement} key={index}>
+                        <p className={styles.characteristicsElementText}>
+                          <span className={styles.characteristicsElementTitle}>
+                            {key}:
+                          </span>
+                          {` ${value}`}
+                        </p>
+                      </li>
+                    );
+                  })
+                )}
               </ul>
             </div>
-            <div className={styles.description}>
-              <h3 className={styles.descriptionTitle}> Описание:</h3>
+            <div className={styles.descriptionContainer}>
+              <h3 className={styles.descriptionTitle}>Описание:</h3>
+              <p className={styles.description}>{description}</p>
             </div>
+          </div>
+          <div className={styles.buttonContainer}>
+            <Button
+              fontFamily="Montserrat"
+              fontWeight="Bold"
+              fontSize={18}
+              backgroundColor={true}
+              maxWidth="148px"
+              padding="15px 40px"
+            >
+              Купить
+            </Button>
           </div>
         </div>
       </div>
