@@ -20,8 +20,6 @@ function App() {
         <Route path="*" element={<NoPage />} />
       </Routes>
       <Footer />
-
-      <Routes></Routes>
     </HashRouter>
   );
 }
