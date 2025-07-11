@@ -29,3 +29,10 @@ export const textForWelcomeSection = {
     desc: "Доступ из любого места и в любое время ко всем камерам видеонаблюдени в два щелчка",
   },
 };
+
+export const textButtonForHeader: { text: string; path: string }[] = [
+  { text: "Готовые решения", path: "/solutionForConnection" },
+  { text: "Тарифы", path: "unknow" },
+  { text: "Новости", path: "/unknow" },
+  { text: "Контакты", path: "/unknow" },
+];

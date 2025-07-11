@@ -1,0 +1,9 @@
+.mainContiner {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 181px 200px;
+}
+.titleContainer {
+  font-size: 48px;
+}

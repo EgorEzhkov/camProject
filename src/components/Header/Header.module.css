@@ -53,6 +53,11 @@
   display: flex;
   justify-content: center;
   margin-right: auto;
+  width: 65px;
+}
+
+.logo {
+  width: 100%;
 }
 
 .buttonJoinContainer {
@@ -61,6 +66,10 @@
   margin-left: 75px;
   transition: 0.2s ease-out all;
   align-items: center;
+}
+
+.link {
+  text-decoration: none;
 }
 
 @media (hover: hover) {
