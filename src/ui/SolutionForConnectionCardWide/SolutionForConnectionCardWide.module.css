@@ -1,0 +1,85 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 10px 0 0;
+}
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+}
+.imagesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 435px;
+}
+.mainImageContainter {
+  width: 100%;
+}
+.mainImage {
+  object-fit: contain;
+  width: 100%;
+}
+.smallImagesContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.smallImage {
+  max-width: 79px;
+  width: 100%;
+}
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.subTitle {
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 140%;
+}
+.descriptionAndCharacteristicsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+}
+.characteristics {
+  max-width: 269px;
+  width: 100%;
+}
+
+.characteristicsTitle {
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.characteristicsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.characteristicsElement {
+  font-size: 14px;
+}
+
+.description {
+  max-width: 373px;
+  width: 100%;
+}
+
+.descriptionTitle {
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+}
