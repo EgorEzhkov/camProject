@@ -1,0 +1,33 @@
+.mainContiner {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 181px 200px;
+}
+.titleContainer {
+  font-size: 48px;
+  margin-bottom: 50px;
+}
+.cardList {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.cardElement {
+  box-sizing: border-box;
+}
+
+.border {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  margin-bottom: 25px;
+}
+
+.cardElement:nth-of-type(1) .border {
+  max-width: 674px;
+  width: 100%;
+  justify-self: end;
+}

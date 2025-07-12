@@ -1,0 +1,141 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 10px 0 0;
+  color: black;
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+}
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.imagesContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 435px;
+}
+.mainImageContainter {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.mainImage {
+  object-fit: contain;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+.smallImagesContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.smallImage {
+  max-width: 79px;
+  width: 100%;
+  object-fit: contain;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  opacity: 0.5;
+}
+
+.linkQuality {
+  text-align: start;
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  line-height: 110%;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.linkQuality:link {
+  color: #4466fb;
+}
+
+.linkQuality:visited {
+  color: #5c17cd;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.subTitle {
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 140%;
+  margin: 0;
+}
+.descriptionAndCharacteristicsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+}
+.characteristics {
+  max-width: 269px;
+  width: 100%;
+  text-align: start;
+}
+
+.characteristicsTitle {
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  margin: 0 0 8px 0;
+}
+
+.characteristicsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: start;
+}
+.characteristicsElement {
+  font-size: 14px;
+}
+
+.characteristicsElementText {
+  margin: 0;
+  font-weight: 400;
+  line-height: 110%;
+  color: #282828;
+}
+.characteristicsElementTitle {
+  font-weight: 500;
+  color: #282828;
+  opacity: 0.7;
+  line-height: 110%;
+}
+
+.descriptionContainer {
+  max-width: 373px;
+  width: 100%;
+  text-align: start;
+}
+.description {
+  margin: 0;
+  color: #282828;
+  opacity: 0.7;
+  line-height: 130%;
+  font-weight: 400;
+}
+.descriptionTitle {
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  margin: 0 0 8px 0;
+}
+
+.buttonContainer {
+  align-self: flex-end;
+  margin-top: 5px;
+}
