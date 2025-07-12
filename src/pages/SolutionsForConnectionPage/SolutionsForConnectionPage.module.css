@@ -31,3 +31,25 @@
   width: 100%;
   justify-self: end;
 }
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  margin-top: 30px;
+}
+
+.textButtonPage {
+  color: black;
+  margin: 0 10px;
+  align-self: center;
+}
+
+.arrowButton {
+  cursor: pointer;
+}
+
+.arrowButtonDisabled {
+  opacity: 0.4;
+  cursor: default;
+}
