@@ -1,18 +1,22 @@
-export const buttonPropsDesctop = {
+import type { PropsForButton } from "../ui/Button/Button";
+
+export const buttonPropsDesctop: PropsForButton = {
   fontFamily: "Montserrat",
   fontWeight: "Regular",
   fontSize: 16,
   backgroundColor: false,
   padding: "7px 20px",
+  textWrap: "nowrap",
 } as const;
 
-export const buttonPropsMobile = {
+export const buttonPropsMobile: PropsForButton = {
   fontFamily: "Montserrat",
   fontWeight: "ExtraBold",
   fontSize: "1em",
   backgroundColor: false,
   padding: "0",
   color: "black",
+  textWrap: "nowrap",
 } as const;
 
 export const textForWelcomeSection = {

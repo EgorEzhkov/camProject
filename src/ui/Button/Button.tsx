@@ -1,6 +1,6 @@
 import type { FC } from "react";
 
-interface Props {
+export interface PropsForButton {
   children?: React.ReactNode;
   border?: boolean;
   fontFamily: "Montserrat" | "Play";
@@ -17,9 +17,10 @@ interface Props {
   maxWidth?: string;
   disabled?: boolean;
   activeLink?: boolean;
+  textWrap?: "wrap" | "nowrap";
 }
 
-const Button: FC<Props> = ({
+const Button: FC<PropsForButton> = ({
   children,
   border = false,
   fontFamily = "Montserrat",
@@ -36,6 +37,7 @@ const Button: FC<Props> = ({
   maxWidth,
   disabled = false,
   activeLink = false,
+  textWrap = "wrap",
 }) => {
   const styleButton = {
     fontFamily,
@@ -62,6 +64,7 @@ const Button: FC<Props> = ({
     transition: ".3s ease-in-out all",
     height: "fit-content",
     maxWidth: maxWidth,
+    textWrap: textWrap,
   } as const;
 
   return (

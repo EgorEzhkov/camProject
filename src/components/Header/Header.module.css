@@ -53,7 +53,7 @@
   display: flex;
   justify-content: center;
   margin-right: auto;
-  width: 65px;
+  min-width: 55px;
 }
 
 .logo {
@@ -92,6 +92,12 @@
 @media (width <= 1200px) {
   .header {
     padding: 0 5vw;
+  }
+}
+
+@media (width <= 870px) {
+  .buttonJoinContainer {
+    margin-left: 5vw;
   }
 }
 
