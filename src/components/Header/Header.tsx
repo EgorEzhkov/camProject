@@ -105,15 +105,24 @@ const Header: FC = () => {
             <div className={styles.list}>
               {textButtonForHeader.map((el) => {
                 return (
-                  <Link key={el.text} to={el.path} className={styles.link}>
+                  <Link
+                    key={el.text}
+                    to={el.path}
+                    className={`${styles.link} ${
+                      location.pathname.includes(el.path)
+                        ? styles.linkActive
+                        : ""
+                    }`}
+                  >
                     <li className={styles.li}>
                       <Button
                         {...propsForButton}
                         color={
                           location.pathname.includes("solutionForConnection")
-                            ? "black"
+                            ? "#333333"
                             : "white"
                         }
+                        activeLink={location.pathname.includes(el.path)}
                       >
                         {el.text}
                       </Button>

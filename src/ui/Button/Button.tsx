@@ -16,6 +16,7 @@ interface Props {
   width?: string;
   maxWidth?: string;
   disabled?: boolean;
+  activeLink?: boolean;
 }
 
 const Button: FC<Props> = ({
@@ -34,20 +35,22 @@ const Button: FC<Props> = ({
   width,
   maxWidth,
   disabled = false,
+  activeLink = false,
 }) => {
   const styleButton = {
     fontFamily,
-    fontWeight:
-      fontWeight === "Bold"
-        ? 700
-        : fontWeight === "Medium"
-        ? 500
-        : fontWeight === "Regular"
-        ? 400
-        : 800, // extrabold
+    fontWeight: activeLink
+      ? 500
+      : fontWeight === "Bold"
+      ? 700
+      : fontWeight === "Medium"
+      ? 500
+      : fontWeight === "Regular"
+      ? 400
+      : 800, // extrabold
     fontSize,
     backgroundColor: backgroundColor ? "#007bff" : "transparent",
-    color: color,
+    color: activeLink ? "#5C17CD" : color,
     border: border ? "1px solid" : "none",
     borderColor: borderColor === "blue" ? "#386DF4" : "#5C17CD",
     padding: padding,

@@ -32,7 +32,7 @@ export const textForWelcomeSection = {
 
 export const textButtonForHeader: { text: string; path: string }[] = [
   { text: "Готовые решения", path: "/solutionForConnection" },
-  { text: "Тарифы", path: "unknow" },
+  { text: "Тарифы", path: "/unknow" },
   { text: "Новости", path: "/unknow" },
   { text: "Контакты", path: "/unknow" },
 ];
