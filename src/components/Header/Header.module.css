@@ -72,6 +72,10 @@
   text-decoration: none;
 }
 
+.linkActive {
+  color: #3955d1;
+}
+
 @media (hover: hover) {
   .buttonJoinContainer:hover {
     box-shadow: 0px 0px 17px 4px rgba(0, 0, 0, 0.2);
