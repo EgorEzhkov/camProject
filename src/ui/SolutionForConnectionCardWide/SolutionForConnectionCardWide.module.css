@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: 30px;
 }
 .imagesContainer {
   display: flex;
@@ -27,14 +28,13 @@
   border-radius: 10px;
 }
 .smallImagesContainer {
-  width: 100%;
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 .smallImage {
   max-width: 79px;
-  width: 100%;
+  height: 68px;
   object-fit: cover;
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 10px;
@@ -101,6 +101,7 @@
   flex-direction: column;
   gap: 5px;
   text-align: start;
+  min-width: 194px;
 }
 .characteristicsElement {
   font-size: 14px;
@@ -131,6 +132,7 @@
   line-height: 130%;
   font-weight: 400;
   max-width: 370px;
+  min-width: 157px;
 }
 .descriptionTitle {
   font-family: "MontSerrat", "Courier New", Courier, monospace;
@@ -143,4 +145,69 @@
 .buttonContainer {
   align-self: flex-end;
   margin-top: 5px;
+}
+
+@media (width <= 897px) {
+  .imagesContainer {
+    max-width: 350px;
+  }
+  .smallImage:nth-of-type(5) {
+    display: none;
+  }
+
+  .smallImagesContainer {
+    justify-content: space-between;
+  }
+}
+
+@media (width <= 803px) {
+  .characteristics {
+    max-width: 100%;
+    height: 320px;
+  }
+
+  .buttonContainer {
+    width: 100%;
+  }
+  .descriptionAndCharacteristicsContainer {
+    gap: 0;
+    width: 100%;
+  }
+
+  .descriptionContainer {
+    display: none;
+  }
+  .characteristicsTitle {
+    font-size: 12px;
+    color: #4466fb;
+    justify-self: center;
+    text-align: center;
+    width: 50%;
+    border-bottom: solid 1px #4466fb;
+    padding-bottom: 3px;
+    transition: 0.3s ease-in-out all;
+    margin: 0;
+  }
+
+  .descriptionTitle {
+    font-size: 12px;
+    color: #4466fb;
+    justify-self: center;
+    text-align: center;
+    width: 50%;
+    border-bottom: solid 1px #4466fb;
+    padding-bottom: 3px;
+    transition: 0.3s ease-in-out all;
+    margin: 0;
+  }
+  .titlesContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 12px;
+  }
+  .titleDisabled {
+    opacity: 0.5;
+  }
 }
