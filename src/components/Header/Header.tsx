@@ -120,6 +120,8 @@ const Header: FC = () => {
                         color={
                           location.pathname.includes("solutionForConnection")
                             ? "#333333"
+                            : menuState !== "closed"
+                            ? "#333333"
                             : "white"
                         }
                         activeLink={location.pathname.includes(el.path)}
