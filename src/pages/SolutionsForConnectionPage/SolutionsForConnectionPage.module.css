@@ -53,3 +53,9 @@
   opacity: 0.4;
   cursor: default;
 }
+
+@media (width <= 1200px) {
+  .mainContiner {
+    padding: 160px 5vw;
+  }
+}

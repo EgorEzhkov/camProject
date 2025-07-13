@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: 30px;
 }
 .imagesContainer {
   display: flex;
@@ -27,14 +28,12 @@
   border-radius: 10px;
 }
 .smallImagesContainer {
-  width: 100%;
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 .smallImage {
   max-width: 79px;
-  width: 100%;
   object-fit: cover;
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 10px;
@@ -101,6 +100,7 @@
   flex-direction: column;
   gap: 5px;
   text-align: start;
+  min-width: 194px;
 }
 .characteristicsElement {
   font-size: 14px;
@@ -143,4 +143,17 @@
 .buttonContainer {
   align-self: flex-end;
   margin-top: 5px;
+}
+
+@media (width <= 878px) {
+  .imagesContainer {
+    max-width: 350px;
+  }
+  .smallImage:nth-of-type(5) {
+    display: none;
+  }
+
+  .smallImagesContainer {
+    justify-content: space-between;
+  }
 }
