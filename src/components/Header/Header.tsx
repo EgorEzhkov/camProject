@@ -106,6 +106,9 @@ const Header: FC = () => {
               {textButtonForHeader.map((el) => {
                 return (
                   <Link
+                    onClick={() =>
+                      menuState !== "closed" ? handleHeaderMenu() : null
+                    } // НУЖНО ДОВЕСТИ ДО УМА
                     key={el.text}
                     to={el.path}
                     className={`${styles.link} ${
