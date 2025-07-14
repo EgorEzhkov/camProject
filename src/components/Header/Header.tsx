@@ -74,110 +74,106 @@ const Header: FC = () => {
   }, [menuState, handleHeaderMenu]);
 
   return (
-    <>
-      <header className={styles.header} style={{}}>
-        {menuState === "closing" || menuState === "opening" ? (
-          <div
-            className={`${styles.overlay} ${
-              menuState === "opening"
-                ? styles.active
-                : menuState === "closing"
-                ? styles.inactive
-                : ""
-            }`}
-          ></div>
-        ) : null}
+    <header className={styles.header} style={{}}>
+      {menuState === "closing" || menuState === "opening" ? (
         <div
-          className={`${styles.navIcon} ${
-            menuState === "opening" ? styles.active : ""
+          className={`${styles.overlay} ${
+            menuState === "opening"
+              ? styles.active
+              : menuState === "closing"
+              ? styles.inactive
+              : ""
           }`}
-          onClick={handleHeaderMenu}
-        >
-          <span className={menuState === "opening" ? styles.active : ""}></span>
-          <span className={menuState === "opening" ? styles.active : ""}></span>
-          <span className={menuState === "opening" ? styles.active : ""}></span>
-          <span className={menuState === "opening" ? styles.active : ""}></span>
-        </div>
+        ></div>
+      ) : null}
+      <div
+        className={`${styles.navIcon} ${
+          menuState === "opening" ? styles.active : ""
+        }`}
+        onClick={handleHeaderMenu}
+      >
+        <span className={menuState === "opening" ? styles.active : ""}></span>
+        <span className={menuState === "opening" ? styles.active : ""}></span>
+        <span className={menuState === "opening" ? styles.active : ""}></span>
+        <span className={menuState === "opening" ? styles.active : ""}></span>
+      </div>
 
-        <Link className={styles.imgContainer} to={"/"}>
-          <img src={logo} alt="" className={styles.logo} />
-        </Link>
-        <div className={styles.buttonsContainer}>
-          <ul
-            className={`${styles.ul} ${
-              menuState === "opening"
-                ? styles.active
-                : menuState === "closing"
-                ? styles.inactive
-                : ""
-            }`}
-            ref={ulRef}
-          >
-            <div className={styles.list}>
-              {textButtonForHeader.map((el) => {
-                return (
-                  <div
-                    onClick={() => {
-                      handleClickLink(el.path);
-                      return menuState !== "closed" ? handleHeaderMenu() : null;
-                    }} // НУЖНО ДОВЕСТИ ДО УМА
-                    key={el.text}
-                    className={`${styles.link} ${
-                      location.pathname.includes(el.path)
-                        ? styles.linkActive
-                        : ""
-                    }`}
-                  >
-                    <li className={styles.li}>
-                      <Button
-                        {...propsForButton}
-                        color={
-                          location.pathname.includes("solutionForConnection")
-                            ? "#333333"
-                            : menuState !== "closed"
-                            ? "#333333"
-                            : "white"
-                        }
-                        activeLink={location.pathname.includes(el.path)}
-                        disabled={location.pathname === el.path}
-                      >
-                        {el.text}
-                      </Button>
-                    </li>
-                  </div>
-                );
-              })}
-            </div>
-            {menuState !== "closed" && (
-              <div className={styles.phoneNumberAndIconContainer}>
-                <a href="tel:+74732573191" className={styles.phoneNumber}>
-                  +7 (473) 257-31-91
-                </a>
-                <img src={phoneIcon} alt="phoneicon" />
-              </div>
-            )}
-          </ul>
-          <div className={styles.buttonJoinContainer}>
-            <Button
-              {...buttonPropsDesctop}
-              border={true}
-              borderColor="purple"
-              padding="7px 30px"
-              color={
-                location.pathname.includes("solutionForConnection")
-                  ? "black"
-                  : "white"
-              }
-            >
-              Войти
-            </Button>
+      <Link className={styles.imgContainer} to={"/"}>
+        <img src={logo} alt="" className={styles.logo} />
+      </Link>
+      <div className={styles.buttonsContainer}>
+        <ul
+          className={`${styles.ul} ${
+            menuState === "opening"
+              ? styles.active
+              : menuState === "closing"
+              ? styles.inactive
+              : ""
+          }`}
+          ref={ulRef}
+        >
+          <div className={styles.list}>
+            {textButtonForHeader.map((el) => {
+              return (
+                <div
+                  onClick={() => {
+                    handleClickLink(el.path);
+                    return menuState !== "closed" ? handleHeaderMenu() : null;
+                  }} // НУЖНО ДОВЕСТИ ДО УМА
+                  key={el.text}
+                  className={`${styles.link} ${
+                    location.pathname.includes(el.path) ? styles.linkActive : ""
+                  }`}
+                >
+                  <li className={styles.li}>
+                    <Button
+                      {...propsForButton}
+                      color={
+                        location.pathname.includes("solutionForConnection")
+                          ? "#333333"
+                          : menuState !== "closed"
+                          ? "#333333"
+                          : "white"
+                      }
+                      activeLink={location.pathname.includes(el.path)}
+                      disabled={location.pathname === el.path}
+                    >
+                      {el.text}
+                    </Button>
+                  </li>
+                </div>
+              );
+            })}
           </div>
+          {menuState !== "closed" && (
+            <div className={styles.phoneNumberAndIconContainer}>
+              <a href="tel:+74732573191" className={styles.phoneNumber}>
+                +7 (473) 257-31-91
+              </a>
+              <img src={phoneIcon} alt="phoneicon" />
+            </div>
+          )}
+        </ul>
+        <div className={styles.buttonJoinContainer}>
+          <Button
+            {...buttonPropsDesctop}
+            border={true}
+            borderColor="purple"
+            padding="7px 30px"
+            color={
+              location.pathname.includes("solutionForConnection")
+                ? "black"
+                : "white"
+            }
+          >
+            Войти
+          </Button>
         </div>
-        <div className={styles.joinIconContainer}>
-          <img src={joinIcon} alt="joinIcon" />
-        </div>
-      </header>
-    </>
+      </div>
+      <div className={styles.joinIconContainer}>
+        <img src={joinIcon} alt="joinIcon" />
+      </div>
+    </header>
   );
 };
 

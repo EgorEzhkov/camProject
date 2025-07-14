@@ -26,31 +26,29 @@ const date: NewsCardProps[] = [
 
 const CompanyNewsSection = () => {
   return (
-    <>
-      <div className={styles.mainContainer}>
-        <div className={styles.titleContainer}>
-          <Title color="black" fontSize="1em">
-            Новости компании
-          </Title>
-        </div>
-        <div className={styles.listNews}>
-          {date.map((el, index) => {
-            return (
-              <NewsCard
-                key={index}
-                subTitle={el.subTitle}
-                description={el.description}
-                date={el.date}
-              ></NewsCard>
-            );
-          })}
-        </div>
-        <div className={styles.linkContainer}>
-          <p className={styles.linkText}>Посмотреть всё</p>
-          <img src={arrow} alt="arrow" className={styles.arrow} />
-        </div>
+    <section className={styles.mainCompanyNewsSectionContainer}>
+      <div className={styles.titleContainer}>
+        <Title color="black" fontSize="1em">
+          Новости компании
+        </Title>
       </div>
-    </>
+      <div className={styles.listNews}>
+        {date.map((el, index) => {
+          return (
+            <NewsCard
+              key={index}
+              subTitle={el.subTitle}
+              description={el.description}
+              date={el.date}
+            ></NewsCard>
+          );
+        })}
+      </div>
+      <div className={styles.linkContainer}>
+        <p className={styles.linkText}>Посмотреть всё</p>
+        <img src={arrow} alt="arrow" className={styles.arrow} />
+      </div>
+    </section>
   );
 };
 

@@ -1,9 +1,12 @@
-.mainContainer {
+.mainSolutionsForConnectionSectionContainer {
   box-sizing: border-box;
   display: flex;
-  padding: 120px 190px 90px;
+  padding: 120px 200px 90px;
   color: rgba(0, 0, 0, 0.733);
   flex-direction: column;
+  max-width: 1600px;
+  justify-self: center;
+  width: 100%;
 }
 .titleContainer {
   font-size: 48px;
@@ -46,6 +49,7 @@
   font-weight: 500;
   line-height: 110%;
   color: #4466fb;
+  text-decoration: none;
 }
 .linkSvg {
 }
@@ -65,7 +69,7 @@
     font-size: 3.5vw;
     width: 40%;
   }
-  .mainContainer {
+  .mainSolutionsForConnectionSectionContainer {
     padding: 80px 5vw;
   }
 }
@@ -78,7 +82,7 @@
     min-width: 370px;
     transition: 0.3s ease-in-out all;
   }
-  .mainContainer {
+  .mainSolutionsForConnectionSectionContainer {
     overflow: hidden;
   }
 
@@ -129,7 +133,7 @@
   .link {
     font-size: 16px;
   }
-  .mainContainer {
+  .mainSolutionsForConnectionSectionContainer {
     padding: 60px 5vw;
   }
   .card:nth-of-type(1) {
@@ -209,7 +213,7 @@
 }
 
 @media (width <= 500px) {
-  .mainContainer {
+  .mainSolutionsForConnectionSectionContainer {
     padding: 40px 5vw;
   }
 }

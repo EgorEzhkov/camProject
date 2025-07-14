@@ -1,9 +1,12 @@
-.mainContainer {
-  padding: 130px 205px;
+.mainServicesSectionContainer {
+  padding: 130px 200px;
   background-color: white;
   display: flex;
   flex-direction: column;
   color: #282828;
+  max-width: 1600px;
+  justify-self: center;
+  box-sizing: border-box;
 }
 
 .titleContainer {
@@ -78,7 +81,7 @@
 }
 
 @media (width <= 1200px) {
-  .mainContainer {
+  .mainServicesSectionContainer {
     padding: 80px 5vw;
   }
 
@@ -106,7 +109,7 @@
 }
 
 @media (width <= 822px) {
-  .mainContainer {
+  .mainServicesSectionContainer {
     padding: 80px 5vw;
   }
 
@@ -121,7 +124,7 @@
 }
 
 @media (width < 756px) {
-  .mainContainer {
+  .mainServicesSectionContainer {
     padding: 60px 5vw;
   }
 
@@ -142,7 +145,7 @@
   }
 
   .titleContainer {
-    width: 50%;
+    width: 60%;
   }
 }
 
@@ -162,7 +165,7 @@
 }
 
 @media (width <= 500px) {
-  .mainContainer {
+  .mainServicesSectionContainer {
     padding: 40px 5vw;
   }
 }

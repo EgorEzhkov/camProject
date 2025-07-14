@@ -36,7 +36,7 @@ const SolutionsForConnectionPage = () => {
   };
 
   return (
-    <div className={styles.mainContiner}>
+    <main className={styles.mainSolutionsForConnectionPageContiner}>
       <div className={styles.titleContainer}>
         <Title fontSize="1em" color="black">
           Готовые решения для подключения
@@ -80,7 +80,7 @@ const SolutionsForConnectionPage = () => {
           onClick={() => handleClick(currentPage + 1)}
         />
       </div>
-    </div>
+    </main>
   );
 };
 

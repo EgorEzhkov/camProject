@@ -1,8 +1,11 @@
-.mainContiner {
+.mainSolutionsForConnectionPageContiner {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   padding: 181px 200px;
+  max-width: 1600px;
+  width: 100%;
+  justify-self: center;
 }
 .titleContainer {
   font-size: 48px;
@@ -55,7 +58,7 @@
 }
 
 @media (width <= 1200px) {
-  .mainContiner {
+  .mainSolutionsForConnectionPageContiner {
     padding: 160px 5vw;
   }
 }

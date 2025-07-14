@@ -1,6 +1,10 @@
-.mainContainer {
+.mainRateSectionContainer {
   padding: 120px 200px;
+  max-width: 1600px;
+  justify-self: center;
   background-image: url("../../assets/images/backgroundImageForRateSection.png");
+  box-sizing: border-box;
+  width: 100%;
 }
 .titleContainer {
 }
@@ -39,7 +43,7 @@
 }
 
 @media (width <= 1200px) {
-  .mainContainer {
+  .mainRateSectionContainer {
     padding: 80px 5vw;
   }
 
@@ -62,7 +66,7 @@
 }
 
 @media (width <= 756px) {
-  .mainContainer {
+  .mainRateSectionContainer {
     padding: 60px 5vw;
   }
 }
@@ -88,7 +92,7 @@
 }
 
 @media (width <= 500px) {
-  .mainContainer {
+  .mainRateSectionContainer {
     padding: 40px 5vw;
   }
 }

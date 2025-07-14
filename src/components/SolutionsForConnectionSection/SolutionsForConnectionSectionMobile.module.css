@@ -1,4 +1,4 @@
-.mainContainer {
+.mainSolutionsForConnectionSectionContainer {
   box-sizing: border-box;
   display: flex;
   padding: 120px 190px 90px;
@@ -29,6 +29,7 @@
   font-weight: 500;
   line-height: 110%;
   color: #4466fb;
+  text-decoration: none;
 }
 .linkSvg {
 }
@@ -44,7 +45,7 @@
 }
 
 @media (width <= 1200px) {
-  .mainContainer {
+  .mainSolutionsForConnectionSectionContainer {
     padding: 80px 5vw;
   }
 }
@@ -64,7 +65,7 @@
     min-width: 370px;
     transition: 0.3s ease-in-out all;
   }
-  .mainContainer {
+  .mainSolutionsForConnectionSectionContainer {
     overflow: hidden;
   }
 
