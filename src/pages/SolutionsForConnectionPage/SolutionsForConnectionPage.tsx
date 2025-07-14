@@ -48,6 +48,7 @@ const SolutionsForConnectionPage = () => {
             <div className={styles.cardElement} key={index}>
               <div className={styles.border}></div>
               <SolutionForConnectionCardWide
+                key={index}
                 images={el.images}
                 description={el.description}
                 title={el.title}
