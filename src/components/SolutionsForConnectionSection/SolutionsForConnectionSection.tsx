@@ -9,6 +9,7 @@ import cam from "../../assets/images/cam.png";
 import type { SolutionForConnectionCardProps } from "../../ui/SolutionForConnectionCard/SolutionForConnectionCard";
 import { useState } from "react";
 import { getDeviceType } from "../../utils/utils";
+import { Link } from "react-router-dom";
 
 const data: SolutionForConnectionCardProps[] = [
   {
@@ -96,7 +97,9 @@ const SolutionsForConnectionSection = () => {
           })}
         </div>
         <div className={styles.linkContainer}>
-          <p className={styles.link}>Перейти в каталог</p>
+          <Link to={"/solutionForConnection"} className={styles.link}>
+            Перейти в каталог
+          </Link>
           <img src={arrow} alt="arrow" className={styles.linkSvg} />
         </div>
       </div>
