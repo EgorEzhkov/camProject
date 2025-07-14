@@ -22,7 +22,7 @@
   margin-bottom: 10px;
 }
 .mainImage {
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 10px;
@@ -177,6 +177,10 @@
   .descriptionContainer {
     display: none;
   }
+
+  .description {
+    font-size: 14px;
+  }
   .characteristicsTitle {
     font-size: 12px;
     color: #4466fb;
@@ -201,6 +205,8 @@
     margin: 0;
   }
   .titlesContainer {
+    cursor: default;
+    user-select: none;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -209,5 +215,49 @@
   }
   .titleDisabled {
     opacity: 0.5;
+    cursor: pointer;
+  }
+}
+
+@media (width <= 720px) {
+  .cardContainer {
+    flex-direction: column;
+  }
+
+  .smallImagesContainer {
+    display: none;
+  }
+
+  .mainImageContainter {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+  }
+
+  .imagesContainer {
+    max-width: 600px;
+    align-self: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .mainImage {
+    width: 100%;
+    max-height: 335px;
+  }
+
+  .card {
+    padding: 0;
+  }
+
+  .linkQuality {
+    display: none;
+  }
+
+  .buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
   }
 }

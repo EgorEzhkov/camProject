@@ -4,6 +4,9 @@ import type { SolutionForConnectionCardWideProps } from "../../utils/types";
 import Button from "../Button/Button";
 import { useWindowSize } from "react-use";
 
+import simpleArrowRight from "../../assets/images/simpleArrowRight.svg";
+import simpleArrowLeft from "../../assets/images/simpleArrowLeft.svg";
+
 const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
   images,
   title,
@@ -17,17 +20,61 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
   const [activeInfo, setActiveInfo] = useState<
     "characteristics" | "description"
   >("characteristics");
+  const [activePhoto, setActivePhoto] = useState<number>(0);
+  const isMobile = width <= 720;
+
+  function renderCharacteristics() {
+    return (
+      <ul className={styles.characteristicsList}>
+        {characteristics.map((item) =>
+          Object.entries(item).map(([key, value], index) => {
+            return (
+              <li className={styles.characteristicsElement} key={index}>
+                <p className={styles.characteristicsElementText}>
+                  <span className={styles.characteristicsElementTitle}>
+                    {key}:
+                  </span>
+                  {` ${value}`}
+                </p>
+              </li>
+            );
+          })
+        )}
+      </ul>
+    );
+  }
+
+  function handlePhoto(action: "next" | "prev") {
+    if (
+      action === "next" &&
+      activePhoto < [images.mainImage, ...images.smallImages].length - 1
+    ) {
+      setActivePhoto(activePhoto + 1);
+    }
+    if (action === "prev" && activePhoto > 0) {
+      setActivePhoto(activePhoto - 1);
+    }
+  }
 
   return (
     <div className={styles.card}>
       <div className={styles.cardContainer}>
         <div className={styles.imagesContainer}>
           <div className={styles.mainImageContainter}>
-            <img
-              src={images.mainImage}
-              alt="image"
-              className={styles.mainImage}
-            />
+            {!isMobile ? (
+              <img
+                src={images.mainImage}
+                alt="image"
+                className={styles.mainImage}
+              />
+            ) : (
+              <img
+                src={[images.mainImage, ...images.smallImages][activePhoto]}
+                alt="image"
+                className={styles.mainImage}
+                onClick={() => {}}
+              />
+            )}
           </div>
           <div className={styles.smallImagesContainer}>
             {images.smallImages.map((el, index) => {
@@ -41,9 +88,24 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
               );
             })}
           </div>
-          <a href={linkQualityLink} className={styles.linkQuality}>
-            {linkQualityText}
-          </a>
+          {!isMobile ? (
+            <a href={linkQualityLink} className={styles.linkQuality}>
+              {linkQualityText}
+            </a>
+          ) : (
+            <div className={styles.buttonsContainer}>
+              <img
+                src={simpleArrowLeft}
+                alt=""
+                onClick={() => handlePhoto("prev")}
+              />
+              <img
+                src={simpleArrowRight}
+                alt=""
+                onClick={() => handlePhoto("next")}
+              />
+            </div>
+          )}
         </div>
         <div className={styles.textContainer}>
           <h2 className={styles.subTitle}>{title}</h2>
@@ -51,7 +113,7 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
             <div className={styles.characteristics}>
               {width > 803 ? (
                 <h3 className={styles.characteristicsTitle}>
-                  Характеристики{width <= 803 ? "" : ":"}
+                  Характеристики{isMobile ? "" : ":"}
                 </h3>
               ) : (
                 <div className={styles.titlesContainer}>
@@ -63,7 +125,7 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
                     }`}
                     onClick={() => setActiveInfo("characteristics")}
                   >
-                    Характеристики{width <= 803 ? "" : ":"}
+                    Характеристики
                   </h3>
                   <h3
                     className={`${styles.descriptionTitle} ${
@@ -71,54 +133,14 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
                     }`}
                     onClick={() => setActiveInfo("description")}
                   >
-                    Описание{width <= 803 ? "" : ":"}
+                    Описание
                   </h3>
                 </div>
               )}
               {width > 803 ? (
-                <ul className={styles.characteristicsList}>
-                  {characteristics.map((item) =>
-                    Object.entries(item).map(([key, value], index) => {
-                      return (
-                        <li
-                          className={styles.characteristicsElement}
-                          key={index}
-                        >
-                          <p className={styles.characteristicsElementText}>
-                            <span
-                              className={styles.characteristicsElementTitle}
-                            >
-                              {key}:
-                            </span>
-                            {` ${value}`}
-                          </p>
-                        </li>
-                      );
-                    })
-                  )}
-                </ul>
+                renderCharacteristics()
               ) : activeInfo === "characteristics" ? (
-                <ul className={styles.characteristicsList}>
-                  {characteristics.map((item) =>
-                    Object.entries(item).map(([key, value], index) => {
-                      return (
-                        <li
-                          className={styles.characteristicsElement}
-                          key={index}
-                        >
-                          <p className={styles.characteristicsElementText}>
-                            <span
-                              className={styles.characteristicsElementTitle}
-                            >
-                              {key}:
-                            </span>
-                            {` ${value}`}
-                          </p>
-                        </li>
-                      );
-                    })
-                  )}
-                </ul>
+                renderCharacteristics()
               ) : (
                 <p className={styles.description}>{description}</p>
               )}
