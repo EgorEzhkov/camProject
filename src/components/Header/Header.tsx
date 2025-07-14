@@ -13,7 +13,7 @@ import {
   buttonPropsMobile,
   textButtonForHeader,
 } from "../../utils/constants";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header: FC = () => {
   const [menuState, setMenuState] = useState<"closed" | "opening" | "closing">(
@@ -21,6 +21,7 @@ const Header: FC = () => {
   );
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const propsForButton =
     menuState !== "closed" ? buttonPropsMobile : buttonPropsDesctop;
@@ -38,6 +39,16 @@ const Header: FC = () => {
       setMenuState("closed");
     }
   }, [menuState]);
+
+  function handleClickLink(path: string) {
+    if (menuState === "closed") {
+      navigate(path);
+    } else {
+      setTimeout(() => {
+        navigate(path);
+      }, 500);
+    }
+  }
 
   useEffect(() => {
     if (menuState === "closed") return;
@@ -105,12 +116,12 @@ const Header: FC = () => {
             <div className={styles.list}>
               {textButtonForHeader.map((el) => {
                 return (
-                  <Link
-                    onClick={() =>
-                      menuState !== "closed" ? handleHeaderMenu() : null
-                    } // НУЖНО ДОВЕСТИ ДО УМА
+                  <div
+                    onClick={() => {
+                      handleClickLink(el.path);
+                      return menuState !== "closed" ? handleHeaderMenu() : null;
+                    }} // НУЖНО ДОВЕСТИ ДО УМА
                     key={el.text}
-                    to={el.path}
                     className={`${styles.link} ${
                       location.pathname.includes(el.path)
                         ? styles.linkActive
@@ -128,11 +139,12 @@ const Header: FC = () => {
                             : "white"
                         }
                         activeLink={location.pathname.includes(el.path)}
+                        disabled={location.pathname === el.path}
                       >
                         {el.text}
                       </Button>
                     </li>
-                  </Link>
+                  </div>
                 );
               })}
             </div>

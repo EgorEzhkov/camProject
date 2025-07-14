@@ -41,15 +41,14 @@ const Button: FC<PropsForButton> = ({
 }) => {
   const styleButton = {
     fontFamily,
-    fontWeight: activeLink
-      ? 500
-      : fontWeight === "Bold"
-      ? 700
-      : fontWeight === "Medium"
-      ? 500
-      : fontWeight === "Regular"
-      ? 400
-      : 800, // extrabold
+    fontWeight:
+      fontWeight === "Bold"
+        ? 700
+        : fontWeight === "Medium"
+        ? 500
+        : fontWeight === "Regular"
+        ? 400
+        : 800, // extrabold
     fontSize,
     backgroundColor: backgroundColor ? "#007bff" : "transparent",
     color: activeLink ? "#5C17CD" : color,
