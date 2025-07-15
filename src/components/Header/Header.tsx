@@ -4,7 +4,8 @@ import { useCallback, useEffect, useRef, useState, type FC } from "react";
 
 import Button from "../../ui/Button/Button";
 import logo from "../../assets/images/logo.png";
-import joinIcon from "../../assets/images/joinIcon.svg";
+import joinIconWhite from "../../assets/images/joinIconWhite.svg";
+import joinIconBlack from "../../assets/images/joinIconBlack.svg";
 import phoneIcon from "../../assets/images/phoneIcon.svg";
 
 import { delay, lockScroll, unlockScroll } from "../../utils/utils";
@@ -25,6 +26,11 @@ const Header: FC = () => {
 
   const propsForButton =
     menuState !== "closed" ? buttonPropsMobile : buttonPropsDesctop;
+  const classNameForSpan = `${menuState === "opening" ? styles.active : ""} ${
+    location.pathname.includes("/solutionForConnection")
+      ? styles.blackColor
+      : styles.whiteColor
+  }`;
 
   const ulRef = useRef<HTMLUListElement | null>(null);
 
@@ -92,10 +98,10 @@ const Header: FC = () => {
         }`}
         onClick={handleHeaderMenu}
       >
-        <span className={menuState === "opening" ? styles.active : ""}></span>
-        <span className={menuState === "opening" ? styles.active : ""}></span>
-        <span className={menuState === "opening" ? styles.active : ""}></span>
-        <span className={menuState === "opening" ? styles.active : ""}></span>
+        <span className={classNameForSpan}></span>
+        <span className={classNameForSpan}></span>
+        <span className={classNameForSpan}></span>
+        <span className={classNameForSpan}></span>
       </div>
 
       <Link className={styles.imgContainer} to={"/"}>
@@ -171,7 +177,15 @@ const Header: FC = () => {
         </div>
       </div>
       <div className={styles.joinIconContainer}>
-        <img src={joinIcon} alt="joinIcon" />
+        <img
+          src={
+            location.pathname.includes("/solutionForConnection")
+              ? joinIconBlack
+              : joinIconWhite
+          }
+          alt="joinIcon"
+          className={styles.joinIcon}
+        />
       </div>
     </header>
   );
