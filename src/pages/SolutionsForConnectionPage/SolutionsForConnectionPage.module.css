@@ -57,8 +57,53 @@
   cursor: default;
 }
 
+@media (width <= 1430px) {
+  .titleContainer {
+    font-size: 3.3vw;
+  }
+}
+
 @media (width <= 1200px) {
   .mainSolutionsForConnectionPageContiner {
     padding: 160px 5vw;
+  }
+  .titleContainer {
+    font-size: 3.5vw;
+  }
+}
+
+@media (width <= 1000px) {
+  .titleContainer {
+    font-size: 3.4vw;
+  }
+}
+
+@media (width <= 768px) {
+  .mainSolutionsForConnectionPageContiner {
+    padding: 80px 5vw;
+  }
+}
+
+@media (width <= 720px) {
+  .titleContainer {
+    font-size: 5vw;
+  }
+}
+
+@media (width <= 620px) {
+  .titleContainer {
+    font-size: 5.5vw;
+  }
+}
+
+@media (width <= 430px) {
+  .titleContainer {
+    font-size: 6.68vw;
+  }
+}
+
+@media (width <= 360px) {
+  .titleContainer {
+    font-size: 6.68vw;
   }
 }

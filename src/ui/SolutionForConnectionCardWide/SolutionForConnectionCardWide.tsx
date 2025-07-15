@@ -112,6 +112,7 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
                       onClick={() => {
                         return setActiveCircle(index), setActivePhoto(index);
                       }}
+                      key={index}
                     ></span>
                   );
                 })}
