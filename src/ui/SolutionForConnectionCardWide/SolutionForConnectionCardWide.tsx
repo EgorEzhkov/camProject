@@ -21,6 +21,7 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
     "characteristics" | "description"
   >("characteristics");
   const [activePhoto, setActivePhoto] = useState<number>(0);
+  const [activeCircle, setActiveCircle] = useState<number>(0);
   const isMobile = width <= 720;
 
   function renderCharacteristics() {
@@ -50,9 +51,11 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
       activePhoto < [images.mainImage, ...images.smallImages].length - 1
     ) {
       setActivePhoto(activePhoto + 1);
+      setActiveCircle(activeCircle + 1);
     }
     if (action === "prev" && activePhoto > 0) {
       setActivePhoto(activePhoto - 1);
+      setActiveCircle(activeCircle - 1);
     }
   }
 
@@ -99,6 +102,20 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
                 alt=""
                 onClick={() => handlePhoto("prev")}
               />
+              <div className={styles.circleContainer}>
+                {[images.mainImage, ...images.smallImages].map((_, index) => {
+                  return (
+                    <span
+                      className={`${styles.circle} ${
+                        index === activeCircle ? styles.circleActive : ""
+                      }`}
+                      onClick={() => {
+                        return setActiveCircle(index), setActivePhoto(index);
+                      }}
+                    ></span>
+                  );
+                })}
+              </div>
               <img
                 src={simpleArrowRight}
                 alt=""
