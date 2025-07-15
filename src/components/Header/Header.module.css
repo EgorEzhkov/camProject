@@ -76,6 +76,10 @@
   color: #3955d1;
 }
 
+.joinIcon {
+  transition: 0.3s ease-in-out all;
+}
+
 @media (hover: hover) {
   .buttonJoinContainer:hover {
     box-shadow: 0px 0px 17px 4px rgba(0, 0, 0, 0.2);
@@ -220,7 +224,6 @@
     position: absolute;
     height: 2px;
     width: 100%;
-    background: #ffffff;
     border-radius: 3px;
     opacity: 1;
     left: 0;
@@ -232,6 +235,14 @@
     -moz-transition: 0.25s ease-in-out;
     -o-transition: 0.25s ease-in-out;
     transition: 0.25s ease-in-out;
+  }
+
+  .blackColor {
+    background: #000000;
+  }
+
+  .whiteColor {
+    background: #ffffff;
   }
 
   .navIcon span.active {
