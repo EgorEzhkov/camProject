@@ -23,6 +23,7 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
   const [activePhoto, setActivePhoto] = useState<number>(0);
   const [activeCircle, setActiveCircle] = useState<number>(0);
   const isMobile = width <= 720;
+  const allImages = [images.mainImage, ...images.smallImages];
 
   function renderCharacteristics() {
     return (
@@ -46,10 +47,7 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
   }
 
   function handlePhoto(action: "next" | "prev") {
-    if (
-      action === "next" &&
-      activePhoto < [images.mainImage, ...images.smallImages].length - 1
-    ) {
+    if (action === "next" && activePhoto < allImages.length - 1) {
       setActivePhoto(activePhoto + 1);
       setActiveCircle(activeCircle + 1);
     }
@@ -72,7 +70,7 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
               />
             ) : (
               <img
-                src={[images.mainImage, ...images.smallImages][activePhoto]}
+                src={allImages[activePhoto]}
                 alt="image"
                 className={styles.mainImage}
                 onClick={() => {}}
@@ -97,13 +95,22 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
             </a>
           ) : (
             <div className={styles.buttonsContainer}>
-              <img
-                src={simpleArrowLeft}
-                alt=""
+              <div
+                className={styles.simpleArrowContainer}
                 onClick={() => handlePhoto("prev")}
-              />
+              >
+                <div className={styles.areaForClick}></div>
+                <img
+                  src={simpleArrowLeft}
+                  alt="arrow"
+                  className={`${styles.simpleArrow} ${
+                    activePhoto === 0 ? styles.simpleArrowDisable : ""
+                  }`}
+                />
+              </div>
+
               <div className={styles.circleContainer}>
-                {[images.mainImage, ...images.smallImages].map((_, index) => {
+                {allImages.map((_, index) => {
                   return (
                     <span
                       className={`${styles.circle} ${
@@ -117,11 +124,21 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
                   );
                 })}
               </div>
-              <img
-                src={simpleArrowRight}
-                alt=""
+              <div
+                className={styles.simpleArrowContainer}
                 onClick={() => handlePhoto("next")}
-              />
+              >
+                <div className={styles.areaForClick}></div>
+                <img
+                  src={simpleArrowRight}
+                  alt="arrow"
+                  className={`${styles.simpleArrow} ${
+                    activePhoto === allImages.length - 1
+                      ? styles.simpleArrowDisable
+                      : ""
+                  }`}
+                />
+              </div>
             </div>
           )}
         </div>
