@@ -82,6 +82,9 @@
   .mainSolutionsForConnectionPageContiner {
     padding: 80px 5vw;
   }
+  .titleContainer {
+    margin-bottom: 20px;
+  }
 }
 
 @media (width <= 720px) {
@@ -102,6 +105,7 @@
 @media (width <= 430px) {
   .titleContainer {
     font-size: 6.68vw;
+    margin-bottom: 15px;
   }
 }
 
