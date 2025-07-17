@@ -1,4 +1,4 @@
-import { useState, type FC } from "react";
+import { useEffect, useState, type FC } from "react";
 import styles from "./SolutionForConnectionCardWide.module.css";
 import type { SolutionForConnectionCardWideProps } from "../../utils/types";
 import Button from "../Button/Button";
@@ -14,6 +14,7 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
   description,
   linkQualityText,
   linkQualityLink,
+  currentPage,
 }) => {
   const { width } = useWindowSize();
 
@@ -24,6 +25,11 @@ const SolutionForConnectionCardWide: FC<SolutionForConnectionCardWideProps> = ({
   const [activeCircle, setActiveCircle] = useState<number>(0);
   const isMobile = width <= 720;
   const allImages = [images.mainImage, ...images.smallImages];
+
+  useEffect(() => {
+    setActivePhoto(0);
+    setActiveCircle(0);
+  }, [currentPage]);
 
   function renderCharacteristics() {
     return (

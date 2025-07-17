@@ -20,4 +20,5 @@ export interface SolutionForConnectionCardWideProps {
   description: string;
   linkQualityText: string;
   linkQualityLink: string;
+  currentPage?: number;
 }

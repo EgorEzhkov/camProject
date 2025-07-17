@@ -55,6 +55,7 @@ const SolutionsForConnectionPage = () => {
                 characteristics={el.characteristics}
                 linkQualityText={el.linkQualityText}
                 linkQualityLink={el.linkQualityLink}
+                currentPage={currentPage}
               />
             </div>
           );
