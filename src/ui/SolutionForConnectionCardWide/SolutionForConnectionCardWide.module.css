@@ -265,6 +265,34 @@
     gap: 5px;
   }
 
+  .simpleArrowContainer {
+    display: flex;
+    position: relative;
+  }
+
+  .areaForClick {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .simpleArrowContainer:nth-of-type(2) {
+    justify-self: flex-end;
+  }
+
+  .simpleArrow {
+    height: 15px;
+    width: 14px;
+    transition: 0.3s ease-in-out all;
+  }
+
+  .simpleArrowDisable {
+    opacity: 0.5;
+  }
+
   .circleContainer {
     display: flex;
     flex-direction: row;
