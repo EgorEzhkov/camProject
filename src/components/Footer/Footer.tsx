@@ -2,8 +2,27 @@ import styles from "./Footer.module.css";
 import appStore from "../../assets/images/AppStore.png";
 import googlePlay from "../../assets/images/googlePlay.png";
 import Button from "../../ui/Button/Button";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const servicesSectionRef = useRef<HTMLElement | null>(null);
+  const rateSectionRef = useRef<HTMLElement | null>(null);
+
+  function toTop(path: string) {
+    if (location.pathname === path) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+
+  useEffect(() => {
+    servicesSectionRef.current = document.getElementById("servicesSection");
+    rateSectionRef.current = document.getElementById("rateSection");
+  }, []);
+
   return (
     <footer className={styles.footer}>
       <div className={styles.contactsAndApps}>
@@ -32,11 +51,39 @@ const Footer = () => {
       <div className={styles.links}>
         <h4 className={styles.subTitle}>Полезные ссылки</h4>
         <ul className={styles.list}>
-          <li className={styles.listElement}>На главную</li>
-          <li className={styles.listElement}>Наши услуги</li>
-          <li className={styles.listElement}>Тарифы</li>
-          <li className={styles.listElement}>Готовые решения</li>
-          <li className={styles.listElement}>Новости компании</li>
+          <li className={styles.listElement} onClick={() => toTop("/")}>
+            <Link to={"/"} className={styles.link}>
+              На главную
+            </Link>
+          </li>
+          <li
+            className={styles.listElement}
+            onClick={() => navigate("/", { state: { scrollTo: "services" } })}
+          >
+            Наши услуги
+          </li>
+          <li
+            className={styles.listElement}
+            onClick={() => navigate("/", { state: { scrollTo: "rate" } })}
+          >
+            Тарифы
+          </li>
+          <li
+            className={styles.listElement}
+            onClick={() =>
+              navigate("/", { state: { scrollTo: "solutionsForConnection" } })
+            }
+          >
+            Готовые решения
+          </li>
+          <li
+            className={styles.listElement}
+            onClick={() =>
+              navigate("/", { state: { scrollTo: "companyNews" } })
+            }
+          >
+            Новости компании
+          </li>
           <li className={styles.listElement}>Личный кабинет</li>
         </ul>
       </div>

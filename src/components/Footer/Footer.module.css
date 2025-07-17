@@ -122,6 +122,11 @@
   font-weight: 700;
 }
 
+.link {
+  text-decoration: none;
+  color: unset;
+}
+
 @media (width <= 1200px) {
   .footer {
     padding: 100px 5vw;

@@ -29,7 +29,10 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section className={styles.mainServicesSectionContainer}>
+    <section
+      className={styles.mainServicesSectionContainer}
+      id="servicesSection"
+    >
       <div className={styles.titleContainer}>
         <div className={styles.title}>
           <Title color="black" fontSize={"1em"}>

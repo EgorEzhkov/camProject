@@ -26,7 +26,10 @@ const date: NewsCardProps[] = [
 
 const CompanyNewsSection = () => {
   return (
-    <section className={styles.mainCompanyNewsSectionContainer}>
+    <section
+      className={styles.mainCompanyNewsSectionContainer}
+      id="companyNewsSection"
+    >
       <div className={styles.titleContainer}>
         <Title color="black" fontSize="1em">
           Новости компании

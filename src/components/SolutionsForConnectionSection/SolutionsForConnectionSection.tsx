@@ -51,7 +51,10 @@ const SolutionsForConnectionSection = () => {
   const [activeCard, setActiveCard] = useState<number>(1);
   const device = getDeviceType();
   return (
-    <section className={styles.mainSolutionsForConnectionSectionContainer}>
+    <section
+      className={styles.mainSolutionsForConnectionSectionContainer}
+      id="solutionsForConnection"
+    >
       <div className={styles.titleContainer}>
         <Title color="black" fontSize="1em">
           Готовые решения для подключения

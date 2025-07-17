@@ -7,7 +7,7 @@ const RateSection = () => {
   const [focusCard, setFocusCard] = useState<number>(2);
 
   return (
-    <section className={styles.mainRateSectionContainer}>
+    <section className={styles.mainRateSectionContainer} id="rateSection">
       <div className={styles.titleContainer}>
         <Title color="white" fontSize="1em">
           Выберите тариф
