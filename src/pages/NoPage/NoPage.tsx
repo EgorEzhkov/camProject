@@ -10,10 +10,10 @@ const NoPage = () => {
         <img src={okakImg} alt="okak" className={styles.img} />
       </div>
       <div className={styles.titleContainer}>
-        <Title color="white" fontSize="2em" textAlign="center">
+        <Title color="white" textAlign="center">
           404NotFound
         </Title>
-        <Title color="white" fontSize="1em" textAlign="center">
+        <Title color="white" textAlign="center">
           Такой страницы не существует
         </Title>
       </div>
