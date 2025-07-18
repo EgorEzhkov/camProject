@@ -22,12 +22,9 @@ const CompanyNewsPage = () => {
     startIndex + ITEMS_PER_PAGE
   );
 
-  const newsBlock = document.getElementById("news");
-
   const handleClick = (page: number) => {
     if (page >= 1 && page <= totalPages) {
-      newsBlock?.scrollIntoView({ behavior: "smooth" });
-
+      window.scrollTo({ top: 0, behavior: "smooth" });
       setTimeout(() => {
         setCurrentPage(page);
       }, 200);
