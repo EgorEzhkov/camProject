@@ -5,6 +5,7 @@ export interface NewsCardProps {
   subTitle: string;
   date: string;
   description: string;
+  image?: string;
 }
 
 const NewsCard: FC<NewsCardProps> = ({ subTitle, date, description }) => {

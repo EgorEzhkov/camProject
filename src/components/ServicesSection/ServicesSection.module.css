@@ -15,7 +15,6 @@
 }
 
 .title {
-  font-size: 48px;
   margin-bottom: 40px;
 }
 
@@ -58,12 +57,6 @@
   justify-content: center;
 }
 
-@media (width < 1430px) {
-  .title {
-    font-size: 3.3vw;
-  }
-}
-
 @media (width <=1355px) {
   .cardsContainer {
     gap: 25px;
@@ -96,16 +89,9 @@
   .verticalBorder {
     width: 1px;
   }
-
-  .title {
-    font-size: 3.5vw;
-  }
 }
 
 @media (width <= 1000px) {
-  .title {
-    font-size: 3.4vw;
-  }
 }
 
 @media (width <= 822px) {
@@ -140,20 +126,12 @@
 }
 
 @media (width <= 720px) {
-  .title {
-    font-size: 5vw;
-  }
-
   .titleContainer {
     width: 60%;
   }
 }
 
 @media (width <= 620px) {
-  .title {
-    font-size: 5.5vw;
-  }
-
   .titleContainer {
     width: 70%;
   }
@@ -171,10 +149,6 @@
 }
 
 @media (width <= 430px) {
-  .title {
-    font-size: 6.68vw;
-  }
-
   .titleContainer {
     width: 100%;
   }

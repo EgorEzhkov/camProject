@@ -35,9 +35,7 @@ const ServicesSection = () => {
     >
       <div className={styles.titleContainer}>
         <div className={styles.title}>
-          <Title color="black" fontSize={"1em"}>
-            Мы осуществляем следующие услуги
-          </Title>
+          <Title color="black">Мы осуществляем следующие услуги</Title>
         </div>
       </div>
       <div className={styles.descriptionContainer}>

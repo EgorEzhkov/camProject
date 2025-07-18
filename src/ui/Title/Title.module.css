@@ -6,3 +6,51 @@
   margin: 0;
   width: 100%;
 }
+
+@media (width <= 1430px) {
+  .title {
+    font-size: 3.3vw;
+  }
+}
+
+@media (width <= 1200px) {
+  .title {
+    font-size: 3.5vw;
+  }
+}
+
+@media (width <= 1000px) {
+  .title {
+    font-size: 3.4vw;
+  }
+}
+
+@media (width <= 768px) {
+  .title {
+    margin-bottom: 20px;
+  }
+}
+
+@media (width <= 720px) {
+  .title {
+    font-size: 5vw;
+  }
+}
+
+@media (width <= 620px) {
+  .title {
+    font-size: 5.5vw;
+  }
+}
+
+@media (width <= 430px) {
+  .title {
+    font-size: 6.68vw;
+  }
+}
+
+@media (width <= 360px) {
+  .title {
+    font-size: 6.68vw;
+  }
+}

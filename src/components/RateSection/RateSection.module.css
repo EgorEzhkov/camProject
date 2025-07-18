@@ -6,8 +6,7 @@
   box-sizing: border-box;
   width: 100%;
 }
-.titleContainer {
-}
+
 .cardList {
   display: flex;
   flex-direction: row;
@@ -19,16 +18,6 @@
 .card {
   max-width: 370px;
   min-width: 370px;
-}
-
-.titleContainer {
-  font-size: 48px;
-}
-
-@media (width < 1430px) {
-  .titleContainer {
-    font-size: 3.3vw;
-  }
 }
 
 @media (width <= 1313px) {
@@ -45,16 +34,6 @@
 @media (width <= 1200px) {
   .mainRateSectionContainer {
     padding: 80px 5vw;
-  }
-
-  .titleContainer {
-    font-size: 3.5vw;
-  }
-}
-
-@media (width <= 1000px) {
-  .titleContainer {
-    font-size: 3.4vw;
   }
 }
 
@@ -79,26 +58,8 @@
   }
 }
 
-@media (width <= 720px) {
-  .titleContainer {
-    font-size: 5vw;
-  }
-}
-
-@media (width <= 620px) {
-  .titleContainer {
-    font-size: 5.5vw;
-  }
-}
-
 @media (width <= 500px) {
   .mainRateSectionContainer {
     padding: 40px 5vw;
-  }
-}
-
-@media (width <= 430px) {
-  .titleContainer {
-    font-size: 6.68vw;
   }
 }

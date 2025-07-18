@@ -29,6 +29,8 @@ const Header: FC = () => {
   const classNameForSpan = `${menuState === "opening" ? styles.active : ""} ${
     location.pathname.includes("/solutionForConnection")
       ? styles.blackColor
+      : location.pathname.includes("/companyNewsPage")
+      ? styles.blackColor
       : styles.whiteColor
   }`;
 
@@ -137,6 +139,8 @@ const Header: FC = () => {
                       color={
                         location.pathname.includes("solutionForConnection")
                           ? "#333333"
+                          : location.pathname.includes("companyNewsPage")
+                          ? "#333333"
                           : menuState !== "closed"
                           ? "#333333"
                           : "white"
@@ -169,6 +173,8 @@ const Header: FC = () => {
             color={
               location.pathname.includes("solutionForConnection")
                 ? "black"
+                : location.pathname.includes("companyNewsPage")
+                ? "black"
                 : "white"
             }
           >
@@ -180,6 +186,8 @@ const Header: FC = () => {
         <img
           src={
             location.pathname.includes("/solutionForConnection")
+              ? joinIconBlack
+              : location.pathname.includes("/companyNewsPage")
               ? joinIconBlack
               : joinIconWhite
           }

@@ -34,7 +34,6 @@
 
 .titleContainer {
   max-width: 680px;
-  font-size: 48px;
 }
 
 .imageContainer {
@@ -49,12 +48,6 @@
 .image {
 }
 
-@media (width <=1430px) {
-  .titleContainer {
-    font-size: 3.3vw;
-  }
-}
-
 @media (width <=1280px) {
   .mainDownloadSectionContainer {
     background-size: 70vw;
@@ -67,7 +60,6 @@
   }
 
   .titleContainer {
-    font-size: 3.4vw;
     width: 60%;
   }
 
@@ -78,7 +70,6 @@
 
 @media (width <=1000px) {
   .titleContainer {
-    font-size: 3.4vw;
     width: 70%;
   }
 
@@ -95,14 +86,12 @@
 
 @media (width <=720px) {
   .titleContainer {
-    font-size: 5vw;
     width: 70%;
   }
 }
 
 @media (width <=620px) {
   .titleContainer {
-    font-size: 5.5vw;
     width: 80%;
   }
 }
