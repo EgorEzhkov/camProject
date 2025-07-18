@@ -9,9 +9,7 @@ const RateSection = () => {
   return (
     <section className={styles.mainRateSectionContainer} id="rateSection">
       <div className={styles.titleContainer}>
-        <Title color="white" fontSize="1em">
-          Выберите тариф
-        </Title>
+        <Title color="white">Выберите тариф</Title>
       </div>
       <div className={styles.cardList}>
         <div onClick={() => setFocusCard(1)} className={styles.card}>

@@ -3,25 +3,16 @@ import appStore from "../../assets/images/AppStore.png";
 import googlePlay from "../../assets/images/googlePlay.png";
 import Button from "../../ui/Button/Button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useRef } from "react";
 
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
-
-  const servicesSectionRef = useRef<HTMLElement | null>(null);
-  const rateSectionRef = useRef<HTMLElement | null>(null);
 
   function toTop(path: string) {
     if (location.pathname === path) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }
-
-  useEffect(() => {
-    servicesSectionRef.current = document.getElementById("servicesSection");
-    rateSectionRef.current = document.getElementById("rateSection");
-  }, []);
 
   return (
     <footer className={styles.footer}>

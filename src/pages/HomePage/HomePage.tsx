@@ -14,23 +14,26 @@ const HomePage = () => {
     if (location.state?.scrollTo === "services") {
       const servicesSection = document.getElementById("servicesSection");
       servicesSection?.scrollIntoView({ behavior: "smooth" });
+      location.state.scrollTo = "";
     }
     if (location.state?.scrollTo === "rate") {
       const rateSection = document.getElementById("rateSection");
       rateSection?.scrollIntoView({ behavior: "smooth" });
+      location.state.scrollTo = "";
     }
     if (location.state?.scrollTo === "solutionsForConnection") {
       const solutionsForConnectionSection = document.getElementById(
         "solutionsForConnection"
       );
       solutionsForConnectionSection?.scrollIntoView({ behavior: "smooth" });
+      location.state.scrollTo = "";
     }
     if (location.state?.scrollTo === "companyNews") {
       const companyNewsSection = document.getElementById("companyNewsSection");
       companyNewsSection?.scrollIntoView({ behavior: "smooth" });
+      location.state.scrollTo = "";
     }
   }, [location.state]);
-
   return (
     <>
       <WelcomeSection></WelcomeSection>

@@ -4,6 +4,7 @@ import NoPage from "./pages/NoPage/NoPage";
 import SolutionsForConnectionPage from "./pages/SolutionsForConnectionPage/SolutionsForConnectionPage";
 import MainLayout from "./layouts/MainLayout";
 import NoLayout from "./layouts/NoLayout";
+import CompanyNewsPage from "./pages/CompanyNewsPage/CompanyNewsPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             path="/solutionForConnection"
             element={<SolutionsForConnectionPage />}
           />
+          <Route path="/companyNewsPage" element={<CompanyNewsPage />}></Route>
         </Route>
 
         {/* Layout без Header и Footer */}

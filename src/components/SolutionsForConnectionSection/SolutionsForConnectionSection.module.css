@@ -9,7 +9,6 @@
   width: 100%;
 }
 .titleContainer {
-  font-size: 48px;
   max-width: 432px;
 }
 .cardList {
@@ -58,15 +57,8 @@
   width: 100%;
 }
 
-@media (width < 1430px) {
-  .titleContainer {
-    font-size: 3.3vw;
-  }
-}
-
 @media (width <= 1200px) {
   .titleContainer {
-    font-size: 3.5vw;
     width: 40%;
   }
   .mainSolutionsForConnectionSectionContainer {
@@ -75,9 +67,6 @@
 }
 
 @media (width <= 1000px) {
-  .titleContainer {
-    font-size: 3.4vw;
-  }
   .card {
     min-width: 370px;
     transition: 0.3s ease-in-out all;
@@ -156,7 +145,6 @@
 
 @media (width <= 720px) {
   .titleContainer {
-    font-size: 5vw;
     width: 60%;
   }
 }
@@ -188,12 +176,6 @@
   }
 }
 
-@media (width <= 620px) {
-  .titleContainer {
-    font-size: 5.5vw;
-  }
-}
-
 @media (width <= 600px) {
   .secondCard {
     margin-left: -60vw;
@@ -220,7 +202,6 @@
 
 @media (width <= 430px) {
   .titleContainer {
-    font-size: 6.68vw;
     width: 70%;
   }
 }

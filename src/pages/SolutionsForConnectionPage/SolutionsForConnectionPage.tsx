@@ -38,9 +38,7 @@ const SolutionsForConnectionPage = () => {
   return (
     <main className={styles.mainSolutionsForConnectionPageContiner}>
       <div className={styles.titleContainer}>
-        <Title fontSize="1em" color="black">
-          Готовые решения для подключения
-        </Title>
+        <Title color="black">Готовые решения для подключения</Title>
       </div>
       <ul className={styles.cardList}>
         {currentItems.map((el, index) => {

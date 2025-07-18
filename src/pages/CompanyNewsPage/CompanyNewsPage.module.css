@@ -1,0 +1,59 @@
+.companyNewsPage {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 180px 200px;
+  max-width: 1600px;
+  width: 100%;
+  justify-self: center;
+}
+
+.newsContainer {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  align-items: end;
+  gap: 22px;
+}
+
+.titleContainer {
+  margin-bottom: 50px;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  margin-top: 30px;
+}
+
+.textButtonPage {
+  color: black;
+  margin: 0 10px;
+  align-self: center;
+}
+
+.arrowButton {
+  cursor: pointer;
+}
+
+.arrowButtonDisabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.companyNewsPage {
+  padding: 160px 5vw;
+}
+
+@media (width <= 768px) {
+  .companyNewsPage {
+    padding: 80px 5vw;
+  }
+  .titleContainer {
+    margin-bottom: 20px;
+  }
+}
+
+@media (width <= 720px) {
+}

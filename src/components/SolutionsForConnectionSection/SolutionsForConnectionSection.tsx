@@ -56,9 +56,7 @@ const SolutionsForConnectionSection = () => {
       id="solutionsForConnection"
     >
       <div className={styles.titleContainer}>
-        <Title color="black" fontSize="1em">
-          Готовые решения для подключения
-        </Title>
+        <Title color="black">Готовые решения для подключения</Title>
       </div>
       <div
         className={`${
