@@ -1,0 +1,34 @@
+.modalMain {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  z-index: 9999;
+  padding: 35px;
+  background-color: white;
+  color: black;
+  border-radius: 6px;
+}
+
+.modalOverlay {
+  z-index: 8888;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(16, 26, 51, 0.2); /* Полупрозрачный фон */
+  backdrop-filter: blur(10px); /* Размытие фона под элементом */
+  -webkit-backdrop-filter: blur(10px);
+  transition: 0.5s ease-in-out all;
+}
