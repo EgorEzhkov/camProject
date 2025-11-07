@@ -1,6 +1,8 @@
 import type { PropsForButton } from "../ui/Button/Button";
 import type { NewsCardProps } from "../ui/NewsCard/NewsCard";
 
+export const API_URL = "http://localhost:3000";
+
 export const buttonPropsDesctop: PropsForButton = {
   fontFamily: "Montserrat",
   fontWeight: "Regular",

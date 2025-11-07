@@ -18,6 +18,7 @@ export interface PropsForButton {
   disabled?: boolean;
   activeLink?: boolean;
   textWrap?: "wrap" | "nowrap";
+  type?: React.ButtonHTMLAttributes<HTMLButtonElement>;
 }
 
 const Button: FC<PropsForButton> = ({

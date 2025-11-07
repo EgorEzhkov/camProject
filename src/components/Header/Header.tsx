@@ -15,11 +15,14 @@ import {
   textButtonForHeader,
 } from "../../utils/constants";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import ModalWindow from "../../ui/ModalWindow/ModalWindow";
+import LoginModal from "../LoginModal/LoginModal";
 
 const Header: FC = () => {
   const [menuState, setMenuState] = useState<"closed" | "opening" | "closing">(
     "closed"
   );
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -164,7 +167,11 @@ const Header: FC = () => {
             </div>
           )}
         </ul>
-        <div className={styles.buttonJoinContainer}>
+
+        <div
+          className={styles.buttonJoinContainer}
+          onClick={() => setIsOpenModal(true)}
+        >
           <Button
             {...buttonPropsDesctop}
             border={true}
@@ -182,7 +189,11 @@ const Header: FC = () => {
           </Button>
         </div>
       </div>
-      <div className={styles.joinIconContainer}>
+
+      <div
+        className={styles.joinIconContainer}
+        onClick={() => console.log("gfd")}
+      >
         <img
           src={
             location.pathname.includes("/solutionForConnection")
@@ -195,6 +206,9 @@ const Header: FC = () => {
           className={styles.joinIcon}
         />
       </div>
+      <ModalWindow isOpen={isOpenModal} onClose={() => setIsOpenModal(false)}>
+        <LoginModal></LoginModal>
+      </ModalWindow>
     </header>
   );
 };

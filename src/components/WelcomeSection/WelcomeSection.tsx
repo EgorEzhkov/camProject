@@ -2,8 +2,6 @@ import styles from "./WelcomeSection.module.css";
 
 import { useState, type Dispatch, type FC, type SetStateAction } from "react";
 
-import { RemoveScrollBar } from "react-remove-scroll-bar";
-
 import Button from "../../ui/Button/Button";
 import { textForWelcomeSection } from "../../utils/constants";
 
@@ -17,7 +15,6 @@ import { useWindowSize } from "react-use";
 
 const WelcomeSection: FC = () => {
   const [activeLine, setActiveLine] = useState<number>(1);
-  const [stopScroll, setStopScroll] = useState<boolean>(false);
 
   const { width } = useWindowSize();
 
@@ -38,21 +35,7 @@ const WelcomeSection: FC = () => {
 
   return (
     <section className={styles.mainWelcomeSectionContainer}>
-      <div
-        className={styles.divContainer}
-        onMouseEnter={() => setStopScroll(true)}
-        onMouseLeave={() => setStopScroll(false)}
-        onWheel={(e) => {
-          if (width < 900) return;
-          if (e.deltaY > 0) {
-            nextActiveLine(activeLine, setActiveLine, "increase");
-          }
-          if (e.deltaY < 0) {
-            nextActiveLine(activeLine, setActiveLine, "decrease");
-          }
-        }}
-      >
-        {width > 900 ? stopScroll && <RemoveScrollBar></RemoveScrollBar> : null}
+      <div className={styles.divContainer}>
         <div className={styles.textContainer}>
           <div className={styles.titleContainer}>
             <h1
