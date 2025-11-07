@@ -15,6 +15,9 @@
   background-color: white;
   color: black;
   border-radius: 6px;
+  -webkit-box-shadow: 0px 0px 36px -8px #00000085;
+  box-shadow: 0px 0px 36px -8px #00000085;
+  position: relative;
 }
 
 .modalOverlay {
@@ -31,4 +34,11 @@
   backdrop-filter: blur(10px); /* Размытие фона под элементом */
   -webkit-backdrop-filter: blur(10px);
   transition: 0.5s ease-in-out all;
+}
+
+.closeIcon {
+  position: absolute;
+  cursor: pointer;
+  top: 35px;
+  right: 35px;
 }

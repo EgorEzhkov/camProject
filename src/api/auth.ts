@@ -37,8 +37,8 @@ export const login = async (dto: LoginRequest) => {
       password,
     });
     if (res) {
-      res.status;
       localStorage.setItem("accessToken", `Bearer ${res.data.accessToken}`);
+      return res;
     }
   } catch (err) {
     console.log(err);

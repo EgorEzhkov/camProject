@@ -9,14 +9,13 @@ const LoginModal = () => {
   const [password, setPassword] = useState<string>("");
 
   async function submitForm(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
     try {
       const result = await login({ email, password });
-
       console.log("Успешный вход:", result);
     } catch (err) {
       console.error("Ошибка входа:", err);
     }
+    e.preventDefault();
   }
 
   return (
