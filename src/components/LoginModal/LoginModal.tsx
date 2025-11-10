@@ -1,21 +1,37 @@
 import { useState } from "react";
-import { login } from "../../api/auth";
+import { getUser, login } from "../../api/auth";
 import styles from "./LoginModal.module.css";
 import Button from "../../ui/Button/Button";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
+import { useDispatch } from "react-redux";
+import { setError, setLoading, setUser } from "../../feauters/auth/authSlice";
 
 const LoginModal = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const dispatch = useDispatch();
+
   async function submitForm(e: React.FormEvent<HTMLFormElement>) {
-    try {
-      const result = await login({ email, password });
-      console.log("Успешный вход:", result);
-    } catch (err) {
-      console.error("Ошибка входа:", err);
-    }
     e.preventDefault();
+    dispatch(setLoading(true));
+    try {
+      await login({ email, password });
+
+      const user = await getUser();
+      if (user) {
+        dispatch(setUser(user));
+        dispatch(setLoading(false));
+      }
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error("Ошибка входа:", err.message);
+        dispatch(setError(err.message));
+      } else {
+        console.error("Неизвестная ошибка:", err);
+        dispatch(setError("Unknown error"));
+      }
+    }
   }
 
   return (

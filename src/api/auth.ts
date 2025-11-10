@@ -6,6 +6,7 @@ import type {
   RegisterResponse,
 } from "../types/dto/auth.dto";
 import { api } from "./axios";
+import type { User } from "../feauters/auth/types";
 
 export const register = async (dto: RegisterRequest) => {
   const { email, name, password } = dto;
@@ -24,7 +25,7 @@ export const register = async (dto: RegisterRequest) => {
         localStorage.setItem("accessToken", `Bearer ${res.data.accessToken}`);
       }
     } catch (err) {
-      console.log(err);
+      throw err;
     }
   }
 };
@@ -41,6 +42,21 @@ export const login = async (dto: LoginRequest) => {
       return res;
     }
   } catch (err) {
-    console.log(err);
+    throw err;
+  }
+};
+
+export const getUser = async () => {
+  const accessToken = localStorage.getItem("accessToken");
+
+  if (!accessToken) return;
+
+  try {
+    const res: AxiosResponse<User> = await api.get("/auth/@me", {
+      headers: { Authorization: accessToken },
+    });
+    return res.data;
+  } catch (err) {
+    throw err;
   }
 };

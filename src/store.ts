@@ -1,40 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "./feauters/auth/authSlice";
 
-type State = {
-  counter: number;
-};
+export const store = configureStore({ reducer: { auth: authReducer } });
 
-export type IncrementAction = {
-  type: "increment";
-};
-
-export type DecrementAction = {
-  type: "decrement";
-};
-
-type Action = IncrementAction | DecrementAction;
-
-const initialState: State = {
-  counter: 0,
-};
-
-const reducer = (state = initialState, action: Action): State => {
-  switch (action.type) {
-    case "increment":
-      return {
-        ...state,
-        counter: state.counter + 1,
-      };
-    case "decrement":
-      return {
-        ...state,
-        counter: state.counter - 1,
-      };
-    default:
-      return state;
-  }
-};
-
-export const store = configureStore({
-  reducer: reducer,
-});
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
