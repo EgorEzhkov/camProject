@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FC } from "react";
 import { getUser, login } from "../../api/auth";
 import styles from "./LoginModal.module.css";
 import Button from "../../ui/Button/Button";
@@ -6,7 +6,11 @@ import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { useDispatch } from "react-redux";
 import { setError, setLoading, setUser } from "../../feauters/auth/authSlice";
 
-const LoginModal = () => {
+interface LoginModalProps {
+  setIsOpenLogin(boolean: boolean): void;
+}
+
+const LoginModal: FC<LoginModalProps> = ({ setIsOpenLogin }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -14,6 +18,7 @@ const LoginModal = () => {
 
   async function submitForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
     dispatch(setLoading(true));
     try {
       await login({ email, password });
@@ -22,6 +27,7 @@ const LoginModal = () => {
       if (user) {
         dispatch(setUser(user));
         dispatch(setLoading(false));
+        setIsOpenLogin(false);
       }
     } catch (err: unknown) {
       if (err instanceof Error) {

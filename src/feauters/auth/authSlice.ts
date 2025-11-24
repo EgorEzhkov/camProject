@@ -6,6 +6,7 @@ interface AuthState {
   isAuth: boolean;
   loading: boolean;
   error: string | null;
+  success: boolean | null;
 }
 
 const initialState: AuthState = {
@@ -13,6 +14,7 @@ const initialState: AuthState = {
   isAuth: false,
   loading: false,
   error: null,
+  success: null,
 };
 
 const authSlice = createSlice({
@@ -23,6 +25,7 @@ const authSlice = createSlice({
       state.user = action.payload;
       state.isAuth = true;
       state.error = null;
+      state.success = true;
     },
     clearUser: (state) => {
       state.isAuth = false;
@@ -33,6 +36,7 @@ const authSlice = createSlice({
     },
     setError: (state, action: PayloadAction<string | null>) => {
       state.error = action.payload;
+      state.success = false;
     },
   },
 });

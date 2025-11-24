@@ -207,7 +207,7 @@ const Header: FC = () => {
         />
       </div>
       <ModalWindow isOpen={isOpenModal} onClose={() => setIsOpenModal(false)}>
-        <LoginModal></LoginModal>
+        <LoginModal setIsOpenLogin={setIsOpenModal}></LoginModal>
       </ModalWindow>
     </header>
   );
