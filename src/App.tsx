@@ -5,8 +5,10 @@ import SolutionsForConnectionPage from "./pages/SolutionsForConnectionPage/Solut
 import MainLayout from "./layouts/MainLayout";
 import NoLayout from "./layouts/NoLayout";
 import CompanyNewsPage from "./pages/CompanyNewsPage/CompanyNewsPage";
+import { useAuthCheck } from "./hooks/useAuthCheck";
 
 function App() {
+  useAuthCheck();
   return (
     <HashRouter>
       <Routes>

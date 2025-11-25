@@ -39,6 +39,7 @@ export const login = async (dto: LoginRequest) => {
     });
     if (res) {
       localStorage.setItem("accessToken", `Bearer ${res.data.accessToken}`);
+
       return res;
     }
   } catch (err) {

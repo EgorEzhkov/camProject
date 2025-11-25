@@ -17,12 +17,18 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ModalWindow from "../../ui/ModalWindow/ModalWindow";
 import LoginModal from "../LoginModal/LoginModal";
+import { store } from "../../store";
+import { api } from "../../api/axios";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../store";
 
 const Header: FC = () => {
   const [menuState, setMenuState] = useState<"closed" | "opening" | "closing">(
     "closed"
   );
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+
+  const isAuth = useSelector((state: RootState) => state.auth.isAuth);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -170,7 +176,20 @@ const Header: FC = () => {
 
         <div
           className={styles.buttonJoinContainer}
-          onClick={() => setIsOpenModal(true)}
+          onClick={() => {
+            isAuth
+              ? console.log(
+                  api
+                    .get("/auth/@me", {
+                      headers: {
+                        Authorization: localStorage.getItem("accessToken"),
+                      },
+                    })
+                    .then((e) => console.log(e.data))
+                    .catch((err) => console.log(err))
+                )
+              : setIsOpenModal(true);
+          }}
         >
           <Button
             {...buttonPropsDesctop}
@@ -185,7 +204,7 @@ const Header: FC = () => {
                 : "white"
             }
           >
-            Войти
+            {isAuth ? "Профиль" : "Войти"}
           </Button>
         </div>
       </div>
