@@ -1,6 +1,6 @@
 import styles from "./Header.module.css";
 
-import { useCallback, useEffect, useRef, useState, type FC } from "react";
+import { use, useCallback, useEffect, useRef, useState, type FC } from "react";
 
 import Button from "../../ui/Button/Button";
 import logo from "../../assets/images/logo.png";
@@ -17,8 +17,6 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ModalWindow from "../../ui/ModalWindow/ModalWindow";
 import LoginModal from "../LoginModal/LoginModal";
-import { store } from "../../store";
-import { api } from "../../api/axios";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../store";
 
@@ -27,8 +25,8 @@ const Header: FC = () => {
     "closed"
   );
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-
   const isAuth = useSelector((state: RootState) => state.auth.isAuth);
+  const isLoading = useSelector((state: RootState) => state.auth.loading);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -177,18 +175,8 @@ const Header: FC = () => {
         <div
           className={styles.buttonJoinContainer}
           onClick={() => {
-            isAuth
-              ? console.log(
-                  api
-                    .get("/auth/@me", {
-                      headers: {
-                        Authorization: localStorage.getItem("accessToken"),
-                      },
-                    })
-                    .then((e) => console.log(e.data))
-                    .catch((err) => console.log(err))
-                )
-              : setIsOpenModal(true);
+            if (isAuth) navigate("/user", { replace: true });
+            if (!isAuth) setIsOpenModal(true);
           }}
         >
           <Button
@@ -204,7 +192,7 @@ const Header: FC = () => {
                 : "white"
             }
           >
-            {isAuth ? "Профиль" : "Войти"}
+            {isLoading ? " " : isAuth ? "Профиль" : "Войти"}
           </Button>
         </div>
       </div>

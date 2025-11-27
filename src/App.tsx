@@ -6,6 +6,7 @@ import MainLayout from "./layouts/MainLayout";
 import NoLayout from "./layouts/NoLayout";
 import CompanyNewsPage from "./pages/CompanyNewsPage/CompanyNewsPage";
 import { useAuthCheck } from "./hooks/useAuthCheck";
+import UserPage from "./pages/UserPage/UserPage";
 
 function App() {
   useAuthCheck();
@@ -20,6 +21,7 @@ function App() {
             element={<SolutionsForConnectionPage />}
           />
           <Route path="/companyNewsPage" element={<CompanyNewsPage />}></Route>
+          <Route path="/user" element={<UserPage />} />
         </Route>
 
         {/* Layout без Header и Footer */}
