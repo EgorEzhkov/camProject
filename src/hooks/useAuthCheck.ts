@@ -10,7 +10,6 @@ export const useAuthCheck = () => {
     const check = async () => {
       dispatch(setLoading(true));
       try {
-        console.log("f");
         const { data } = await api.post("/auth/refresh");
 
         localStorage.setItem("accessToken", data.accessToken);

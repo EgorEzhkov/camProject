@@ -53,3 +53,63 @@
   font-size: 18px;
   font-weight: bold;
 }
+
+.balanceAndStatusContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+  font-family: "Montserrat", "Courier New", Courier, monospace;
+}
+
+.statusContainer {
+  box-sizing: border-box;
+  border-radius: 6px 0 0 6px;
+  padding: 0 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 277px;
+  width: 100vw;
+  height: 100%;
+  color: #219653;
+  background-color: white;
+  font-size: 14px;
+}
+
+.statusSpan {
+  font-weight: 500;
+}
+
+.balanceStatus {
+  background-color: white;
+  height: 100%;
+  color: black;
+  padding: 35px 60px;
+  box-sizing: border-box;
+  border-radius: 0 6px 6px 0;
+}
+
+.balance {
+  color: #4b4a65;
+  margin: 0;
+  line-height: 150%;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.balanceSpan {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.textContainer {
+  color: #333333;
+  opacity: 0.8;
+  font-weight: 200;
+  margin: 15px 0 15px;
+}
+
+.text {
+  margin: 0;
+}

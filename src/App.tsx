@@ -7,6 +7,7 @@ import NoLayout from "./layouts/NoLayout";
 import CompanyNewsPage from "./pages/CompanyNewsPage/CompanyNewsPage";
 import { useAuthCheck } from "./hooks/useAuthCheck";
 import UserPage from "./pages/UserPage/UserPage";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   useAuthCheck();
@@ -21,7 +22,10 @@ function App() {
             element={<SolutionsForConnectionPage />}
           />
           <Route path="/companyNewsPage" element={<CompanyNewsPage />}></Route>
-          <Route path="/user" element={<UserPage />} />
+          <Route
+            path="/user"
+            element={<ProtectedRoute children={<UserPage />} />}
+          />
         </Route>
 
         {/* Layout без Header и Footer */}
