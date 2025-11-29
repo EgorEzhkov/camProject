@@ -61,3 +61,14 @@ export const getUser = async () => {
     throw err;
   }
 };
+
+export const logout = async () => {
+  try {
+    const res = await api.post("/auth/logout");
+    if (res) {
+      localStorage.removeItem("accessToken");
+    }
+  } catch (err) {
+    throw err;
+  }
+};

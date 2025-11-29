@@ -69,7 +69,16 @@ const Button: FC<PropsForButton> = ({
 
   return (
     <button style={styleButton} disabled={disabled}>
-      <p style={{ margin: textMargin }}>{children}</p>
+      <p
+        style={{
+          margin: textMargin,
+          alignItems: "center",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {children}
+      </p>
     </button>
   );
 };

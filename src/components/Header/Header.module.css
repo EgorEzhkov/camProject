@@ -17,7 +17,6 @@
   background: none;
   box-sizing: border-box;
   align-items: center;
-  justify-content: center;
 }
 
 .ul {
@@ -50,8 +49,7 @@
 
 .imgContainer {
   display: flex;
-  justify-content: center;
-  margin-right: auto;
+  align-self: flex-start;
   min-width: 55px;
 }
 
