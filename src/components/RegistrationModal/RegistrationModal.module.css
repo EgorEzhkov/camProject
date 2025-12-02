@@ -45,7 +45,11 @@
   gap: 12px;
 }
 
-.field:nth-of-type(2) {
+.field:nth-of-type(4) {
+  position: relative;
+}
+
+.field:nth-of-type(5) {
   position: relative;
 }
 

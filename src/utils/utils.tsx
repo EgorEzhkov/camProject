@@ -13,11 +13,11 @@ export function getDeviceType() {
     return "desktop";
   }
 }
-
-export function lockScroll(fixTop?: boolean) {
+export function lockScroll(fixTop = false) {
   const scrollY = window.scrollY;
   const page = document.getElementById("root");
   if (!page) return;
+
   page.style.position = "fixed";
   page.style.top = `-${fixTop ? 0 : scrollY}px`;
   page.style.left = "0";
@@ -25,15 +25,18 @@ export function lockScroll(fixTop?: boolean) {
   page.dataset.scrollY = `${scrollY}`;
 }
 
-export function unlockScroll(fixTop?: boolean) {
+export function unlockScroll(fixTop = false) {
   const page = document.getElementById("root");
   if (!page) return;
-  const scrollY = fixTop ? "0" : page.dataset.scrollY || "0";
+
+  const scrollY = parseInt(page.dataset.scrollY || "0");
 
   page.style.position = "";
   page.style.top = "";
   page.style.left = "";
   page.style.right = "";
 
-  window.scrollTo(0, parseInt(fixTop ? "0" : scrollY));
+  page.dataset.scrollY = "";
+
+  window.scrollTo(0, fixTop ? 0 : scrollY);
 }

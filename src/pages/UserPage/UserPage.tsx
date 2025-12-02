@@ -5,7 +5,7 @@ import type { RootState } from "../../store";
 import Button from "../../ui/Button/Button";
 
 const UserPage = () => {
-  const userName = useSelector((state: RootState) => state.auth.user?.name);
+  const userName = useSelector((state: RootState) => state.auth.user?.userName);
   const userLogin = useSelector((state: RootState) => state.auth.user?.login);
 
   const userEmail = useSelector((state: RootState) => state.auth.user?.email);

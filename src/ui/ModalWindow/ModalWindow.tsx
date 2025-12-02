@@ -1,7 +1,8 @@
-import { useEffect, type FC, type KeyboardEvent, type ReactNode } from "react";
+import { useEffect, type FC, type ReactNode } from "react";
 import closeIcon from "../../assets/images/Х.svg";
 import ReactDOM from "react-dom";
 import styles from "./ModalWindow.module.css";
+import { lockScroll, unlockScroll } from "../../utils/utils";
 
 interface ModalWindowProps {
   children: ReactNode;
@@ -10,23 +11,28 @@ interface ModalWindowProps {
 }
 
 const ModalWindow: FC<ModalWindowProps> = ({ children, isOpen, onClose }) => {
-  if (!isOpen) return null;
-
   useEffect(() => {
-    function closeKey(e: KeyboardEventInit) {
+    function closeKey(e: KeyboardEvent) {
       if (e.code === "Escape") onClose();
     }
 
     document.addEventListener("keydown", closeKey);
 
+    if (isOpen) lockScroll(false);
+
     return () => {
       document.removeEventListener("keydown", closeKey);
+      unlockScroll(false);
     };
-  });
+  }, [isOpen, onClose]);
 
   return ReactDOM.createPortal(
     <>
-      <div className={styles.modalMain}>
+      <div
+        className={`${styles.modalMain} ${
+          isOpen ? styles.active : styles.inactive
+        }`}
+      >
         <div className={styles.modalContainer}>
           {children}
           <img

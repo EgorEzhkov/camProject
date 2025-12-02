@@ -9,15 +9,16 @@ import { api } from "./axios";
 import type { User } from "../feauters/auth/types";
 
 export const register = async (dto: RegisterRequest) => {
-  const { email, name, password } = dto;
-  if (email && password && name) {
+  const { email, userName, password, login } = dto;
+  if (email && password && userName) {
     try {
       const res: AxiosResponse<RegisterResponse> = await api.post(
         "/auth/register",
         {
           email,
+          login,
           password,
-          name,
+          userName,
         }
       );
 

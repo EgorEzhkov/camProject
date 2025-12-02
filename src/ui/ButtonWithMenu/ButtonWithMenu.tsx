@@ -8,7 +8,7 @@ import { logout } from "../../api/auth";
 import { clearUser } from "../../feauters/auth/authSlice";
 
 const ButtonWithMenu = () => {
-  const userName = useSelector((state: RootState) => state.auth.user?.name);
+  const userName = useSelector((state: RootState) => state.auth.user?.userName);
   const arrayName = userName?.split(" ");
 
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -21,7 +21,6 @@ const ButtonWithMenu = () => {
   useEffect(() => {
     if (isOpenMenu) {
       const handleClick = (e: MouseEvent) => {
-        console.log(mainDiv.current?.contains(e.target as Node));
         if (mainDiv.current && !mainDiv.current.contains(e.target as Node)) {
           setIsOpenMenu(false);
         }
