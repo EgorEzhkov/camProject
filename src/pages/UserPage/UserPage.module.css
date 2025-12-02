@@ -1,0 +1,115 @@
+.mainPage {
+  background-color: antiquewhite;
+  height: 100vh;
+  background-image: url(../../assets/images/backgroundUserPage.png);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 181px 200px;
+  max-width: 1600px;
+  width: 100%;
+  justify-self: center;
+}
+
+.titleContainer {
+  opacity: 0.6;
+}
+
+.line {
+  width: 100%;
+  border-top: 1px solid white;
+  opacity: 0.2;
+  margin: 35px 0;
+}
+
+.userInfoAndMoneyBalance {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.listElement {
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.subTitle {
+  opacity: 0.5;
+  margin: 0;
+}
+
+.userInfoElement {
+  margin: 0;
+  font-family: "Montserrat", "Courier New", Courier, monospace;
+  line-height: 110%;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.balanceAndStatusContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+  font-family: "Montserrat", "Courier New", Courier, monospace;
+}
+
+.statusContainer {
+  box-sizing: border-box;
+  border-radius: 6px 0 0 6px;
+  padding: 0 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 277px;
+  width: 100vw;
+  height: 100%;
+  color: #219653;
+  background-color: white;
+  font-size: 14px;
+}
+
+.statusSpan {
+  font-weight: 500;
+}
+
+.balanceStatus {
+  background-color: white;
+  height: 100%;
+  color: black;
+  padding: 35px 60px;
+  box-sizing: border-box;
+  border-radius: 0 6px 6px 0;
+}
+
+.balance {
+  color: #4b4a65;
+  margin: 0;
+  line-height: 150%;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.balanceSpan {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.textContainer {
+  color: #333333;
+  opacity: 0.8;
+  font-weight: 200;
+  margin: 15px 0 15px;
+}
+
+.text {
+  margin: 0;
+}

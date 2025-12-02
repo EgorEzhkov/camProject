@@ -7,33 +7,49 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none; /* для блокировки кликов */
 }
 
 .modalContainer {
-  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
   padding: 35px;
   background-color: white;
   color: black;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 0px 36px -8px #00000085;
-  box-shadow: 0px 0px 36px -8px #00000085;
-  position: relative;
+  box-shadow: 0 0 36px -8px #00000085;
+  position: absolute;
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
 }
 
 .modalOverlay {
-  z-index: 8888;
-  position: fixed;
+  z-index: 888;
+  position: absolute;
   top: 0;
   right: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(16, 26, 51, 0.2); /* Полупрозрачный фон */
-  backdrop-filter: blur(10px); /* Размытие фона под элементом */
-  -webkit-backdrop-filter: blur(10px);
-  transition: 0.5s ease-in-out all;
+  background: rgba(16, 26, 51, 0.2);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modalMain.active .modalOverlay {
+  opacity: 1;
+  pointer-events: auto; /* клики активны */
+}
+
+.modalMain.active .modalContainer {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .closeIcon {

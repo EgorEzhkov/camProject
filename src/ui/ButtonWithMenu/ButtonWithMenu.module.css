@@ -1,0 +1,75 @@
+.name {
+  font-size: 16px;
+  line-height: 110%;
+  font-weight: 400;
+  position: relative;
+  margin: 0 0 0 75px;
+  min-width: 140px;
+  box-sizing: border-box;
+}
+
+.mainDiv {
+  font-family: "MontSerrat", "Courier New", Courier, monospace;
+}
+
+.arrow {
+  transform: rotate(90deg);
+  position: absolute;
+  right: 28px;
+  top: 11px;
+  transition: 0.3s ease-in-out;
+}
+
+.button {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgb(92, 23, 205);
+  padding: 8px 40px 8px 20px;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0px;
+  line-height: 110%;
+  text-align: start;
+  transition: 0.3s ease-in-out;
+  height: fit-content;
+  text-wrap: nowrap;
+  min-width: 140px;
+}
+
+.list {
+  display: flex;
+  transition: 0.3s ease-in-out;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  top: 34px;
+  position: absolute;
+  background-color: #5c17cd;
+  width: 100%;
+  opacity: 0;
+  animation-name: menuItemAppear;
+  animation-duration: 0.3s; /* Длительность анимации одного элемента */
+  animation-fill-mode: both; /* Оставляет элемент в конечном состоянии (opacity: 1, transform: translateY(0)) после завершения */
+  animation-timing-function: ease-out;
+  border-radius: 0 0 6px 6px;
+}
+
+.listElement {
+  border-top: 1px solid white;
+  padding: 7px 23px;
+  font-size: 13px;
+  line-height: 110%;
+  cursor: pointer;
+}
+
+.textName {
+  margin: 0;
+  transition: 0.3s ease-in-out;
+}

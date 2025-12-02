@@ -1,6 +1,6 @@
-import styles from "./LoginModal.module.css";
+import styles from "./RegistrationModal.module.css";
 import { useState, type FC } from "react";
-import { getUser, login } from "../../api/auth";
+import { getUser, register } from "../../api/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setError, setLoading, setUser } from "../../feauters/auth/authSlice";
 import Button from "../../ui/Button/Button";
@@ -10,17 +10,20 @@ import { getDeviceType } from "../../utils/utils";
 import type { RootState } from "../../store";
 import { useNavigate } from "react-router-dom";
 
-interface LoginModalProps {
-  setIsOpenLogin(boolean: boolean): void;
+interface RegistrationModalProps {
   setIsOpenRegistration(boolean: boolean): void;
+  setIsOpenLogin(boolean: boolean): void;
 }
 
-const LoginModal: FC<LoginModalProps> = ({
-  setIsOpenLogin,
+const RegistrationModal: FC<RegistrationModalProps> = ({
   setIsOpenRegistration,
+  setIsOpenLogin,
 }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [repeatedPassword, setRepeatedPassword] = useState<string>("");
+  const [userName, setUserName] = useState<string>("");
+  const [login, setLogin] = useState<string>("");
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -28,26 +31,31 @@ const LoginModal: FC<LoginModalProps> = ({
 
   const deviceType = getDeviceType();
 
-  const isError = useSelector((state: RootState) => state.auth.error);
-
   const navigate = useNavigate();
+
+  const isError = useSelector((state: RootState) => state.auth.error);
 
   async function submitForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     try {
-      await login({ email, password });
+      const res = await register({ email, password, userName, login });
+      console.log(res);
       dispatch(setLoading(true));
       const user = await getUser();
       if (user) {
         dispatch(setUser(user));
         dispatch(setLoading(false));
-        setIsOpenLogin(false);
+        setIsOpenRegistration(false);
+        navigate("/user");
         setEmail("");
         setPassword("");
-        navigate("/user");
+        setRepeatedPassword("");
+        setUserName("");
+        setLogin("");
       }
     } catch (err: unknown) {
+      dispatch(setLoading(false));
       if (err instanceof Error) {
         console.error("Ошибка входа:", err.message);
         dispatch(setError(err.message));
@@ -55,18 +63,28 @@ const LoginModal: FC<LoginModalProps> = ({
         console.error("Неизвестная ошибка:", err);
         dispatch(setError("Unknown error"));
       }
-      dispatch(setLoading(false));
     }
   }
 
   return (
     <>
-      <h2 className={styles.title}>Войти в аккаунт</h2>
+      <h2 className={styles.title}>Регистрация</h2>
       <form onSubmit={submitForm} className={styles.form}>
         <div className={styles.field}>
           <input
+            type="text"
+            id="name"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            placeholder="Введите ФИО"
+            className={styles.input}
+            required
+          />
+        </div>
+        <div className={styles.field}>
+          <input
             type="email"
-            id="email"
+            id="regEmail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Введите email"
@@ -74,11 +92,21 @@ const LoginModal: FC<LoginModalProps> = ({
             required
           />
         </div>
-
+        <div className={styles.field}>
+          <input
+            type="text"
+            id="login"
+            value={login}
+            onChange={(e) => setLogin(e.target.value)}
+            placeholder="Введите login"
+            className={styles.input}
+            required
+          />
+        </div>
         <div className={styles.field}>
           <input
             type={!isVisible ? "password" : "text"}
-            id="password"
+            id="regPassword"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Введите пароль"
@@ -86,10 +114,6 @@ const LoginModal: FC<LoginModalProps> = ({
             minLength={6}
             required
           />
-          {isError?.includes("404") && (
-            <p className={styles.error}>Неверный логин или пароль</p>
-          )}
-
           {deviceType === "desktop" ? (
             <img
               src={!isVisible ? unVisibility : visibility}
@@ -107,6 +131,21 @@ const LoginModal: FC<LoginModalProps> = ({
             />
           )}
         </div>
+        <div className={styles.field}>
+          <input
+            type={!isVisible ? "password" : "text"}
+            id="repeatPassword"
+            value={repeatedPassword}
+            onChange={(e) => setRepeatedPassword(e.target.value)}
+            placeholder="Повторите пароль"
+            className={styles.input}
+            minLength={6}
+            required
+          />
+          {password !== repeatedPassword && (
+            <p className={styles.error}>Пароли не совпадают</p>
+          )}
+        </div>
         <Button
           backgroundColor={true}
           fontFamily="Montserrat"
@@ -115,19 +154,19 @@ const LoginModal: FC<LoginModalProps> = ({
           padding="20px"
           buttonMargin="12px 0 0 0"
         >
-          Войти
+          Зарегистрироваться
         </Button>
       </form>
       <h6
         className={styles.registrationText}
         onClick={() => {
-          setIsOpenLogin(false), setIsOpenRegistration(true);
+          setIsOpenRegistration(false), setIsOpenLogin(true);
         }}
       >
-        Регистрация
+        Войти
       </h6>
     </>
   );
 };
 
-export default LoginModal;
+export default RegistrationModal;

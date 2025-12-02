@@ -17,7 +17,6 @@
   background: none;
   box-sizing: border-box;
   align-items: center;
-  justify-content: center;
 }
 
 .ul {
@@ -50,8 +49,7 @@
 
 .imgContainer {
   display: flex;
-  justify-content: center;
-  margin-right: auto;
+  align-self: flex-start;
   min-width: 55px;
 }
 
@@ -65,6 +63,7 @@
   margin-left: 75px;
   transition: 0.2s ease-out all;
   align-items: center;
+  min-width: 150px;
 }
 
 .link {
@@ -77,12 +76,6 @@
 
 .joinIcon {
   transition: 0.3s ease-in-out all;
-}
-
-@media (hover: hover) {
-  .buttonJoinContainer:hover {
-    box-shadow: 0px 0px 17px 4px rgba(0, 0, 0, 0.2);
-  }
 }
 
 .joinIconContainer {
@@ -220,6 +213,7 @@
     transition: 0.5s ease-in-out;
     cursor: pointer;
     z-index: 1;
+    display: none;
   }
 
   .navIcon span {

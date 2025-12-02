@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import styles from "./Button.module.css";
 
 export interface PropsForButton {
   children?: React.ReactNode;
@@ -19,6 +20,7 @@ export interface PropsForButton {
   activeLink?: boolean;
   textWrap?: "wrap" | "nowrap";
   type?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  shadow?: boolean;
 }
 
 const Button: FC<PropsForButton> = ({
@@ -39,6 +41,7 @@ const Button: FC<PropsForButton> = ({
   disabled = false,
   activeLink = false,
   textWrap = "wrap",
+  shadow = false,
 }) => {
   const styleButton = {
     fontFamily,
@@ -68,8 +71,21 @@ const Button: FC<PropsForButton> = ({
   } as const;
 
   return (
-    <button style={styleButton} disabled={disabled}>
-      <p style={{ margin: textMargin }}>{children}</p>
+    <button
+      style={styleButton}
+      disabled={disabled}
+      className={`${shadow ? styles.shadow : ""}`}
+    >
+      <p
+        style={{
+          margin: textMargin,
+          alignItems: "center",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {children}
+      </p>
     </button>
   );
 };

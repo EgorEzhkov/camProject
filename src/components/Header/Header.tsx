@@ -1,6 +1,6 @@
 import styles from "./Header.module.css";
 
-import { useCallback, useEffect, useRef, useState, type FC } from "react";
+import { use, useCallback, useEffect, useRef, useState, type FC } from "react";
 
 import Button from "../../ui/Button/Button";
 import logo from "../../assets/images/logo.png";
@@ -17,12 +17,20 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ModalWindow from "../../ui/ModalWindow/ModalWindow";
 import LoginModal from "../LoginModal/LoginModal";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../store";
+import ButtonWithMenu from "../../ui/ButtonWithMenu/ButtonWithMenu";
+import RegistrationModal from "../RegistrationModal/RegistrationModal";
 
 const Header: FC = () => {
   const [menuState, setMenuState] = useState<"closed" | "opening" | "closing">(
     "closed"
   );
-  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const [isOpenModalLogin, setIsOpenModalLogin] = useState<boolean>(false);
+  const [isOpenModalRegistration, setIsOpenModalRegistration] =
+    useState<boolean>(false);
+  const isAuth = useSelector((state: RootState) => state.auth.isAuth);
+  const isLoading = useSelector((state: RootState) => state.auth.loading);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -84,6 +92,14 @@ const Header: FC = () => {
     // это убирает артефакт на iOS после анимации закрытия меню
   }, [menuState, handleHeaderMenu]);
 
+  useEffect(() => {
+    if (isOpenModalLogin) setIsOpenModalRegistration(false);
+  }, [isOpenModalLogin]);
+
+  useEffect(() => {
+    if (isOpenModalRegistration) setIsOpenModalLogin(false);
+  }, [isOpenModalRegistration]);
+
   return (
     <header className={styles.header} style={{}}>
       {menuState === "closing" || menuState === "opening" ? (
@@ -97,18 +113,20 @@ const Header: FC = () => {
           }`}
         ></div>
       ) : null}
-      <div
-        className={`${styles.navIcon} ${
-          menuState === "opening" ? styles.active : ""
-        }`}
-        onClick={handleHeaderMenu}
-      >
-        <span className={classNameForSpan}></span>
-        <span className={classNameForSpan}></span>
-        <span className={classNameForSpan}></span>
-        <span className={classNameForSpan}></span>
-      </div>
-
+      {/* ПОПРАВИТЬ ДЛЯ МОБИЛОК */}
+      {menuState === "closed" ? null : (
+        <div
+          className={`${styles.navIcon} ${
+            menuState === "opening" ? styles.active : ""
+          }`}
+          onClick={handleHeaderMenu}
+        >
+          <span className={classNameForSpan}></span>
+          <span className={classNameForSpan}></span>
+          <span className={classNameForSpan}></span>
+          <span className={classNameForSpan}></span>
+        </div>
+      )}
       <Link className={styles.imgContainer} to={"/"}>
         <img src={logo} alt="" className={styles.logo} />
       </Link>
@@ -167,29 +185,38 @@ const Header: FC = () => {
             </div>
           )}
         </ul>
-
-        <div
-          className={styles.buttonJoinContainer}
-          onClick={() => setIsOpenModal(true)}
-        >
-          <Button
-            {...buttonPropsDesctop}
-            border={true}
-            borderColor="purple"
-            padding="7px 30px"
-            color={
-              location.pathname.includes("solutionForConnection")
-                ? "black"
-                : location.pathname.includes("companyNewsPage")
-                ? "black"
-                : "white"
-            }
+        {isLoading ? (
+          " "
+        ) : isAuth && location.pathname.includes("/user") ? (
+          <ButtonWithMenu></ButtonWithMenu>
+        ) : (
+          <div
+            className={styles.buttonJoinContainer}
+            onClick={() => {
+              if (isAuth) navigate("/user", { replace: true });
+              if (!isAuth) setIsOpenModalLogin(true);
+            }}
           >
-            Войти
-          </Button>
-        </div>
+            <Button
+              {...buttonPropsDesctop}
+              border={true}
+              borderColor="purple"
+              padding="7px 30px"
+              shadow={true}
+              width="100%"
+              color={
+                location.pathname.includes("solutionForConnection")
+                  ? "black"
+                  : location.pathname.includes("companyNewsPage")
+                  ? "black"
+                  : "white"
+              }
+            >
+              {isAuth ? "Профиль" : "Войти"}
+            </Button>
+          </div>
+        )}
       </div>
-
       <div
         className={styles.joinIconContainer}
         onClick={() => console.log("gfd")}
@@ -206,8 +233,25 @@ const Header: FC = () => {
           className={styles.joinIcon}
         />
       </div>
-      <ModalWindow isOpen={isOpenModal} onClose={() => setIsOpenModal(false)}>
-        <LoginModal></LoginModal>
+      <ModalWindow
+        key={0}
+        isOpen={isOpenModalLogin}
+        onClose={() => setIsOpenModalLogin(false)}
+      >
+        <LoginModal
+          setIsOpenLogin={setIsOpenModalLogin}
+          setIsOpenRegistration={setIsOpenModalRegistration}
+        />
+      </ModalWindow>
+      <ModalWindow
+        key={1}
+        isOpen={isOpenModalRegistration}
+        onClose={() => setIsOpenModalRegistration(false)}
+      >
+        <RegistrationModal
+          setIsOpenLogin={setIsOpenModalLogin}
+          setIsOpenRegistration={setIsOpenModalRegistration}
+        />
       </ModalWindow>
     </header>
   );
