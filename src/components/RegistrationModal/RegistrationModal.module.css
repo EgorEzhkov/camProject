@@ -21,6 +21,7 @@
   color: #333333;
   border-radius: 5px;
   border: 1px solid #33333341;
+  transition: 0.3s all ease-in-out;
 }
 
 /* .input:invalid {
@@ -39,10 +40,18 @@
   opacity: 0.5;
 }
 
+.inputError {
+  border-color: rgba(255, 0, 0, 0.514);
+}
+
 .form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.field {
+  max-width: 470px;
 }
 
 .field:nth-of-type(4) {
@@ -62,12 +71,12 @@
 }
 
 .error {
-  position: absolute;
-  margin: 0;
+  margin: 3px 0 0 0;
   color: red;
   opacity: 0.7;
   font-size: 14px;
-  bottom: -22px;
+  line-height: 120%;
+  max-width: 90%;
 }
 
 .registrationText {

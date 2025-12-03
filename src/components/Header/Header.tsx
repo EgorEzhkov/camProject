@@ -192,6 +192,7 @@ const Header: FC = () => {
         ) : (
           <div
             className={styles.buttonJoinContainer}
+            style={{ minWidth: !isAuth ? "none" : "150px" }}
             onClick={() => {
               if (isAuth) navigate("/user", { replace: true });
               if (!isAuth) setIsOpenModalLogin(true);

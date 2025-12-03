@@ -1,14 +1,17 @@
 import styles from "./RegistrationModal.module.css";
 import { useState, type FC } from "react";
-import { getUser, register } from "../../api/auth";
+import { getUser, registerUser } from "../../api/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setError, setLoading, setUser } from "../../feauters/auth/authSlice";
 import Button from "../../ui/Button/Button";
 import unVisibility from "../../assets/images/unVisibility.svg";
 import visibility from "../../assets/images/visibility.svg";
 import { getDeviceType } from "../../utils/utils";
-import type { RootState } from "../../store";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import type { RegisterRequest } from "../../types/dto/auth.dto";
+import { AxiosError } from "axios";
+import type { RootState } from "../../store";
 
 interface RegistrationModalProps {
   setIsOpenRegistration(boolean: boolean): void;
@@ -19,11 +22,22 @@ const RegistrationModal: FC<RegistrationModalProps> = ({
   setIsOpenRegistration,
   setIsOpenLogin,
 }) => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [repeatedPassword, setRepeatedPassword] = useState<string>("");
-  const [userName, setUserName] = useState<string>("");
-  const [login, setLogin] = useState<string>("");
+  const { register, formState, watch, reset } = useForm<
+    RegisterRequest & { repeatedPassword: string }
+  >({
+    mode: "onChange",
+  });
+
+  const email = watch("email");
+  const password = watch("password");
+  const repeatedPassword = watch("repeatedPassword");
+  const userName = watch("userName");
+  const login = watch("login");
+
+  const userNameErrorMessage = formState.errors.userName?.message;
+  const emailErrorMessage = formState.errors.email?.message;
+  const loginErrorMessage = formState.errors.login?.message;
+  const passwordErrorMessage = formState.errors.password?.message;
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -33,32 +47,35 @@ const RegistrationModal: FC<RegistrationModalProps> = ({
 
   const navigate = useNavigate();
 
-  const isError = useSelector((state: RootState) => state.auth.error);
+  const authError = useSelector((state: RootState) => state.auth.error);
 
   async function submitForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     try {
-      const res = await register({ email, password, userName, login });
-      console.log(res);
+      await registerUser({ email, password, userName, login });
       dispatch(setLoading(true));
       const user = await getUser();
       if (user) {
         dispatch(setUser(user));
         dispatch(setLoading(false));
         setIsOpenRegistration(false);
+        reset({
+          userName: "",
+          email: "",
+          password: "",
+          repeatedPassword: "",
+          login: "",
+        });
         navigate("/user");
-        setEmail("");
-        setPassword("");
-        setRepeatedPassword("");
-        setUserName("");
-        setLogin("");
       }
     } catch (err: unknown) {
       dispatch(setLoading(false));
-      if (err instanceof Error) {
-        console.error("Ошибка входа:", err.message);
-        dispatch(setError(err.message));
+      if (err instanceof AxiosError) {
+        if (err.response) {
+          console.error("Ошибка входа:", err.response.data.message);
+          dispatch(setError(err.response.data.message));
+        }
       } else {
         console.error("Неизвестная ошибка:", err);
         dispatch(setError("Unknown error"));
@@ -75,45 +92,103 @@ const RegistrationModal: FC<RegistrationModalProps> = ({
             type="text"
             id="name"
             value={userName}
-            onChange={(e) => setUserName(e.target.value)}
             placeholder="Введите ФИО"
-            className={styles.input}
-            required
+            className={`${styles.input} ${
+              userNameErrorMessage ? styles.inputError : null
+            }`}
+            {...register("userName", {
+              required: "Это поле обязательно",
+              minLength: { value: 6, message: "Минимум 6 символов" },
+              maxLength: {
+                value: 50,
+                message: "Имя не должно превышать 50 символов",
+              },
+              pattern: {
+                value: /^[A-Za-zА-Яа-яЁё]+([ -][A-Za-zА-Яа-яЁё]+)*$/,
+                message:
+                  "Можно использовать только буквы (русские/англ.), пробелы и тире",
+              },
+            })}
           />
+          {userNameErrorMessage && (
+            <p className={styles.error}>{userNameErrorMessage}</p>
+          )}
         </div>
         <div className={styles.field}>
           <input
             type="email"
             id="regEmail"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
             placeholder="Введите email"
-            className={styles.input}
-            required
+            className={`${styles.input} ${
+              emailErrorMessage ? styles.inputError : null
+            }`}
+            {...register("email", {
+              required: "Это поле обязательно",
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: "Неправильный адрес электронной почты",
+              },
+            })}
           />
+          {emailErrorMessage && (
+            <p className={styles.error}>{emailErrorMessage}</p>
+          )}
         </div>
         <div className={styles.field}>
           <input
             type="text"
             id="login"
             value={login}
-            onChange={(e) => setLogin(e.target.value)}
             placeholder="Введите login"
-            className={styles.input}
-            required
+            className={`${styles.input} ${
+              loginErrorMessage ? styles.inputError : null
+            }`}
+            {...register("login", {
+              required: "Это поле обязательно",
+              maxLength: {
+                value: 50,
+                message: "Логин не должен превышать 50 символов",
+              },
+              minLength: {
+                value: 5,
+                message: "Логин не должен быть меньше 5 символов",
+              },
+            })}
           />
+          {loginErrorMessage && (
+            <p className={styles.error}>{loginErrorMessage}</p>
+          )}
         </div>
         <div className={styles.field}>
           <input
             type={!isVisible ? "password" : "text"}
             id="regPassword"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
             placeholder="Введите пароль"
-            className={styles.input}
-            minLength={6}
-            required
+            className={`${styles.input} ${
+              passwordErrorMessage ? styles.inputError : null
+            }`}
+            {...register("password", {
+              required: "Это поле обязятельно",
+              maxLength: {
+                value: 128,
+                message: "Пароль не должен превышать 128 символов",
+              },
+              minLength: {
+                value: 8,
+                message: "Логин не должен быть меньше 8 символов",
+              },
+              pattern: {
+                value: /^(?=.*[A-ZА-ЯЁ])(?=.*\d).{8,}$/,
+                message:
+                  "Пароль должен содержать одну заглавную букву и одну цифру",
+              },
+            })}
           />
+          {passwordErrorMessage && (
+            <p className={styles.error}>{passwordErrorMessage}</p>
+          )}
           {deviceType === "desktop" ? (
             <img
               src={!isVisible ? unVisibility : visibility}
@@ -136,16 +211,18 @@ const RegistrationModal: FC<RegistrationModalProps> = ({
             type={!isVisible ? "password" : "text"}
             id="repeatPassword"
             value={repeatedPassword}
-            onChange={(e) => setRepeatedPassword(e.target.value)}
             placeholder="Повторите пароль"
             className={styles.input}
-            minLength={6}
-            required
+            {...register("repeatedPassword")}
           />
-          {password !== repeatedPassword && (
-            <p className={styles.error}>Пароли не совпадают</p>
-          )}
+          {password && repeatedPassword
+            ? password !== repeatedPassword && (
+                <p className={styles.error}>Пароли не совпадают</p>
+              )
+            : null}
+          {authError && <p className={styles.error}>{authError}</p>}
         </div>
+
         <Button
           backgroundColor={true}
           fontFamily="Montserrat"
