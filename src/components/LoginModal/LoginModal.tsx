@@ -9,6 +9,7 @@ import visibility from "../../assets/images/visibility.svg";
 import { getDeviceType } from "../../utils/utils";
 import type { RootState } from "../../store";
 import { useNavigate } from "react-router-dom";
+import { AxiosError } from "axios";
 
 interface LoginModalProps {
   setIsOpenLogin(boolean: boolean): void;
@@ -48,9 +49,11 @@ const LoginModal: FC<LoginModalProps> = ({
         navigate("/user");
       }
     } catch (err: unknown) {
-      if (err instanceof Error) {
-        console.error("Ошибка входа:", err.message);
-        dispatch(setError(err.message));
+      if (err instanceof AxiosError) {
+        if (err.response) {
+          console.error("Ошибка входа:", err.response?.data.message);
+          dispatch(setError(err.response?.data.message));
+        }
       } else {
         console.error("Неизвестная ошибка:", err);
         dispatch(setError("Unknown error"));
@@ -86,9 +89,7 @@ const LoginModal: FC<LoginModalProps> = ({
             minLength={6}
             required
           />
-          {isError?.includes("404") && (
-            <p className={styles.error}>Неверный логин или пароль</p>
-          )}
+          {isError && <p className={styles.error}>{isError}</p>}
 
           {deviceType === "desktop" ? (
             <img

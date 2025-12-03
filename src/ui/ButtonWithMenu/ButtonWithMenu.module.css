@@ -63,13 +63,22 @@
 
 .listElement {
   border-top: 1px solid white;
+  border-radius: 5px;
   padding: 7px 23px;
   font-size: 13px;
   line-height: 110%;
   cursor: pointer;
+  transition: 0.1s all ease-in-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .listElement:hover {
+    background-color: #7131da;
+  }
 }
 
 .textName {
   margin: 0;
   transition: 0.3s ease-in-out;
+  text-align: center;
 }

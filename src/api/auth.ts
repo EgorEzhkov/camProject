@@ -8,7 +8,7 @@ import type {
 import { api } from "./axios";
 import type { User } from "../feauters/auth/types";
 
-export const register = async (dto: RegisterRequest) => {
+export const registerUser = async (dto: RegisterRequest) => {
   const { email, userName, password, login } = dto;
   if (email && password && userName) {
     try {
