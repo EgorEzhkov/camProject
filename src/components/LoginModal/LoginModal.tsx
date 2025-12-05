@@ -95,8 +95,7 @@ const LoginModal: FC<LoginModalProps> = ({
             <img
               src={!isVisible ? unVisibility : visibility}
               alt="svgIcon"
-              onMouseDown={() => setIsVisible(true)}
-              onMouseUp={() => setIsVisible(false)}
+              onClick={() => setIsVisible(!isVisible)}
               className={styles.iconVisibility}
             />
           ) : (
