@@ -7,6 +7,7 @@ import type {
 } from "../types/dto/auth.dto";
 import { api } from "./axios";
 import type { User } from "../feauters/auth/types";
+import tokenHandler from "./token";
 
 export const registerUser = async (dto: RegisterRequest) => {
   const { email, userName, password, login } = dto;
@@ -23,7 +24,7 @@ export const registerUser = async (dto: RegisterRequest) => {
       );
 
       if (res) {
-        localStorage.setItem("accessToken", `Bearer ${res.data.accessToken}`);
+        tokenHandler.set(res.data.accessToken);
       }
     } catch (err) {
       throw err;
@@ -39,9 +40,7 @@ export const login = async (dto: LoginRequest) => {
       password,
     });
     if (res) {
-      localStorage.setItem("accessToken", `Bearer ${res.data.accessToken}`);
-
-      return res;
+      tokenHandler.set(res.data.accessToken);
     }
   } catch (err) {
     throw err;
@@ -49,13 +48,13 @@ export const login = async (dto: LoginRequest) => {
 };
 
 export const getUser = async () => {
-  const accessToken = localStorage.getItem("accessToken");
+  const accessToken = tokenHandler.get();
 
   if (!accessToken) return;
 
   try {
     const res: AxiosResponse<User> = await api.get("/auth/@me", {
-      headers: { Authorization: accessToken },
+      headers: { Authorization: `Bearer ${accessToken}` },
     });
     return res.data;
   } catch (err) {
@@ -67,7 +66,7 @@ export const logout = async () => {
   try {
     const res = await api.post("/auth/logout");
     if (res) {
-      localStorage.removeItem("accessToken");
+      tokenHandler.clear();
     }
   } catch (err) {
     throw err;

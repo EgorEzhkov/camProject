@@ -7,6 +7,7 @@ interface AuthState {
   loading: boolean;
   error: string | null;
   success: boolean | null;
+  accessToken: string | null;
 }
 
 const initialState: AuthState = {
@@ -15,6 +16,7 @@ const initialState: AuthState = {
   loading: true,
   error: null,
   success: null,
+  accessToken: null,
 };
 
 const authSlice = createSlice({
@@ -30,6 +32,7 @@ const authSlice = createSlice({
     clearUser: (state) => {
       state.isAuth = false;
       state.user = null;
+      state.accessToken = null;
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload;

@@ -9,9 +9,13 @@ import visibility from "../../assets/images/visibility.svg";
 import { getDeviceType } from "../../utils/utils";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import type { RegisterRequest } from "../../types/dto/auth.dto";
-import { AxiosError } from "axios";
+import type {
+  RegisterRequest,
+  RegisterResponse,
+} from "../../types/dto/auth.dto";
+import { AxiosError, type AxiosResponse } from "axios";
 import type { RootState } from "../../store";
+import tokenHandler from "../../api/token";
 
 interface RegistrationModalProps {
   setIsOpenRegistration(boolean: boolean): void;

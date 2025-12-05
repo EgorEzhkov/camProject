@@ -9,7 +9,9 @@ import visibility from "../../assets/images/visibility.svg";
 import { getDeviceType } from "../../utils/utils";
 import type { RootState } from "../../store";
 import { useNavigate } from "react-router-dom";
-import { AxiosError } from "axios";
+import { AxiosError, type AxiosResponse } from "axios";
+import type { LoginResponse } from "../../types/dto/auth.dto";
+import tokenHandler from "../../api/token";
 
 interface LoginModalProps {
   setIsOpenLogin(boolean: boolean): void;
@@ -61,7 +63,6 @@ const LoginModal: FC<LoginModalProps> = ({
       dispatch(setLoading(false));
     }
   }
-
   return (
     <>
       <h2 className={styles.title}>Войти в аккаунт</h2>
