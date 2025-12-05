@@ -1,6 +1,13 @@
 import styles from "./WelcomeSection.module.css";
 
-import { useState, type Dispatch, type FC, type SetStateAction } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type Dispatch,
+  type FC,
+  type SetStateAction,
+} from "react";
 
 import Button from "../../ui/Button/Button";
 import { textForWelcomeSection } from "../../utils/constants";
@@ -20,6 +27,20 @@ const WelcomeSection: FC = () => {
 
   const text = textForWelcomeSection;
 
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const img = imgRef.current;
+    if (!img) return;
+
+    img.classList.remove(styles.imageAnimation);
+
+    // заставляем браузер «перечитать» элемент (перезапуск анимации)
+    void img.offsetWidth;
+
+    img.classList.add(styles.imageAnimation);
+  }, [activeLine]);
+
   function nextActiveLine(
     activeLine: number,
     setActiveLine: Dispatch<SetStateAction<number>>,
@@ -32,6 +53,17 @@ const WelcomeSection: FC = () => {
       setActiveLine(activeLine - 1);
     }
   }
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setActiveLine((prev) => (prev === 3 ? 1 : prev + 1));
+    }, 5000);
+
+    return () => clearTimeout(timeout); // очищаем старый таймер
+  }, [activeLine]);
+
+  const handleManualChange = (line: number) => {
+    setActiveLine(line);
+  };
 
   return (
     <section className={styles.mainWelcomeSectionContainer}>
@@ -62,6 +94,7 @@ const WelcomeSection: FC = () => {
                     : laptop
                 }
                 draggable="false"
+                ref={imgRef}
                 alt=""
                 className={styles.image}
               />
@@ -104,8 +137,12 @@ const WelcomeSection: FC = () => {
               src={
                 activeLine === 1 ? notebook : activeLine === 2 ? phone : laptop
               }
+              ref={imgRef}
               draggable="false"
               alt=""
+              key={activeLine}
+              // добавил key чтобы при смене картинки происходил полный ререндер картинки и
+              // не было бага с мерцанием картинки из-за анимаций
               className={styles.image}
             />
           </div>
@@ -142,7 +179,7 @@ const WelcomeSection: FC = () => {
                   className={`${styles.lineWithNumberContainer} ${
                     activeLine === num ? styles.addOpacity : null
                   }`}
-                  onClick={() => setActiveLine(num)}
+                  onClick={() => handleManualChange(num)}
                 >
                   <p className={styles.numberOnLine}>{num}</p>
                   <div className={styles.lineWithNumber}></div>

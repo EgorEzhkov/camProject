@@ -55,6 +55,9 @@
   top: 50%;
   transform: translateY(-50%);
   right: 15px;
+  -webkit-user-drag: none; /* Chrome, Safari */
+  -webkit-user-select: none; /* отключает выделение в WebKit */
+  user-select: none; /* отключает выделение */
 }
 
 .error {
