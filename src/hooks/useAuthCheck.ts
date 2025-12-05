@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { api } from "../api/axios";
 import { clearUser, setLoading, setUser } from "../feauters/auth/authSlice";
+import tokenHandler from "../api/token";
 
 export const useAuthCheck = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ export const useAuthCheck = () => {
       try {
         const { data } = await api.post("/auth/refresh");
 
-        localStorage.setItem("accessToken", data.accessToken);
+        tokenHandler.set(data.accessToken);
 
         const user = await api.get("/auth/@me");
 

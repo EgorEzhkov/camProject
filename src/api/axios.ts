@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { API_URL } from "../utils/constants";
 import type { RefreshResponse } from "../types/dto/auth.dto";
+import tokenHandler from "./token";
 
 export const api = axios.create({
   baseURL: API_URL,
@@ -22,10 +23,8 @@ api.interceptors.response.use(
 
         const newAccessToken = data.accessToken;
 
-        // лучше не localStorage, а в Redux
-        localStorage.setItem("accessToken", `Bearer ${newAccessToken}`);
+        tokenHandler.set(newAccessToken);
 
-        // обновляем токен и повторяем запрос
         originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
 
         return api(originalRequest);
