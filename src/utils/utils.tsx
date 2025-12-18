@@ -13,30 +13,29 @@ export function getDeviceType() {
     return "desktop";
   }
 }
-export function lockScroll(fixTop = false) {
+export function lockScroll() {
   const scrollY = window.scrollY;
   const page = document.getElementById("root");
   if (!page) return;
 
   page.style.position = "fixed";
-  page.style.top = `-${fixTop ? 0 : scrollY}px`;
+  page.style.top = `-${scrollY}px`;
   page.style.left = "0";
   page.style.right = "0";
-  page.dataset.scrollY = `${scrollY}`;
+  page.dataset.scrollY = `${scrollY}`; // Запоминаем текущую позицию прокрутки
 }
 
-export function unlockScroll(fixTop = false) {
+export function unlockScroll() {
   const page = document.getElementById("root");
   if (!page) return;
-
-  const scrollY = parseInt(page.dataset.scrollY || "0");
 
   page.style.position = "";
   page.style.top = "";
   page.style.left = "";
   page.style.right = "";
 
-  page.dataset.scrollY = "";
+  const scrollY = parseInt(page.dataset.scrollY || "0");
+  delete page.dataset.scrollY;
 
-  window.scrollTo(0, fixTop ? 0 : scrollY);
+  window.scrollTo(0, scrollY);
 }

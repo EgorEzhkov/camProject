@@ -50,9 +50,9 @@ const Header: FC = () => {
   const handleHeaderMenu = useCallback(async () => {
     if (menuState === "closed") {
       setMenuState("opening");
-      lockScroll(true);
+      lockScroll();
     } else if (menuState === "opening") {
-      unlockScroll(true);
+      unlockScroll();
       setMenuState("closing");
       await delay(450); // на анимацию тратится 300мс
       setMenuState("closed");

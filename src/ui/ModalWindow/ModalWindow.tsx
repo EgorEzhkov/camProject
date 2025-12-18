@@ -12,17 +12,19 @@ interface ModalWindowProps {
 
 const ModalWindow: FC<ModalWindowProps> = ({ children, isOpen, onClose }) => {
   useEffect(() => {
+    if (!isOpen) return;
+
+    if (isOpen) lockScroll();
+
     function closeKey(e: KeyboardEvent) {
       if (e.code === "Escape") onClose();
     }
 
     document.addEventListener("keydown", closeKey);
 
-    if (isOpen) lockScroll(false);
-
     return () => {
       document.removeEventListener("keydown", closeKey);
-      unlockScroll(false);
+      unlockScroll();
     };
   }, [isOpen, onClose]);
 

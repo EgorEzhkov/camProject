@@ -1,12 +1,16 @@
-import type { FC } from "react";
+import { type FC } from "react";
 import styles from "./RateCard.module.css";
 import Button from "../Button/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { setRateModal } from "../../feauters/rateModal/rateModalSlice";
+import type { RootState } from "../../store";
 
 interface RateCardProps {
   subtitle: string;
   price: string;
   description: string;
   focuse: boolean;
+  refCard?: HTMLDivElement | null;
 }
 
 const RateCard: FC<RateCardProps> = ({
@@ -15,6 +19,25 @@ const RateCard: FC<RateCardProps> = ({
   description,
   focuse,
 }) => {
+  const dispatch = useDispatch();
+  const isAuth = useSelector((state: RootState) => state.auth.isAuth);
+
+  const handleClick = () => {
+    if (!isAuth) alert("Вам нужно авторизоваться"); // временное решение
+
+    if (isAuth) {
+      // без этой условной конструкции при !isAuth всё равно отправляется dispatch
+      dispatch(
+        setRateModal({
+          subtitle,
+          price,
+          description,
+          isOpenModal: true,
+        })
+      );
+    }
+  };
+
   return (
     <>
       <div className={`${styles.card} ${focuse && styles.fullOpacity}`}>
@@ -25,7 +48,7 @@ const RateCard: FC<RateCardProps> = ({
         </div>
         <p className={styles.description}>{description}</p>
         {focuse ? (
-          <div className={styles.button}>
+          <div className={styles.button} onClick={handleClick}>
             <Button
               fontFamily="Montserrat"
               fontSize="1em"
