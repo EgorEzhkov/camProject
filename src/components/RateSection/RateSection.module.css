@@ -20,6 +20,15 @@
   min-width: 370px;
 }
 
+.modalSubtitle {
+  color: #333333;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 110%;
+  font-weight: 500;
+}
+
 @media (width <= 1313px) {
   .cardList {
     flex-wrap: wrap;
